@@ -133,7 +133,7 @@ export default function AppLayout({
       lang='en'
       className={`${lato.variable} ${nunito.variable} ${ibm_plex_mono.variable}`}
       suppressHydrationWarning>
-      <link rel='icon' href='/favicons/favicon.svg' />
+      {/* <link rel='icon' href='/favicons/favicon.svg' /> */}
       <body className={`font-body antialiased`}>
         <Providers>{children}</Providers>
       </body>
