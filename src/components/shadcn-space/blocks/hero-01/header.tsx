@@ -1,7 +1,8 @@
 'use client';
 
-import Logo from '@/assets/logo/logo';
+// import Logo from '@/assets/logo/logo';
 import { AnimatedThemeToggler } from '@/components/extends/animated-theme-toggler';
+import { Logo } from '@/components/shared/navbar/logo';
 import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
@@ -94,7 +95,8 @@ const Header = ({ className }: HeaderProps) => {
         {/* Logo */}
         <div>
           <a href='#'>
-            <Logo className='gap-3' />
+            {/* <Logo className='gap-3' /> */}
+            <Logo />
           </a>
         </div>
 
@@ -143,7 +145,8 @@ const Header = ({ className }: HeaderProps) => {
                   className='w-full sm:w-96 p-0 border-l-0'>
                   <div className='flex items-center justify-between p-6'>
                     <a href='#'>
-                      <Logo className='gap-2' />
+                      {/* <Logo className='gap-2' /> */}
+                      <Logo />
                     </a>
                     <SheetClose id='mobile-menu-close'>
                       <span className='rounded-full border border-border p-2.5 block'>

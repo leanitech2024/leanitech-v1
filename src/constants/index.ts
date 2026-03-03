@@ -5,28 +5,36 @@ import { AvatarList } from '@/components/shadcn-space/blocks/hero-01/hero';
 export const navigations: NavigationSection[] = [
   {
     title: 'Home',
-    href: '#',
+    href: '#home',
     isActive: true,
   },
   {
     title: 'About us',
-    href: '#',
+    href: '#about-us',
   },
   {
     title: 'Services',
-    href: '#',
+    href: '#services',
   },
   {
-    title: 'Team',
-    href: '#',
+    title: 'Features',
+    href: '#features',
   },
   {
-    title: 'Pricing',
-    href: '#',
+    title: 'Portfolio',
+    href: '#portfolio',
   },
   {
-    title: 'Awards',
-    href: '#',
+    title: 'Faqs',
+    href: '#faqs',
+  },
+  {
+    title: 'Blogs',
+    href: '#blogs',
+  },
+  {
+    title: 'Contact',
+    href: '#contact',
   },
 ];
 

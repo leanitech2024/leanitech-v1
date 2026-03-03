@@ -24,7 +24,7 @@ export type AvatarList = {
 
 function HeroSection() {
   return (
-    <section>
+    <section id='home'>
       <div className='w-full h-full relative'>
         <div className='absolute inset-0 -z-1 pointer-events-none'>
           <SplashCursor
