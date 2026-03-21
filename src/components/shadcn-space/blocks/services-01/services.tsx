@@ -73,7 +73,7 @@ const Services = () => {
   } as Variants;
 
   return (
-    <section id='services' className='bg-background py-10'>
+    <section id='services' className='py-10'>
       <div className='max-w-7xl mx-auto px-4 lg:px-8 xl:px-16'>
         <div className='flex flex-col gap-8 sm:gap-16 justify-center items-center w-full'>
           {/* Heading */}
@@ -121,12 +121,12 @@ const Services = () => {
               ))}
             </div>
             {/* cta */}
-            <div className='bg-gray-950 border rounded-2xl p-8 flex flex-col lg:flex-row items-center justify-between gap-12 w-full animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200 ease-in-out fill-mode-both'>
+            <div className='bg-transparent border rounded-2xl p-8 flex flex-col lg:flex-row items-center justify-between gap-12 w-full animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200 ease-in-out fill-mode-both'>
               <div className='text-center md:text-start'>
-                <p className='text-2xl font-medium text-white'>
+                <p className='text-2xl font-medium text-foreground'>
                   See Our Work in Action.{' '}
                 </p>
-                <p className='text-2xl font-medium text-white'>
+                <p className='text-2xl font-medium text-foreground'>
                   Start Your Creative Journey with Us!
                 </p>
               </div>

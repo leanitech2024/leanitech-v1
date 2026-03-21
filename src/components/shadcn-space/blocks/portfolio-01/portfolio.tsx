@@ -55,7 +55,7 @@ const Portfolio = () => {
   } as Variants;
 
   return (
-    <section id='portfolio' className='bg-background py-10'>
+    <section id='portfolio' className='bg-transparent py-10'>
       <div className='max-w-7xl mx-auto px-4 lg:px-8 xl:px-16'>
         <div className='flex flex-col gap-8 sm:gap-12 justify-center items-center w-full'>
           {/* Heading */}
@@ -84,7 +84,7 @@ const Portfolio = () => {
                 custom={index}
                 variants={cardVariants}
                 className='group'>
-                <Card className='p-0 ring-0 overflow-hidden shadow-none border-0'>
+                <Card className='p-0 ring-0 overflow-hidden shadow-none border-0 bg-transparent'>
                   <CardContent className='p-0 flex flex-col gap-6'>
                     <div className='relative aspect-auto overflow-hidden rounded-2xl'>
                       <a href='#'>
