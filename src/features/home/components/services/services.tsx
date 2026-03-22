@@ -73,81 +73,81 @@ const Services = () => {
   } as Variants;
 
   return (
-    <section id='services' className='py-10'>
-      <div className='max-w-7xl mx-auto px-4 lg:px-8 xl:px-16'>
-        <div className='flex flex-col gap-8 sm:gap-16 justify-center items-center w-full'>
+    <section
+      id='services'
+      className='max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 py-10'>
+      <div className='flex flex-col gap-8 sm:gap-16 justify-center items-center w-full'>
+        {/* Heading */}
+        <div className='flex flex-col gap-4 justify-center items-center animate-in fade-in slide-in-from-top-10 duration-1000 delay-200 ease-in-out fill-mode-both'>
+          {/* Badge */}
+          <Badge
+            variant={'outline'}
+            className='text-sm font-normal py-1 px-3 h-7'>
+            Services
+          </Badge>
           {/* Heading */}
-          <div className='flex flex-col gap-4 justify-center items-center animate-in fade-in slide-in-from-top-10 duration-1000 delay-200 ease-in-out fill-mode-both'>
-            {/* Badge */}
-            <Badge
-              variant={'outline'}
-              className='text-sm font-normal py-1 px-3 h-7'>
-              Services
-            </Badge>
-            {/* Heading */}
-            <div className='max-w-3xs sm:max-w-lg mx-auto text-center'>
-              <h2 className='text-foreground text-3xl sm:text-5xl font-medium'>
-                Where innovation meets aesthetics
-              </h2>
-            </div>
+          <div className='max-w-3xs sm:max-w-lg mx-auto text-center'>
+            <h2 className='text-foreground text-3xl sm:text-5xl font-medium'>
+              Where innovation meets aesthetics
+            </h2>
           </div>
-          <div className='flex flex-col gap-8 sm:gap-12 justify-center items-center'>
-            {/* services */}
-            <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6 w-full'>
-              {serviceData.map((service, index) => (
-                <motion.div
-                  key={index}
-                  variants={cardVariants}
-                  initial='hidden'
-                  whileInView='visible'
-                  viewport={{ once: true }}
-                  custom={index}>
-                  <Card className={cn('ring-0 p-8', service.service_bg_color)}>
-                    <CardContent className='p-0 flex flex-col items-start justify-between gap-12 sm:gap-16'>
-                      <service.service_icon
-                        size={32}
-                        className={cn(service.service_text_color)}
-                      />
-                      <p
-                        className={cn(
-                          'text-2xl font-medium max-w-36',
-                          service.service_text_color,
-                        )}>
-                        {service.service_title}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+        </div>
+        <div className='flex flex-col gap-8 sm:gap-12 justify-center items-center'>
+          {/* services */}
+          <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6 w-full'>
+            {serviceData.map((service, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                initial='hidden'
+                whileInView='visible'
+                viewport={{ once: true }}
+                custom={index}>
+                <Card className={cn('ring-0 p-8', service.service_bg_color)}>
+                  <CardContent className='p-0 flex flex-col items-start justify-between gap-12 sm:gap-16'>
+                    <service.service_icon
+                      size={32}
+                      className={cn(service.service_text_color)}
+                    />
+                    <p
+                      className={cn(
+                        'text-2xl font-medium max-w-36',
+                        service.service_text_color,
+                      )}>
+                      {service.service_title}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+          {/* cta */}
+          <div className='bg-transparent border rounded-2xl p-8 flex flex-col lg:flex-row items-center justify-between gap-12 w-full animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200 ease-in-out fill-mode-both'>
+            <div className='text-center md:text-start'>
+              <p className='text-2xl font-medium text-foreground'>
+                See Our Work in Action.{' '}
+              </p>
+              <p className='text-2xl font-medium text-foreground'>
+                Start Your Creative Journey with Us!
+              </p>
             </div>
-            {/* cta */}
-            <div className='bg-transparent border rounded-2xl p-8 flex flex-col lg:flex-row items-center justify-between gap-12 w-full animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200 ease-in-out fill-mode-both'>
-              <div className='text-center md:text-start'>
-                <p className='text-2xl font-medium text-foreground'>
-                  See Our Work in Action.{' '}
-                </p>
-                <p className='text-2xl font-medium text-foreground'>
-                  Start Your Creative Journey with Us!
-                </p>
-              </div>
-              <div className='flex md:flex-row flex-col items-center gap-4'>
-                <Button className='group text-sm font-medium text-black bg-white hover:text-black dark:hover:text-black hover:bg-white/90 rounded-full flex items-center gap-4 p-1 ps-5 w-fit h-12'>
-                  <a href='#' className='flex items-center gap-4'>
-                    <span>Let’s Collaborate</span>
-                    <div className='p-3 bg-black text-white rounded-full group-hover:rotate-45 transition-transform duration-300 ease-in-out'>
-                      <ArrowUpRight size={16} />
-                    </div>
-                  </a>
-                </Button>
-                <Button className='group text-sm font-medium text-white bg-gray-950 hover:text-white dark:hover:text-white hover:bg-gray-950/90 rounded-full border border-white/50 flex items-center gap-4 p-1 ps-5 w-fit h-12'>
-                  <a href='#' className='flex items-center gap-4'>
-                    <span>View Portfolio</span>
-                    <div className='p-3 bg-white text-black rounded-full group-hover:rotate-45 transition-transform duration-300 ease-in-out'>
-                      <ArrowUpRight size={16} />
-                    </div>
-                  </a>
-                </Button>
-              </div>
+            <div className='flex md:flex-row flex-col items-center gap-4'>
+              <Button className='group text-sm font-medium text-black bg-white hover:text-black dark:hover:text-black hover:bg-white/90 rounded-full flex items-center gap-4 p-1 ps-5 w-fit h-12'>
+                <a href='#' className='flex items-center gap-4'>
+                  <span>Let’s Collaborate</span>
+                  <div className='p-3 bg-black text-white rounded-full group-hover:rotate-45 transition-transform duration-300 ease-in-out'>
+                    <ArrowUpRight size={16} />
+                  </div>
+                </a>
+              </Button>
+              <Button className='group text-sm font-medium text-white bg-gray-950 hover:text-white dark:hover:text-white hover:bg-gray-950/90 rounded-full border border-white/50 flex items-center gap-4 p-1 ps-5 w-fit h-12'>
+                <a href='#' className='flex items-center gap-4'>
+                  <span>View Portfolio</span>
+                  <div className='p-3 bg-white text-black rounded-full group-hover:rotate-45 transition-transform duration-300 ease-in-out'>
+                    <ArrowUpRight size={16} />
+                  </div>
+                </a>
+              </Button>
             </div>
           </div>
         </div>

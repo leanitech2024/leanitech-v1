@@ -12,9 +12,9 @@ type Features = {
 
 const Feature = ({ featureData }: { featureData: Features }) => {
   return (
-    <section>
-      <div className='lg:py-20 sm:py-16 py-8 '>
-        <div className='mx-auto max-w-7xl px-4 sm:px-8 py-8 sm:py-12'>
+    <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
+      <div className='lg:py-20 sm:py-16 py-8'>
+        <div className='px-4 sm:px-8 py-8 sm:py-12'>
           <div className='flex flex-col gap-8 md:gap-12'>
             <motion.div
               initial={{ y: -20, opacity: 0 }}

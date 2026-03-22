@@ -38,12 +38,7 @@ const statisticsCounter = [
 
 const AboutAndStats01 = () => {
   return (
-    <>
-      <AboutUs
-        aboutusData={aboutusData}
-        statisticsCounter={statisticsCounter}
-      />
-    </>
+    <AboutUs aboutusData={aboutusData} statisticsCounter={statisticsCounter} />
   );
 };
 

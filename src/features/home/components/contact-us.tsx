@@ -20,7 +20,7 @@ export default function ContactUs1() {
   const formRef = useRef(null);
   const isInView = useInView(formRef, { once: true, amount: 0.3 });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -47,7 +47,7 @@ export default function ContactUs1() {
   return (
     <section
       id='contact'
-      className='bg-transparent relative w-full overflow-hidden py-16 md:py-24'>
+      className='bg-transparent relative w-full overflow-hidden py-16 md:py-24 max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'>
       <div
         className='absolute top-0 left-0 h-125 w-125 rounded-full opacity-20 blur-[120px]'
         style={{
@@ -63,9 +63,9 @@ export default function ContactUs1() {
         }}
       />
 
-      <div className='relative z-10 container mx-auto px-4 md:px-6'>
+      <div className='relative z-10'>
         <div className='backdrop-blur-sm'>
-          <div className='grid md:grid-cols-2'>
+          <div className='grid md:grid-cols-2 gap-8'>
             <div className='relative p-6 md:p-10' ref={formRef}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -181,7 +181,7 @@ export default function ContactUs1() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className='relative my-8 flex items-center justify-center overflow-hidden pr-8'>
               <div className='flex flex-col items-center justify-center overflow-hidden'>
-                <article className='relative mx-auto h-87.5 min-h-60 max-w-112.5 overflow-hidden rounded-3xl border bg-linear-to-b from-blue-600 to-[#e60a64]/5 p-6 text-3xl tracking-tight text-white md:h-112.5 md:min-h-80 md:p-8 md:text-4xl md:leading-[1.05] lg:text-5xl'>
+                <article className='relative mx-auto h-87.5 min-h-60 overflow-hidden rounded-3xl border bg-linear-to-b from-blue-600 to-[#e60a64]/5 p-6 text-3xl tracking-tight text-white md:h-112.5 md:min-h-80 md:p-8 md:text-4xl md:leading-[1.05] lg:text-5xl'>
                   Presenting you with the best UI possible.
                   <div className='absolute -right-20 -bottom-20 z-10 mx-auto flex h-full w-full max-w-75 items-center justify-center transition-all duration-700 hover:scale-105 md:-right-28 md:-bottom-28 md:max-w-137.5'>
                     <Earth

@@ -4,7 +4,9 @@ import ReminderAnimation from './ReminderAnimation';
 
 const Bentogrid = () => {
   return (
-    <section id='features'>
+    <section
+      id='features'
+      className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
       <div className='py-11 md:py-20'>
         <div className='container mx-auto flex flex-col gap-12'>
           <div className='flex flex-col gap-4 items-center justify-center max-w-3xl mx-auto'>

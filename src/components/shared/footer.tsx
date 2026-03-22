@@ -1,21 +1,23 @@
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 export default function Footer() {
   const footerLinks = [
     { label: 'Home', href: '#' },
-    { label: 'Categories', href: '#' },
-    { label: 'Properties', href: '#' },
-    { label: 'Featured property', href: '#' },
+    { label: 'About Us', href: '/about' },
     { label: 'Testimonials', href: '#' },
-    { label: 'Blog', href: '#' },
-    { label: 'FAQs', href: '#' },
-    { label: '404 page', href: '#' },
+    { label: 'Blogs', href: '/blogs' },
+    { label: 'Resources', href: '#' },
+    { label: 'Privacy Policy', href: '#' },
+    { label: 'Terms of Service', href: '#' },
+    { label: 'Contact Us', href: '#' },
   ];
   return (
-    <footer className='dark bg-background'>
-      <div className='max-w-7xl mx-auto px-4 md:px-6 lg:px-8 md:py-24 py-8'>
+    <footer className='max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'>
+      <div className='md:py-24 py-8'>
         <div className='flex flex-col gap-16'>
           <div className='flex flex-col gap-12'>
             <div className='grid grid-cols-12 gap-6 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-100 ease-in-out fill-mode-both'>
@@ -36,6 +38,7 @@ export default function Footer() {
                       placeholder='enter your email'
                       className='rounded-full '
                     />
+
                     <Button
                       type='submit'
                       className='py-2 px-4 rounded-full cursor-pointer font-medium'>
@@ -56,32 +59,40 @@ export default function Footer() {
               <h2 className='sm:text-5xl text-3xl font-medium mb-6 text-foreground'>
                 Begin your path to success contact us today.
               </h2>
-              <Button className='py-3.5 px-6 rounded-full bg-teal-400 h-auto'>
+              <Link
+                href={'#contact'}
+                className={cn(
+                  buttonVariants({ variant: 'default' }),
+                  'py-3.5 px-6 rounded-full h-auto',
+                )}>
                 Get in touch
-              </Button>
+              </Link>
+              {/* <Button className='py-3.5 px-6 rounded-full h-auto'>
+                Get in touch
+              </Button> */}
             </div>
             <div className='md:col-span-1' />
             <div className='col-span-12 md:col-span-2 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-100 ease-in-out fill-mode-both'>
               <div className='flex flex-col gap-4'>
                 {footerLinks.slice(0, 4).map((link) => (
-                  <a
+                  <Link
                     key={link.label}
                     href={link.href}
                     className='block text-base text-muted-foreground hover:text-primary'>
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
             <div className='col-span-12 md:col-span-2 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200 ease-in-out fill-mode-both'>
               <div className='flex flex-col gap-4'>
                 {footerLinks.slice(4, 8).map((link) => (
-                  <a
+                  <Link
                     key={link.label}
                     href={link.href}
                     className='block text-base text-muted-foreground hover:text-primary'>
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -89,7 +100,7 @@ export default function Footer() {
           <div className='flex flex-col gap-12'>
             <Separator />
             <p className='text-sm text-muted-foreground animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 ease-in-out fill-mode-both'>
-              ©2026 Shadcn Space. All Rights Reserved
+              &copy;{new Date().getFullYear()} Leanitech. All Rights Reserved
             </p>
           </div>
         </div>

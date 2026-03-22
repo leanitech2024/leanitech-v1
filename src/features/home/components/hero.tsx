@@ -22,7 +22,9 @@ const isDev = process.env.NODE_ENV === 'development';
 
 function HeroSection() {
   return (
-    <section id='home'>
+    <section
+      id='home'
+      className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
       <div className='w-full h-full relative'>
         {!isDev && (
           <div className='absolute inset-0 -z-1 pointer-events-none'>
