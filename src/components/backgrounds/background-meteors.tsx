@@ -14,6 +14,10 @@ export interface MeteorsProps {
   color?: string;
   /** Tail gradient color */
   tailColor?: string;
+  /* vignette overlay for depth */
+  vignetteMode?: boolean;
+  /* Subtle gradient overlay */
+  gradientMode?: boolean;
 }
 
 interface MeteorData {
@@ -30,6 +34,8 @@ export default function BackgroundMeteors({
   angle = 215,
   color = '#64748b',
   tailColor = '#64748b',
+  gradientMode = false,
+  vignetteMode = false,
 }: MeteorsProps) {
   // const [meteors, setMeteors] = useState<MeteorData[]>([]);
   const [meteors] = useState<MeteorData[]>(() =>
@@ -56,7 +62,7 @@ export default function BackgroundMeteors({
   return (
     <div
       className={cn(
-        'fixed inset-0 overflow-hidden bg-neutral-9500',
+        'fixed inset-0 -z-10 h-full w-full overflow-hidden',
         className,
       )}>
       {/* Keyframe animation - uses vmax for viewport scaling */}
@@ -77,15 +83,17 @@ export default function BackgroundMeteors({
       `}</style>
 
       {/* Subtle gradient overlay */}
-      <div
-        className='pointer-events-none absolute inset-0'
-        style={{
-          background: `
+      {gradientMode && (
+        <div
+          className='pointer-events-none absolute inset-0'
+          style={{
+            background: `
             radial-gradient(ellipse at 50% 0%, rgba(30, 40, 60, 0.3) 0%, transparent 50%),
             radial-gradient(ellipse at 100% 100%, rgba(20, 20, 40, 0.2) 0%, transparent 50%)
           `,
-        }}
-      />
+          }}
+        />
+      )}
 
       {/* Meteors */}
       {meteors.map((meteor) => (
@@ -114,13 +122,15 @@ export default function BackgroundMeteors({
       ))}
 
       {/* Vignette */}
-      <div
-        className='pointer-events-none absolute inset-0'
-        style={{
-          background:
-            'radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(10,10,15,0.8) 100%)',
-        }}
-      />
+      {vignetteMode && (
+        <div
+          className='pointer-events-none absolute inset-0'
+          style={{
+            background:
+              'radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(10,10,15,0.8) 100%)',
+          }}
+        />
+      )}
 
       {/* Content layer */}
       {children && (
