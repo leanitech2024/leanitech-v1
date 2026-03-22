@@ -1,6 +1,10 @@
-import { BrandList } from '@/components/shadcn-space/blocks/hero-01/brand-slider';
-import { NavigationSection } from '@/components/shadcn-space/blocks/hero-01/header';
-import { AvatarList } from '@/components/shadcn-space/blocks/hero-01/hero';
+// import { BrandList } from '@/components/brand-slider';
+// import { AvatarList } from '@/components/hero';
+// import { NavigationSection } from '@/components/shadcn-space/blocks/hero-01/header';
+
+import { NavigationSection } from '@/components/shared/navbar/header';
+import { BrandList } from '@/features/home/components/brand-slider';
+import { AvatarList } from '@/features/home/components/hero';
 
 export const navigations: NavigationSection[] = [
   {

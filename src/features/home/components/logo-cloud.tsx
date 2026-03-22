@@ -1,5 +1,6 @@
+import { Logo } from '@/components/shared/logo';
 import { HTMLAttributes } from 'react';
-import { Logo } from './shared/navbar/logo';
+// import { Logo } from '../shared/navbar/logo';
 
 function LogoCloud(props: HTMLAttributes<HTMLDivElement>) {
   return (

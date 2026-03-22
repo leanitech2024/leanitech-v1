@@ -1,7 +1,16 @@
-"use client";
-import { BarChart3, Check, CirclePlay, Diamond, FormInput, LayoutGrid, LucideIcon, Route } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
-import { useEffect, useState } from "react";
+'use client';
+import {
+  BarChart3,
+  Check,
+  CirclePlay,
+  Diamond,
+  FormInput,
+  LayoutGrid,
+  LucideIcon,
+  Route,
+} from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useState } from 'react';
 
 type Item = {
   id: string;
@@ -11,38 +20,38 @@ type Item = {
 
 const DATA: Item[] = [
   {
-    id: "1",
-    title: "Breadcrumb component",
+    id: '1',
+    title: 'Breadcrumb component',
     icon: Route,
   },
   {
-    id: "2",
-    title: "Animated component",
+    id: '2',
+    title: 'Animated component',
     icon: CirclePlay,
   },
   {
-    id: "3",
-    title: "UI components",
+    id: '3',
+    title: 'UI components',
     icon: Diamond,
   },
   {
-    id: "4",
-    title: "Form components",
+    id: '4',
+    title: 'Form components',
     icon: FormInput,
   },
   {
-    id: "5",
-    title: "Chart components",
+    id: '5',
+    title: 'Chart components',
     icon: BarChart3,
   },
   {
-    id: "6",
-    title: "Layout components",
+    id: '6',
+    title: 'Layout components',
     icon: LayoutGrid,
   },
   {
-    id: "7",
-    title: "Area Chart",
+    id: '7',
+    title: 'Area Chart',
     icon: BarChart3,
   },
 ];
@@ -64,7 +73,7 @@ export default function ReminderCarousel() {
   }, [pointer]);
 
   return (
-    <div className="relative flex flex-col items-center rounded-2xl h-52 w-full overflow-hidden">
+    <div className='relative flex flex-col items-center rounded-2xl h-52 w-full overflow-hidden'>
       <AnimatePresence initial={false}>
         {visible.map((item, i) => (
           <motion.div
@@ -76,14 +85,14 @@ export default function ReminderCarousel() {
               opacity: i === 1 ? 1 : 0.5,
             }}
             exit={{ y: -100, opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="absolute flex items-center justify-between w-full px-5 py-4 rounded-xl bg-background border border-border text-card-foreground">
-            <div className="flex items-center justify-between w-full">
-              <div className="flex items-center gap-2">
-                <item.icon size={20}/>
-                <span className="text-sm font-medium">{item.title}</span>
+            transition={{ duration: 0.6, ease: 'easeInOut' }}
+            className='absolute flex items-center justify-between w-full px-5 py-4 rounded-xl bg-background border border-border text-card-foreground'>
+            <div className='flex items-center justify-between w-full'>
+              <div className='flex items-center gap-2'>
+                <item.icon size={20} />
+                <span className='text-sm font-medium'>{item.title}</span>
               </div>
-              <Check size={20}/>
+              <Check size={20} />
             </div>
           </motion.div>
         ))}

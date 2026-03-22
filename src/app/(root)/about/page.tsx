@@ -1,7 +1,5 @@
-// import { BackgroundBeams } from '@/components/backgrounds/background-beams';
 import { BackgroundBeamsWithCollision } from '@/components/backgrounds/background-beams-collision';
-import LogoCloud1 from '@/components/logo-cloud-1';
-import CTA from '@/components/shadcn-space/blocks/cta-01/cta';
+import CTA from '@/components/shared/cta';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -11,10 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import LogoCloud1 from '@/features/about/components/logo-cloud-1';
 import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
-// import ConstellationBackground from '@/components/backgrounds/background-constellation';
 
 const teamMembers = [
   {

@@ -1,42 +1,31 @@
-// import CTABanner from '@/components/cta-banner';
-import FAQ from '@/components/faq';
-import Features from '@/components/features';
-// import Hero from '@/components/hero';
-// import Pricing from '@/components/pricing';
-import AboutAndStats01 from '@/components/shadcn-space/blocks/about-us-01';
-import Bentogrid from '@/components/shadcn-space/blocks/bento-grid-01/bentogrid';
-import CTA from '@/components/shadcn-space/blocks/cta-01/cta';
-import Faq2 from '@/components/shadcn-space/blocks/faq-01/faq';
-import Feature01 from '@/components/shadcn-space/blocks/feature-01';
-import AgencyHeroSection from '@/components/shadcn-space/blocks/hero-01';
-// import Newsletter from '@/components/shadcn-space/blocks/newsletter-01/newsletter';
-import Portfolio from '@/components/shadcn-space/blocks/portfolio-01/portfolio';
-import Services from '@/components/shadcn-space/blocks/services-01/services';
-// import Services2 from '@/components/shadcn-space/blocks/services-02/services';
-// import Team from '@/components/shadcn-space/blocks/team-01/team';
-
-import Testimonials from '@/components/testimonials';
-import ContactUs1 from '../../components/mvpblocks/contact-us-1';
+import CTA from '@/components/shared/cta';
+import AboutAndStats01 from '@/features/home/components/about-us';
+import Bentogrid from '@/features/home/components/bento-grid/bentogrid';
+import BrandSlider from '@/features/home/components/brand-slider';
+import ContactUs1 from '@/features/home/components/contact-us';
+import FAQ from '@/features/home/components/faq';
+import Faq2 from '@/features/home/components/faq/faq';
+import Feature01 from '@/features/home/components/feature';
+import Features from '@/features/home/components/features';
+import HeroSection from '@/features/home/components/hero';
+import Portfolio from '@/features/home/components/portfolio/portfolio';
+import Services from '@/features/home/components/services/services';
+import Testimonials from '@/features/home/components/testimonials';
 
 export default function Home() {
   return (
     <main className='pt-16 xs:pt-20 sm:pt-24'>
-      <AgencyHeroSection />
-      {/* <Hero /> */}
+      <HeroSection />
+      <BrandSlider />
       <AboutAndStats01 />
       <Services />
       <Bentogrid />
       <Portfolio />
       <Features />
       <Feature01 />
-      {/* <Services2 /> */}
-      {/* <Pricing /> */}
-      {/* <Team /> */}
       <FAQ />
       <Faq2 />
       <Testimonials />
-      {/* <CTABanner /> */}
-      {/* <Newsletter /> */}
       <CTA />
       <ContactUs1 />
     </main>

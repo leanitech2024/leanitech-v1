@@ -1,8 +1,9 @@
+import Marquee from '@/components/extends/marquee';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ComponentProps } from 'react';
-import Marquee from './extends/marquee';
+// import Marquee from '../extends/marquee';
 
 const testimonials = [
   {

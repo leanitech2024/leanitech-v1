@@ -23,13 +23,13 @@ type statisticsCounter = {
   count: number;
 }[];
 
-const AnimatedCounter = ({
+function AnimatedCounter({
   value,
   isInView,
 }: {
   value: number;
   isInView: boolean;
-}) => {
+}) {
   const springValue = useSpring(0, {
     bounce: 0,
     duration: 2000,
@@ -46,17 +46,17 @@ const AnimatedCounter = ({
   }, [isInView, value, springValue]);
 
   return <motion.span>{displayValue}</motion.span>;
-};
+}
 
-const AboutUs = ({
+function AboutUs({
   aboutusData,
   statisticsCounter,
 }: {
   aboutusData: aboutusData;
   statisticsCounter: statisticsCounter;
-}) => {
+}) {
   const statsRef = useRef(null);
-  const isInView = useInView(statsRef, { once: true, margin: '-100px' });
+  const isInView = useInView(statsRef, { once: false, margin: '-100px' });
 
   return (
     <section id='about-us' className='lg:py-20 sm:py-16 py-8'>
@@ -124,6 +124,6 @@ const AboutUs = ({
       </div>
     </section>
   );
-};
+}
 
 export default AboutUs;

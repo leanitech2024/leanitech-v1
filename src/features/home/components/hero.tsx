@@ -1,6 +1,6 @@
 'use client';
 
-import SplashCursor from '@/components/shadcn-space/animations/splash-cursor';
+import SplashCursor from '@/components/backgrounds/animations/splash-cursor';
 import { Button } from '@/components/ui/button';
 import { avatarList } from '@/constants';
 import { ArrowUpRight } from 'lucide-react';
@@ -18,27 +18,27 @@ export type AvatarList = {
   image: string;
 };
 
-// type HeroSectionProps = {
-//   avatarList: AvatarList[];
-// };
+const isDev = process.env.NODE_ENV === 'development';
 
 function HeroSection() {
   return (
     <section id='home'>
       <div className='w-full h-full relative'>
-        <div className='absolute inset-0 -z-1 pointer-events-none'>
-          <SplashCursor
-            SIM_RESOLUTION={128}
-            DYE_RESOLUTION={1440}
-            DENSITY_DISSIPATION={3.5}
-            VELOCITY_DISSIPATION={2}
-            PRESSURE={0.1}
-            CURL={3}
-            SPLAT_RADIUS={0.2}
-            SPLAT_FORCE={6000}
-            COLOR_UPDATE_SPEED={10}
-          />
-        </div>
+        {!isDev && (
+          <div className='absolute inset-0 -z-1 pointer-events-none'>
+            <SplashCursor
+              SIM_RESOLUTION={128}
+              DYE_RESOLUTION={1440}
+              DENSITY_DISSIPATION={3.5}
+              VELOCITY_DISSIPATION={2}
+              PRESSURE={0.1}
+              CURL={3}
+              SPLAT_RADIUS={0.2}
+              SPLAT_FORCE={6000}
+              COLOR_UPDATE_SPEED={10}
+            />
+          </div>
+        )}
         <div className='relative w-full pt-0 md:pt-20 pb-6 md:pb-10 before:absolute before:w-full before:h-full before:bg-linear-to-r before:from-sky-100 before:via-white before:to-amber-100 before:rounded-full before:top-24 before:blur-3xl before:-z-10 dark:before:from-slate-800 dark:before:via-black dark:before:to-stone-700 dark:before:rounded-full dark:before:blur-3xl dark:before:-z-10'>
           <div className='container mx-auto relative z-10'>
             <div className='flex flex-col max-w-5xl mx-auto gap-8'>

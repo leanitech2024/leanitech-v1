@@ -1,6 +1,6 @@
-import AnimatedUiBlock from '@/components/shadcn-space/blocks/bento-grid-01/AnimatedUiBlock';
-import ReminderAnimation from '@/components/shadcn-space/blocks/bento-grid-01/ReminderAnimation';
 import { Badge } from '@/components/ui/badge';
+import AnimatedUiBlock from './AnimatedUiBlock';
+import ReminderAnimation from './ReminderAnimation';
 
 const Bentogrid = () => {
   return (
@@ -45,7 +45,7 @@ const Bentogrid = () => {
                   </h3>
                   <p className='text-base font-normal text-muted-foreground'>
                     Build powerful dashboards in no time with per-built Tailwind
-                    components and layouts. Whether you're creating admin
+                    components and layouts. Whether you&apos;re creating admin
                     panels, analytics dashboards, or SaaS back-ends.
                   </p>
                 </div>

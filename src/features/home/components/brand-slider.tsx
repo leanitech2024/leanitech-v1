@@ -1,8 +1,8 @@
 'use client';
-import { Marquee } from '@/components/shadcn-space/animations/marquee';
 import { brandList } from '@/constants';
 import { motion } from 'motion/react';
 import Image from 'next/image';
+import { Marquee } from './marquee';
 
 export interface BrandList {
   image: string;

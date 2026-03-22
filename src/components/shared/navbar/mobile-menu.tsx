@@ -1,6 +1,6 @@
 // import Logo from '@/assets/logo/logo';
 import CollaborateButton from '@/components/shared/collaborate-button';
-import { Logo } from '@/components/shared/navbar/logo';
+import { Logo } from '@/components/shared/logo';
 import {
   NavigationMenu,
   NavigationMenuItem,

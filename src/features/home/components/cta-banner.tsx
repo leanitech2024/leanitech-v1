@@ -1,7 +1,9 @@
+import { LazyAnimatedGridPattern } from '@/components/extends/animated-grid-pattern';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ArrowUpRight, Forward } from 'lucide-react';
-import { LazyAnimatedGridPattern } from './extends/animated-grid-pattern';
-import { Button } from './ui/button';
+// import { LazyAnimatedGridPattern } from '../extends/animated-grid-pattern';
+// import { Button } from '../ui/button';
 
 export default function CTABanner() {
   return (
