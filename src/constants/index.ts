@@ -59,33 +59,33 @@ export const avatarList: AvatarList[] = [
 
 export const brandList: BrandList[] = [
   {
-    image: 'https://images.shadcnspace.com/assets/brand-logo/logoipsum-1.svg',
-    lightimg:
-      'https://images.shadcnspace.com/assets/brand-logo/logoipsum-light-1.svg',
+    image: '/company-logos/bread-light.svg',
+    lightimg: '/company-logos/bread-dark.svg',
     name: 'Brand 1',
   },
   {
-    image: 'https://images.shadcnspace.com/assets/brand-logo/logoipsum-2.svg',
-    lightimg:
-      'https://images.shadcnspace.com/assets/brand-logo/logoipsum-light-2.svg',
+    image: '/company-logos/chase-light.svg',
+    lightimg: '/company-logos/chase-dark.svg',
     name: 'Brand 2',
   },
   {
-    image: 'https://images.shadcnspace.com/assets/brand-logo/logoipsum-3.svg',
-    lightimg:
-      'https://images.shadcnspace.com/assets/brand-logo/logoipsum-light-3.svg',
+    image: '/company-logos/lydia-light.svg',
+    lightimg: '/company-logos/lydia-dark.svg',
     name: 'Brand 3',
   },
   {
-    image: 'https://images.shadcnspace.com/assets/brand-logo/logoipsum-4.svg',
-    lightimg:
-      'https://images.shadcnspace.com/assets/brand-logo/logoipsum-light-4.svg',
+    image: '/company-logos/the-guardian-new-light.svg',
+    lightimg: '/company-logos/the-guardian-new-dark.svg',
     name: 'Brand 4',
   },
   {
-    image: 'https://images.shadcnspace.com/assets/brand-logo/logoipsum-5.svg',
-    lightimg:
-      'https://images.shadcnspace.com/assets/brand-logo/logoipsum-light-5.svg',
+    image: '/company-logos/the-seattle-times-light.svg',
+    lightimg: '/company-logos/the-seattle-times-dark.svg',
     name: 'Brand 5',
+  },
+  {
+    image: '/company-logos/trustpilot-light.svg',
+    lightimg: '/company-logos/trustpilot-dark.svg',
+    name: 'Brand 6',
   },
 ];

@@ -28,11 +28,11 @@ const statisticsCounter = [
   },
   {
     title: 'Years of Experience',
-    count: 15,
+    count: 3,
   },
   {
     title: 'Design Awards',
-    count: 12,
+    count: 6,
   },
 ];
 

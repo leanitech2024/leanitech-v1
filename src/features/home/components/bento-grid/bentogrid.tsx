@@ -1,6 +1,99 @@
+import {
+  AppDevelopment,
+  // DigitalMarketingCover,
+  NetworkingCover,
+  SeoCover,
+} from '@/assets/services/covers';
 import { Badge } from '@/components/ui/badge';
+import {
+  CalendarIcon,
+  FileInputIcon,
+  FileTextIcon,
+  GlobeIcon,
+} from 'lucide-react';
 import AnimatedUiBlock from './AnimatedUiBlock';
 import ReminderAnimation from './ReminderAnimation';
+
+// import Logo from './07.svg';
+
+const features = [
+  {
+    Icon: FileTextIcon,
+    name: 'Digital Solutions & Media',
+    description:
+      'Crafting impactful websites with design, content, and marketing.',
+    href: '/',
+    cta: 'Learn more',
+    background: (
+      <img
+        src='/bento-1.png'
+        className='absolute w-full h-full top-0 right-0 opacity-90 dark:opacity-60'
+        alt='bento 1'
+      />
+    ),
+    // className: 'col-span-3 lg:col-span-1',
+    className: 'col-span-3 lg:col-span-2',
+  },
+  {
+    Icon: FileInputIcon,
+    name: 'Software Solutions',
+    description: 'Building custom software to streamline business operations.',
+    href: '/',
+    cta: 'Learn more',
+    background: (
+      <img
+        src='/bento-2.png'
+        className='absolute w-full h-full top-0 right-0 opacity-90 dark:opacity-60'
+        alt='bento 2'
+      />
+    ),
+    // className: 'col-span-3 lg:col-span-2',
+    className: 'col-span-3 lg:col-span-1',
+  },
+  {
+    Icon: GlobeIcon,
+    name: 'App solutions',
+    description: 'Creating intuitive mobile apps for iOS and Android.',
+    href: '/',
+    cta: 'Learn more',
+    background: (
+      <img
+        src='/bento-3.png'
+        className='absolute w-full h-full top-0 right-0 opacity-90 dark:opacity-60'
+        alt='bento 3'
+      />
+    ),
+    // className: 'col-span-3 lg:col-span-2',
+    className: 'col-span-3 lg:col-span-1',
+  },
+  {
+    Icon: CalendarIcon,
+    name: 'Networking And Secure Solutions',
+    description:
+      'Providing robust IT networks and cybersecurity to protect your business.',
+    href: '/',
+    cta: 'Learn more',
+    background: (
+      <img
+        src='/bento-4.png'
+        className='absolute w-full h-full top-0 right-0 opacity-90 dark:opacity-60'
+        alt='bento 4'
+      />
+    ),
+    // className: 'col-span-3 lg:col-span-1',
+    className: 'col-span-3 lg:col-span-2',
+  },
+  // {
+  //   Icon: BellIcon,
+  //   name: 'Notifications',
+  //   description:
+  //     'Get notified when someone shares a file or mentions you in a comment.',
+  //   href: '/',
+  //   cta: 'Learn more',
+  //   background: <img className='absolute -top-20 -right-20 opacity-60' />,
+  //   className: 'lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4',
+  // },
+];
 
 const Bentogrid = () => {
   return (
@@ -24,14 +117,15 @@ const Bentogrid = () => {
               <div className='rounded-xl border border-border'>
                 <div className='bg-muted rounded-t-xl py-8 px-9 relative'>
                   <ReminderAnimation />
+                  {/* <DigitalMarketingCover /> */}
                 </div>
                 <div className='flex flex-col gap-0.5 p-8 border-t border-border'>
                   <h3 className='text-xl font-medium text-foreground'>
-                    Awesome tailwind components
+                    Digital Solutions & Media
                   </h3>
                   <p className='text-base font-normal text-muted-foreground'>
-                    A collection of custom-built, highly flexible Tailwind CSS
-                    components
+                    Crafting impactful websites with design, content, and
+                    marketing.
                   </p>
                 </div>
               </div>
@@ -43,12 +137,10 @@ const Bentogrid = () => {
                 </div>
                 <div className='flex flex-col gap-0.5 p-8 border-t border-border'>
                   <h3 className='text-xl font-medium text-foreground'>
-                    Beautifully crafted ui blocks
+                    Software Solutions
                   </h3>
                   <p className='text-base font-normal text-muted-foreground'>
-                    Build powerful dashboards in no time with per-built Tailwind
-                    components and layouts. Whether you&apos;re creating admin
-                    panels, analytics dashboards, or SaaS back-ends.
+                    Building custom software to streamline business operations.
                   </p>
                 </div>
               </div>
@@ -57,7 +149,8 @@ const Bentogrid = () => {
             <div className='lg:col-span-4 col-span-12 overflow-hidden'>
               <div className='rounded-xl border border-border h-full flex flex-col'>
                 <div className='p-8 bg-muted rounded-t-xl flex-1 flex items-center justify-center'>
-                  <img
+                  <AppDevelopment />
+                  {/* <img
                     src='https://images.shadcnspace.com/assets/bento-grid/bento-grid-img-1.png'
                     alt='layout options'
                     className='dark:hidden'
@@ -66,15 +159,14 @@ const Bentogrid = () => {
                     src='https://images.shadcnspace.com/assets/bento-grid/bento-grid-darkimg-1.png'
                     alt='layout options'
                     className='hidden dark:block'
-                  />
+                  /> */}
                 </div>
                 <div className='flex flex-col gap-0.5 p-8 border-t border-border'>
                   <h3 className='text-xl font-medium text-foreground'>
-                    Multiple layout options
+                    App solutions
                   </h3>
                   <p className='text-base font-normal text-muted-foreground'>
-                    We have LTR and RTL options along with different layout
-                    options as well.
+                    Creating intuitive mobile apps for iOS and Android.
                   </p>
                 </div>
               </div>
@@ -83,7 +175,7 @@ const Bentogrid = () => {
             <div className='lg:col-span-4 col-span-12 overflow-hidden'>
               <div className='rounded-xl border border-border h-full flex flex-col'>
                 <div className='p-8 bg-muted rounded-t-xl flex-1 flex items-center justify-center'>
-                  <img
+                  {/* <img
                     src='https://images.shadcnspace.com/assets/bento-grid/bento-grid-img-2.png'
                     alt='documentation'
                     className='dark:hidden'
@@ -92,15 +184,16 @@ const Bentogrid = () => {
                     src='https://images.shadcnspace.com/assets/bento-grid/bento-grid-darkimg-2.png'
                     alt='documentation'
                     className='hidden dark:block'
-                  />
+                  /> */}
+                  <NetworkingCover />
                 </div>
                 <div className='flex flex-col gap-0.5 p-8 border-t border-border'>
                   <h3 className='text-xl font-medium text-foreground'>
-                    Well documented
+                    Networking And Secure Solutions
                   </h3>
                   <p className='text-base font-normal text-muted-foreground'>
-                    A well-structured and easy-to-follow documentation for your
-                    development journey.
+                    Providing robust IT networks and cybersecurity to protect
+                    your business.
                   </p>
                 </div>
               </div>
@@ -109,18 +202,17 @@ const Bentogrid = () => {
             <div className='lg:col-span-4 col-span-12 overflow-hidden'>
               <div className='rounded-xl border border-border h-full flex flex-col'>
                 <div className='p-8 bg-muted rounded-t-xl flex-1 flex items-center justify-center relative'>
-                  <img
-                    src='https://images.shadcnspace.com/assets/bento-grid/bento-grid-img-3.png'
-                    alt='color options'
-                  />
+                  {/* <img src='/07.svg' alt='color options' /> */}
+                  <SeoCover />
                 </div>
                 <div className='flex flex-col gap-0.5 p-8 border-t border-border'>
                   <h3 className='text-xl font-medium text-foreground'>
-                    Multiple color options
+                    Seo and Performance optimized
                   </h3>
                   <p className='text-base font-normal text-muted-foreground'>
-                    Unlimited color options to match with your brand instantly
-                    and easily.
+                    Manage your SEO and performance with our optimized
+                    components and layouts, designed to enhance your
+                    website&apos;s visibility and speed.
                   </p>
                 </div>
               </div>

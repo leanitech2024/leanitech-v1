@@ -145,15 +145,15 @@ const TestimonialCard = React.memo(
     }
 
     return (
-      <div className='relative group flex h-auto w-87.5 shrink-0 flex-col justify-between overflow-hidden rounded-2xl border border-border bg-black/5 dark:bg-white/5 p-6 transition-all hover:bg-black/10 dark:hover:bg-white/10 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transform-gpu backface-hidden'>
+      <div className='relative group flex h-auto max-w-sm w-full shrink-0 flex-col justify-between overflow-hidden rounded-2xl border border-border bg-black/5 dark:bg-white/5 p-6 transition-all hover:bg-black/10 dark:hover:bg-white/10 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transform-gpu backface-hidden'>
         <div className='absolute inset-0 bg-linear-to-br from-black/5 dark:from-white/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100' />
 
-        <div className='relative z-10 flex flex-col gap-4'>
-          <p className='text-sm leading-relaxed text-muted-foreground line-clamp-4'>
+        <div className='relative z-10 flex flex-col justify-around gap-2 w-full h-full'>
+          <p className='text-sm leading-relaxed text-wrap text-muted-foreground'>
             &quot;{item.text}&quot;
           </p>
 
-          <div className='flex items-center gap-3 pt-2'>
+          <div className='flex items-center gap-3'>
             <div className='h-10 w-10 shrink-0 overflow-hidden rounded-full border border-border relative'>
               <Image
                 src={item.avatar}

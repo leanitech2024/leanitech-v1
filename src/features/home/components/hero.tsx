@@ -50,21 +50,42 @@ function HeroSection() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: 'easeInOut' }}
                   className='lg:text-8xl md:text-7xl text-5xl font-medium leading-14 md:leading-20 lg:leading-24'>
-                  Building bold brands with{' '}
+                  Turning ideas into scalable{' '}
                   <span
                     className={`${instrumentSerif.className} tracking-tight`}>
-                    thoughtful design
+                    digital success
                   </span>
                 </motion.h1>
-                <motion.p
+                <motion.blockquote
+                  initial={{ opacity: 0, y: 32 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.05, ease: 'easeInOut' }}
+                  className='text-base font-normal max-w-4xl text-muted-foreground border-l-2 pl-6 italic'>
+                  {/* <blockquote className='mt-6 border-l-2 pl-6 italic'>
+                    &quot;After all,&quot; he said, &quot;everyone enjoys a good
+                    joke, so it&apos;s only fair that they should pay for the
+                    privilege.&quot;
+                  </blockquote> */}
+                  <p>
+                    &quot;At Leanitech, we empower startups and enterprises to
+                    solve complex business challenges through innovative
+                    software, modern web development, and data-driven digital
+                    strategies
+                  </p>
+                  <cite>
+                    &mdash;guiding you from idea to impactful success.&quot;
+                  </cite>
+                </motion.blockquote>
+                {/* <motion.p
                   initial={{ opacity: 0, y: 32 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.1, ease: 'easeInOut' }}
                   className='text-base font-normal max-w-2xl text-muted-foreground'>
-                  At shadcn space, we help small startups tackle the
-                  world&apos;s biggest challenges with tailored solutions,
-                  guiding you from strategy to success in a competitive market.
-                </motion.p>
+                  At Leanitech, we empower startups and enterprises to solve
+                  complex business challenges through innovative software,
+                  modern web development, and data-driven digital
+                  strategies—guiding you from idea to impactful success.
+                </motion.p> */}
               </div>
               <motion.div
                 initial={{ opacity: 0, y: 32 }}

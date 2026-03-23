@@ -8,11 +8,11 @@ import ContactUs1 from '@/features/home/components/contact-us';
 import FAQ from '@/features/home/components/faq';
 import Faq2 from '@/features/home/components/faq/faq';
 import Feature01 from '@/features/home/components/feature';
-import Features from '@/features/home/components/features';
+// import Features from '@/features/home/components/features';
 import HeroSection from '@/features/home/components/hero';
 import Portfolio from '@/features/home/components/portfolio/portfolio';
-import Services from '@/features/home/components/services/services';
-import Testimonials from '@/features/home/components/testimonials';
+// import Services from '@/features/home/components/services/services';
+// import Testimonials from '@/features/home/components/testimonials';
 
 const items = [
   {
@@ -33,29 +33,29 @@ export default function Home() {
       <HeroSection />
       <BrandSlider />
       <AboutAndStats01 />
-      <Services />
+      {/* <Services /> */}
+      <Feature01 />
       <Bentogrid />
       <Portfolio />
-      <Features />
-      <Feature01 />
+      {/* <Features /> */}
       <FAQ />
       <Faq2 />
-      <div className='relative w-full overflow-hidden bg-background/50 mb-16'>
+      {/* <div className='relative w-full overflow-hidden bg-background/50 mb-16'>
         <TestimonialMarquee items={items} />
       </div>
       <div className='relative w-full overflow-hidden bg-background/50 mb-16'>
         <TestimonialMarquee items={items} variant='dual' />
-      </div>
-      <div className='relative w-full overflow-hidden bg-background/50 mb-16'>
+      </div> */}
+      <div className='relative w-full overflow-hidden mb-16'>
         <TestimonialMarquee items={items} variant='stacked' />
       </div>
-      <div className='relative w-full overflow-hidden bg-background/50 mb-16'>
+      {/* <div className='relative w-full overflow-hidden bg-background/50 mb-16'>
         <TestimonialMarquee items={items} variant='flush' />
       </div>
       <div className='relative w-full overflow-hidden bg-background/50 mb-16'>
         <TestimonialMarquee items={items} variant='flush-dual' />
-      </div>
-      <Testimonials />
+      </div> */}
+      {/* <Testimonials /> */}
       <CTA />
       <ContactUs1 />
     </main>
