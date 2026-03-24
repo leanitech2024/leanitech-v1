@@ -1,6 +1,6 @@
+import AndroidMockDevice from '@/components/extends/android-mock-device';
 import { Badge } from '@/components/ui/badge';
 import AnimatedUiBlock from './AnimatedUiBlock';
-import AppDevelopment from './app-development';
 import ReminderAnimation from './ReminderAnimation';
 import SecureSolutionsBeam from './secure-solutions-beam';
 import SeoOrbitingCircles from './seo-orbitting-circle';
@@ -25,7 +25,7 @@ const Bentogrid = () => {
           <div className='grid grid-cols-12 gap-5'>
             <div className='lg:col-span-4 col-span-12 overflow-hidden'>
               <div className='rounded-xl border border-border'>
-                <div className='bg-muted rounded-t-xl py-8 px-9 relative'>
+                <div className='bg-muted rounded-t-xl py-8 px-4 relative'>
                   <ReminderAnimation />
                 </div>
                 <div className='flex flex-col gap-0.5 p-8 border-t border-border'>
@@ -33,8 +33,8 @@ const Bentogrid = () => {
                     Digital Solutions & Media
                   </h3>
                   <p className='text-base font-normal text-muted-foreground'>
-                    Crafting impactful websites with design, content, and
-                    marketing.
+                    Driving global visibility with responsive design, optimized
+                    content, and performance-based digital marketing solutions.
                   </p>
                 </div>
               </div>
@@ -49,7 +49,11 @@ const Bentogrid = () => {
                     Software Solutions
                   </h3>
                   <p className='text-base font-normal text-muted-foreground'>
-                    Building custom software to streamline business operations.
+                    Leanitech empowers businesses with powerful, future-ready
+                    software solutions. Scale faster with secure,
+                    high-performance systems built for global success. Drive
+                    transformation with Leanitech’s cutting-edge software
+                    development.
                   </p>
                 </div>
               </div>
@@ -58,29 +62,42 @@ const Bentogrid = () => {
             <div className='lg:col-span-4 col-span-12 overflow-hidden'>
               <div className='rounded-xl border border-border flex flex-col'>
                 <div className='p-0 bg-muted rounded-t-xl h-full w-full flex-1 flex items-center justify-center'>
-                  <AppDevelopment />
+                  {/* <AppDevelopment /> */}
+                  <div className='relative aspect-video lg:aspect-square h-full w-full'>
+                    <AndroidMockDevice
+                      className='w-full h-full'
+                      src='https://images.unsplash.com/photo-1730326405863-c6fa7e499a6e?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                    />
+                  </div>
                 </div>
                 <div className='flex flex-col gap-0.5 p-8 border-t border-border'>
                   <h3 className='text-xl font-medium text-foreground'>
                     App solutions
                   </h3>
                   <p className='text-base font-normal text-muted-foreground'>
-                    Creating intuitive mobile apps for iOS and Android.
+                    Crafting next-generation mobile applications for iOS and
+                    Android with optimized performance, user-centric design, and
+                    global scalability to drive engagement and growth.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className='lg:col-span-4 col-span-12 overflow-hidden'>
-              <div className='rounded-xl border border-border h-150 flex flex-col'>
+              <div className='rounded-xl border border-border flex flex-col'>
                 <div className='p-0 bg-muted rounded-t-xl flex-1 flex items-center justify-center'>
-                  <SecureSolutionsBeam />
+                  <div
+                    className={'aspect-video lg:aspect-square w-full h-full'}>
+                    <SecureSolutionsBeam />
+                  </div>
                 </div>
                 <div className='flex flex-col gap-0.5 p-8 border-t border-border'>
                   <h3 className='text-xl font-medium text-foreground'>
                     Networking And Secure Solutions
                   </h3>
                   <p className='text-base font-normal text-muted-foreground'>
+                    Strengthening business operations with secure network
+                    architecture and cutting-edge cybersecurity solutions.
                     Providing robust IT networks and cybersecurity to protect
                     your business.
                   </p>
@@ -89,18 +106,21 @@ const Bentogrid = () => {
             </div>
 
             <div className='lg:col-span-4 col-span-12'>
-              <div className='rounded-xl border border-border w-full h-150 flex flex-col'>
+              <div className='rounded-xl border border-border flex flex-col'>
                 <div className='p-0 bg-muted h-full w-full rounded-t-xl flex-1 flex items-center justify-center relative'>
-                  <SeoOrbitingCircles />
+                  <div
+                    className={'aspect-video lg:aspect-square w-full h-full'}>
+                    <SeoOrbitingCircles />
+                  </div>
                 </div>
                 <div className='flex flex-col gap-0.5 p-8 border-t border-border'>
                   <h3 className='text-xl font-medium text-foreground'>
                     Seo and Performance optimized
                   </h3>
                   <p className='text-base font-normal text-muted-foreground'>
-                    Manage your SEO and performance with our optimized
-                    components and layouts, designed to enhance your
-                    website&apos;s visibility and speed.
+                    Optimize your website with high-performance components and
+                    efficient global architecture. Enhance SEO rankings, speed,
+                    and user experience across international markets.
                   </p>
                 </div>
               </div>

@@ -9,33 +9,54 @@ import Link from 'next/link';
 const faqItems = [
   {
     id: 'item-1',
-    question: 'How long does shipping take?',
+    question:
+      'What software development services does Leanitech offer globally?',
     answer:
-      'Standard shipping takes 3-5 business days, depending on your location. Express shipping options are available at checkout for 1-2 business day delivery.',
+      'Leanitech provides custom software development, mobile app development, web solutions, and enterprise software services tailored for businesses worldwide, ensuring scalability, security, and high performance.',
   },
   {
     id: 'item-2',
-    question: 'What payment methods do you accept?',
+    question:
+      'Do you provide international software solutions for all industries?',
     answer:
-      'We accept all major credit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, and Google Pay. For enterprise customers, we also offer invoicing options.',
+      'Yes, Leanitech delivers industry-specific digital solutions for startups, SMEs, and enterprises across global markets, helping businesses streamline operations and achieve digital transformation.',
   },
   {
     id: 'item-3',
-    question: 'Can I change or cancel my order?',
+    question: 'How does Leanitech ensure software scalability and performance?',
     answer:
-      'You can modify or cancel your order within 1 hour of placing it. After this window, please contact our customer support team who will assist you with any changes.',
+      'We use modern technologies, optimized architecture, and cloud-based solutions to build scalable, high-performance systems that grow with your business needs globally.',
   },
   {
     id: 'item-4',
-    question: 'Do you ship internationally?',
+    question: 'Can Leanitech develop mobile apps for international users?',
     answer:
-      "Yes, we ship to over 50 countries worldwide. International shipping typically takes 7-14 business days. Additional customs fees may apply depending on your country's import regulations.",
+      'Absolutely, we create iOS and Android mobile applications optimized for global audiences, ensuring seamless user experience, performance, and cross-platform compatibility.',
   },
   {
     id: 'item-5',
-    question: 'What is your return policy?',
+    question: 'How do your solutions improve SEO and website performance?',
     answer:
-      'We offer a 30-day return policy for most items. Products must be in original condition with tags attached. Some specialty items may have different return terms, which will be noted on the product page.',
+      'Our development approach focuses on fast-loading, SEO-friendly architecture, optimized code, and responsive design to improve global search rankings and user engagement.',
+  },
+  {
+    id: 'item-6',
+    question: 'Does Leanitech provide ongoing support and maintenance?',
+    answer:
+      'Yes, we offer continuous support, updates, and maintenance services to ensure your software remains secure, efficient, and up-to-date across international markets.',
+  },
+  {
+    id: 'item-7',
+    question:
+      'What makes Leanitech different from other global software companies?',
+    answer:
+      'Leanitech combines innovation, strategy, and technology to deliver customized, scalable, and result-driven digital solutions that align with global business goals.',
+  },
+  {
+    id: 'item-8',
+    question: 'How can I get started with Leanitech services?',
+    answer:
+      'You can contact our team to discuss your project requirements, and we will provide tailored solutions to help you achieve your digital growth objectives worldwide.',
   },
 ];
 
@@ -65,8 +86,8 @@ export default function FAQsTwo() {
               <AccordionTrigger className='cursor-pointer text-base hover:no-underline'>
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent>
-                <p className='text-base'>{item.answer}</p>
+              <AccordionContent className={'px-4'}>
+                <p className='text-sm'>{item.answer}</p>
               </AccordionContent>
             </AccordionItem>
           ))}

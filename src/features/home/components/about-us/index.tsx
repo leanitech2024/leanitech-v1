@@ -31,8 +31,8 @@ const statisticsCounter = [
     count: 3,
   },
   {
-    title: 'Design Awards',
-    count: 6,
+    title: 'Satisfied Clients',
+    count: 80,
   },
 ];
 

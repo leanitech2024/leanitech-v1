@@ -1,9 +1,12 @@
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 import { LucideIcon } from 'lucide-react';
 import { motion } from 'motion/react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 type Features = {
   icon: LucideIcon;
@@ -33,16 +36,26 @@ const Feature = ({ featureData }: { featureData: Features }) => {
               Features
             </Badge>
             <h2 className='text-3xl md:text-4xl font-semibold'>
-              Leading with innovation
+              Innovating Digital Growth with Smart ERP & SaaS Solutions
             </h2>
             <p className='text-lg font-normal text-muted-foreground'>
-              We&apos;re west coast change-makers in a complex world, crafting
-              purposeful and powerful brands with fluidity
+              At RotateKey by Leanitech, we empower businesses with cutting-edge
+              ERP systems, SaaS platforms, and custom software development to
+              streamline operations, enhance productivity, and accelerate
+              digital transformation.
             </p>
           </div>
-          <Button className='rounded-full px-5 py-2.5 shadow-xs h-auto'>
-            <a href='#'>Browse more block</a>
-          </Button>
+
+          <Link
+            className={cn(
+              buttonVariants({
+                size: 'sm',
+              }),
+              'rounded-full px-5 py-2.5 shadow-xs h-auto',
+            )}
+            href='#'>
+            Transform Your Business Today
+          </Link>
         </motion.div>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-6'>
           <motion.div
@@ -54,29 +67,30 @@ const Feature = ({ featureData }: { featureData: Features }) => {
               ease: [0.21, 0.47, 0.32, 0.98],
             }}
             className="p-6 sm:p-16 rounded-2xl bg-[url('https://images.shadcnspace.com/assets/feature/feature-01-img.webp')] object-cover bg-center h-full w-full bg-cover bg-no-repeat">
-            <Card className='flex items-start gap-12 py-6 sm:py-10 border-none shadow-none ring-0 rounded-lg'>
+            <Card className='flex items-start gap-12 py-6 sm:py-10 border-none shadow-none ring-0 rounded-lg backdrop-blur-sm bg-background/50'>
               <CardContent className='flex flex-col gap-6 px-6 sm:px-8'>
                 <Avatar className='size-12'>
                   <AvatarFallback>
-                    <img
-                      src='https://images.shadcnspace.com/assets/profiles/user-1.jpg'
+                    <Image
+                      src='/features/user-1.jpg'
                       className='rounded-full'
                       alt='avatar'
+                      width={48}
+                      height={48}
                     />
                   </AvatarFallback>
                 </Avatar>
                 <h3 className='text-xl sm:text-2xl font-medium'>
-                  “Before Shadcn Space, we stitched UIs together from random
-                  snippets. Now we ship polished interfaces in hours for
-                  frontend.”
+                  “Before implementing RotateKey’s ERP solutions by Leanitech,
+                  managing operations was complex and time-consuming. Now, our
+                  workflows are fully automated, and we deliver faster, more
+                  efficient results with ease.”
                 </h3>
               </CardContent>
               <CardFooter className='w-full px-6 sm:px-8 flex flex-col items-start gap-0.5'>
-                <p className='text-sm font-medium text-primary'>
-                  JOHNATHAN DOE
-                </p>
+                <p className='text-sm font-medium text-primary'>Rajesh Kumar</p>
                 <span className='text-xs font-normal text-muted-foreground uppercase'>
-                  HEAD OF FINANCE @SHADCN SPACE
+                  CEO, RotateKey Inc.
                 </span>
               </CardFooter>
             </Card>
@@ -93,12 +107,14 @@ const Feature = ({ featureData }: { featureData: Features }) => {
                     duration: 0.8,
                     ease: [0.21, 0.47, 0.32, 0.98],
                   }}>
-                  <Card className='py-8 bg-muted ring-0 border-0 h-full'>
-                    <CardContent className='w-full h-full px-8 flex flex-col items-start gap-12 justify-between'>
-                      <value.icon
-                        className='w-6 h-6 text-muted-foreground'
-                        strokeWidth={1.5}
-                      />
+                  <Card className='bg-muted ring-0 border-0 h-full'>
+                    <CardContent className='w-full h-full px-8 flex flex-col items-start gap-4 justify-between'>
+                      <div className={'p-4 bg-background rounded-full'}>
+                        <value.icon
+                          className='w-6 h-6 text-muted-foreground'
+                          strokeWidth={1.5}
+                        />
+                      </div>
                       <p className='text-base text-primary font-normal'>
                         {value?.content}
                       </p>

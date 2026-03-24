@@ -1,58 +1,69 @@
 'use client';
-import {
-  BarChart3,
-  Check,
-  CirclePlay,
-  Diamond,
-  FormInput,
-  LayoutGrid,
-  LucideIcon,
-  Route,
-} from 'lucide-react';
+import { Check } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
 type Item = {
   id: string;
   title: string;
-  icon: LucideIcon;
 };
 
 const DATA: Item[] = [
   {
-    id: '1',
-    title: 'Breadcrumb component',
-    icon: Route,
+    id: crypto.randomUUID(),
+    title: 'Pay-Per-Click Advertising (PPC)',
   },
   {
-    id: '2',
-    title: 'Animated component',
-    icon: CirclePlay,
+    id: crypto.randomUUID(),
+    title: 'Social Media Marketing (SMM)',
   },
   {
-    id: '3',
-    title: 'UI components',
-    icon: Diamond,
+    id: crypto.randomUUID(),
+    title: 'Content Creation & Marketing',
   },
   {
-    id: '4',
-    title: 'Form components',
-    icon: FormInput,
+    id: crypto.randomUUID(),
+    title: 'Email Marketing & Automation',
   },
   {
-    id: '5',
-    title: 'Chart components',
-    icon: BarChart3,
+    id: crypto.randomUUID(),
+    title: 'Bulk SMS Marketing & Campaigns',
   },
   {
-    id: '6',
-    title: 'Layout components',
-    icon: LayoutGrid,
+    id: crypto.randomUUID(),
+    title: 'WhatsApp Marketing & Automation',
   },
   {
-    id: '7',
-    title: 'Area Chart',
-    icon: BarChart3,
+    id: crypto.randomUUID(),
+    title: 'Influencer Marketing',
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Affiliate Marketing',
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Branding & Creative Design',
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Video Marketing & Production',
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Performance Marketing',
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Conversion Rate Optimization (CRO)',
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Online Reputation Management (ORM)',
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Marketing Automation & CRM Solutions',
   },
 ];
 
@@ -89,7 +100,6 @@ export default function ReminderCarousel() {
             className='absolute flex items-center justify-between w-full px-5 py-4 rounded-xl bg-background border border-border text-card-foreground'>
             <div className='flex items-center justify-between w-full'>
               <div className='flex items-center gap-2'>
-                <item.icon size={20} />
                 <span className='text-sm font-medium'>{item.title}</span>
               </div>
               <Check size={20} />

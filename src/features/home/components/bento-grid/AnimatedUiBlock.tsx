@@ -4,6 +4,7 @@ import {
   BarChart3,
   Box,
   Command,
+  Layout,
   Presentation,
   ShieldCheck,
   WandSparkles,
@@ -14,13 +15,14 @@ export default function AnimatedUiBlock() {
   return (
     <>
       <div className='min-h-[216px] flex items-center justify-center relative'>
-        <span className='flex items-center justify-center rounded-full shadow-lg'>
-          <img
+        <span className='flex items-center justify-center rounded-full shadow-lg p-4 bg-background'>
+          {/* <img
             alt='shadcn dark logo'
             src='https://images.shadcnspace.com/assets/logo/shadcn-logo.png'
             width={96}
             height={96}
-          />
+          /> */}
+          <Layout className={'size-12'} />
         </span>
         <motion.div
           className='absolute start-[70%] top-0 z-10'

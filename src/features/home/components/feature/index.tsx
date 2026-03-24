@@ -6,22 +6,22 @@ const featureData = [
   {
     icon: ArrowDownUp,
     content:
-      'Instantly sync and update your documentation across teams without manual rework.',
+      'Seamlessly synchronize your business data across ERP systems and applications without manual effort, ensuring accuracy and efficiency.',
   },
   {
     icon: BellRing,
     content:
-      'Get real-time alerts when docs are updated, reviewed, or need your attention.',
+      'Receive real-time notifications and actionable insights to make faster, data-driven business decisions.',
   },
   {
     icon: RotateCw,
     content:
-      'Automatically keep your documentation up to date with seamless content refreshes.',
+      'Optimize your processes with intelligent automation that keeps your operations running smoothly and efficiently.',
   },
   {
     icon: Tag,
     content:
-      'Organize your docs with smart tags for faster search and better discoverability.',
+      'Organize your business data with advanced tagging, search, and cloud-based accessibility for better productivity.',
   },
 ];
 
