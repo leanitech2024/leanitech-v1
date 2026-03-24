@@ -72,7 +72,7 @@ function AboutUs({
             ease: [0.21, 0.47, 0.32, 0.98],
           }}
           className='flex flex-col items-center justify-center gap-4'>
-          <h2 className='text-3xl sm:text-4xl lg:text-5xl font-medium text-foreground text-center tracking-tight'>
+          <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground text-center tracking-tight'>
             {/* Crafting exceptional, well experienced & technology driven
             strategies to drive impactful results with */}
             Building scalable, technology-driven strategies that accelerate
@@ -89,7 +89,7 @@ function AboutUs({
                 <item.icon className='w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10' />
                 <span
                   className={cn(
-                    'text-4xl font-normal',
+                    'text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal',
                     instrumentSerif.className,
                   )}>
                   {item.title}
@@ -109,7 +109,7 @@ function AboutUs({
                 {index !== 0 && (
                   <div className='hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-40 bg-border' />
                 )}
-                <div className='flex gap-0 sm:gap-2 text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium'>
+                <div className='flex gap-0 sm:gap-2 text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-medium'>
                   <Plus
                     strokeWidth={3.5}
                     className='w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12'

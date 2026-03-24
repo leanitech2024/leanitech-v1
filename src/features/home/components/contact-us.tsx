@@ -47,7 +47,7 @@ export default function ContactUs1() {
   return (
     <section
       id='contact'
-      className='bg-transparent relative w-full overflow-hidden py-16 md:py-24 max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'>
+      className='relative py-16 overflow-hidden md:py-24 max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'>
       <div
         className='absolute top-0 left-0 h-125 w-125 rounded-full opacity-20 blur-[120px]'
         style={{
@@ -65,7 +65,7 @@ export default function ContactUs1() {
 
       <div className='relative z-10'>
         <div className='backdrop-blur-sm'>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+          <div className='grid grid-cols-1 lg:grid-cols-2'>
             <div className='relative p-6 md:p-10' ref={formRef}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -179,7 +179,7 @@ export default function ContactUs1() {
               initial={{ opacity: 0, x: 20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className='relative my-8 flex items-center justify-center overflow-hidden pr-8'>
+              className='relative my-8 flex items-center justify-center overflow-hidden'>
               <div className='flex flex-col items-center justify-center overflow-hidden'>
                 <article className='relative mx-auto h-87.5 min-h-60 overflow-hidden rounded-3xl border bg-linear-to-b from-blue-600 to-[#e60a64]/5 p-6 text-3xl tracking-tight text-white md:h-112.5 md:min-h-80 md:p-8 md:text-4xl md:leading-[1.05] lg:text-5xl'>
                   Presenting you with the best UI possible.

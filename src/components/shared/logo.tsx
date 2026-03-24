@@ -1,4 +1,5 @@
-export const Logo = () => (
+import type { SVGAttributes } from 'react';
+export const Logo = (props: SVGAttributes<SVGElement>) => (
   // <svg
   //   id="logo-7"
   //   width="124"
@@ -17,8 +18,11 @@ export const Logo = () => (
   //   />
   // </svg>
   <svg
-    width='157'
-    height='29'
+    // width='157'
+    // height='29'
+    width={'100%'}
+    height={'100%'}
+    {...props}
     viewBox='0 0 157 29'
     fill='currentColor'
     xmlns='http://www.w3.org/2000/svg'>

@@ -64,10 +64,10 @@ const Header = ({ className }: HeaderProps) => {
             : 'bg-transparent border-transparent',
         )}>
         {/* Logo */}
-        <div>
+        <div className={'ml-4'}>
           <Link href='/'>
             {/* <Logo className='gap-3' /> */}
-            <Logo />
+            <Logo className={'w-auto h-6'} />
           </Link>
         </div>
 
@@ -96,12 +96,12 @@ const Header = ({ className }: HeaderProps) => {
 
         {/* Desktop CTA */}
         <div className='flex items-center gap-4'>
-          <AnimatedThemeToggler />
+          <AnimatedThemeToggler className='hidden lg:flex' />
           <CollaborateButton className='hidden lg:flex'>
             Let&apos;s Collaborate
           </CollaborateButton>
 
-          <div className='lg:hidden'>
+          <div className='lg:hidden flex items-center'>
             <LazyMobileMenu />
           </div>
         </div>

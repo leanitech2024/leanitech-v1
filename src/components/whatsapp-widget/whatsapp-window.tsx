@@ -37,7 +37,7 @@ export function WhatsAppWindow({
     <div className='flex flex-col w-full rounded-lg shadow-xl border bg-card'>
       {/* Header */}
       <div className='bg-green-700 dark:bg-green-950 p-4 text-primary-foreground flex items-center gap-3'>
-        <Avatar className='h-10 w-10 ring-2 ring-primary-foreground/20'>
+        <Avatar className='size-8 md:size-10 ring-2 ring-primary-foreground/20'>
           <AvatarImage src={avatar} alt={companyName} />
           <AvatarFallback className='bg-primary-foreground/10 text-xs text-primary-foreground'>
             {companyName.substring(0, 2).toUpperCase()}

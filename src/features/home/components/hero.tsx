@@ -1,8 +1,8 @@
 'use client';
 
 import SplashCursor from '@/components/backgrounds/animations/splash-cursor';
+import { AnimatedTooltip } from '@/components/extends/animated-tooltip';
 import { Button } from '@/components/ui/button';
-import { avatarList } from '@/constants';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Instrument_Serif } from 'next/font/google';
@@ -19,6 +19,51 @@ export type AvatarList = {
 };
 
 const isDev = process.env.NODE_ENV === 'development';
+
+const people = [
+  {
+    id: 1,
+    name: 'John Doe',
+    designation: 'Software Engineer',
+    image:
+      'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80',
+  },
+  {
+    id: 2,
+    name: 'Robert Johnson',
+    designation: 'Product Manager',
+    image:
+      'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
+  },
+  {
+    id: 3,
+    name: 'Jane Smith',
+    designation: 'Data Scientist',
+    image:
+      'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
+  },
+  {
+    id: 4,
+    name: 'Emily Davis',
+    designation: 'UX Designer',
+    image:
+      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+  },
+  {
+    id: 5,
+    name: 'Tyler Durden',
+    designation: 'Soap Developer',
+    image:
+      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80',
+  },
+  {
+    id: 6,
+    name: 'Dora',
+    designation: 'The Explorer',
+    image:
+      'https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3534&q=80',
+  },
+];
 
 function HeroSection() {
   return (
@@ -49,7 +94,7 @@ function HeroSection() {
                   initial={{ opacity: 0, y: 32 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: 'easeInOut' }}
-                  className='lg:text-8xl md:text-7xl text-5xl font-medium leading-14 md:leading-20 lg:leading-24'>
+                  className='text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-medium leading-8 sm:leading-12 md:leading-16 lg:leading-20'>
                   Turning ideas into scalable{' '}
                   <span
                     className={`${instrumentSerif.className} tracking-tight`}>
@@ -91,7 +136,7 @@ function HeroSection() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2, ease: 'easeInOut' }}
-                className='flex items-center flex-col md:flex-row justify-center gap-8'>
+                className='flex items-center flex-col justify-center gap-12'>
                 <Button className='relative text-sm font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-all duration-500 hover:ps-14 hover:pe-6 w-fit overflow-hidden'>
                   <span className='relative z-10 transition-all duration-500'>
                     Get Started
@@ -100,8 +145,8 @@ function HeroSection() {
                     <ArrowUpRight size={16} />
                   </span>
                 </Button>
-                <div className='flex items-center sm:gap-7 gap-3'>
-                  <ul className='avatar flex flex-row items-center'>
+                <div className='flex items-center flex-wrap justify-center sm:gap-7 gap-3'>
+                  {/* <ul className='avatar flex flex-row items-center'>
                     {avatarList.map((avatar, index) => (
                       <li key={index} className='-mr-2 z-1 avatar-hover:ml-2'>
                         <Image
@@ -113,7 +158,10 @@ function HeroSection() {
                         />
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
+                  <div className='flex flex-row items-center justify-center w-full'>
+                    <AnimatedTooltip items={people} />
+                  </div>
                   <div className='gap-1 flex flex-col items-start'>
                     <div className='flex gap-1'>
                       {Array.from({ length: 5 }).map((_, index) => (

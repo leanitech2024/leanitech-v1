@@ -33,10 +33,10 @@ export default function AppLayout({
   return (
     <html
       lang='en'
-      className={`${lato.variable} ${nunito.variable} ${ibm_plex_mono.variable} overflow-x-hidden`}
+      className={`${lato.variable} ${nunito.variable} ${ibm_plex_mono.variable}`}
       suppressHydrationWarning>
       {/* <link rel='icon' href='/favicons/favicon.svg' /> */}
-      <body className={`font-body antialiased`}>
+      <body className={`font-body antialiased overflow-x-hidden relative`}>
         <Providers>{children}</Providers>
         <WhatsAppWidget
           number='12345'

@@ -29,7 +29,7 @@ export const metadata = siteMetadata('Home');
 
 export default function Home() {
   return (
-    <main className='pt-16 xs:pt-20 sm:pt-24'>
+    <main className='pt-16 xs:pt-20 sm:pt-16 md:pt-12 lg:pt-8'>
       <HeroSection />
       <BrandSlider />
       <AboutAndStats01 />
