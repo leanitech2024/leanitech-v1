@@ -5,7 +5,7 @@ import AboutAndStats01 from '@/features/home/components/about-us';
 import Bentogrid from '@/features/home/components/bento-grid/bentogrid';
 import BrandSlider from '@/features/home/components/brand-slider';
 import ContactUs1 from '@/features/home/components/contact-us';
-import FAQ from '@/features/home/components/faq';
+// import FAQ from '@/features/home/components/faq';
 import Faq2 from '@/features/home/components/faq/faq';
 import Feature01 from '@/features/home/components/feature';
 // import Features from '@/features/home/components/features';
@@ -38,7 +38,7 @@ export default function Home() {
       <Bentogrid />
       <Portfolio />
       {/* <Features /> */}
-      <FAQ />
+      {/* <FAQ /> */}
       <Faq2 />
       {/* <div className='relative w-full overflow-hidden bg-background/50 mb-16'>
         <TestimonialMarquee items={items} />

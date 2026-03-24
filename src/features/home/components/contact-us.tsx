@@ -65,7 +65,7 @@ export default function ContactUs1() {
 
       <div className='relative z-10'>
         <div className='backdrop-blur-sm'>
-          <div className='grid md:grid-cols-2 gap-8'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
             <div className='relative p-6 md:p-10' ref={formRef}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
