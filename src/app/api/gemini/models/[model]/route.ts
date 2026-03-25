@@ -15,7 +15,7 @@ type GeminiPayload = {
 };
 
 const validateGeminiPayload = async (
-  req: NextRequest,
+  req: Request,
   model: string,
 ): Promise<GeminiPayload> => {
   if (!geminiConfig.apiKey) {
@@ -139,7 +139,7 @@ const batchGemini = async (payload: GeminiPayload): Promise<unknown> => {
 };
 
 const handleGeminiStream = async (
-  req: NextRequest,
+  req: Request,
   model: string,
 ): Promise<Response> => {
   const payload = await validateGeminiPayload(req, model);
@@ -156,7 +156,7 @@ const handleGeminiStream = async (
 };
 
 const handleGeminiBatch = async (
-  req: NextRequest,
+  req: Request,
   model: string,
 ): Promise<NextResponse> => {
   const payload = await validateGeminiPayload(req, model);
@@ -186,19 +186,156 @@ const toErrorResponse = (err: unknown): NextResponse => {
   return NextResponse.json({ error: message }, { status });
 };
 
+import arcjet, {
+  detectBot,
+  detectPromptInjection,
+  sensitiveInfo,
+  tokenBucket,
+} from '@/lib/arcjet';
+import { findIp } from '@arcjet/ip';
+import { convertToModelMessages, isTextUIPart, UIMessage } from 'ai';
+// import { isSpoofedBot,isMissingUserAgent,isVerifiedBot } from "@arcjet/inspect";
+const isDev = process.env.NODE_ENV === 'development';
+
+const aj = arcjet
+  .withRule(
+    // Block all automated clients — bots inflate AI costs
+    detectBot({
+      mode: isDev ? 'DRY_RUN' : 'LIVE', // will block requests. Use "DRY_RUN" to log only
+      // configured with a list of bots to allow from
+      // https://arcjet.com/bot-list
+      allow: [], // blocks all automated clients
+    }),
+  )
+  .withRule(
+    // Enforce budgets to control AI costs. Adjust rates and limits as needed.
+    tokenBucket({
+      mode: isDev ? 'DRY_RUN' : 'LIVE', // Blocks requests. Use "DRY_RUN" to log only
+      refillRate: 100, // Refill 2,000 tokens per hour
+      interval: '2h', // Refill every 2 hours
+      capacity: 100, // Maximum 5,000 tokens in the bucket
+    }),
+  )
+  .withRule(
+    // Block messages containing sensitive information to prevent data leaks
+    sensitiveInfo({
+      mode: isDev ? 'DRY_RUN' : 'LIVE', // Blocks requests. Use "DRY_RUN" to log only
+      // Block PII types that should never appear in AI prompts.
+      // Remove types your app legitimately handles (e.g. EMAIL for a support bot).
+      deny: ['CREDIT_CARD_NUMBER', 'EMAIL'],
+    }),
+  )
+  .withRule(
+    // Detect prompt injection attacks before they reach your AI model
+    detectPromptInjection({
+      mode: isDev ? 'DRY_RUN' : 'LIVE', // Blocks requests. Use "DRY_RUN" to log only
+    }),
+  );
+
+type GeminiContent = {
+  id: string;
+  role: 'user' | 'system' | 'assistant';
+  parts: Array<{ text?: string }>;
+};
+function geminiToUIMessages(contents: GeminiContent[]): UIMessage[] {
+  return contents.map((c, i) => ({
+    id: 'msg-' + i,
+    // role: c.role === 'model' ? 'assistant' : 'user',
+    role: c.role === 'assistant' ? 'assistant' : 'user',
+    parts: c.parts
+      .filter((p) => typeof p.text === 'string' && p.text.length > 0)
+      .map((p) => ({ type: 'text', text: p.text! })),
+  }));
+}
+
+async function checkArcjet(req: Request) {
+  const publicIp = findIp(req) || '127.0.0.1';
+  console.log('Public IP:', publicIp);
+
+  const userId = publicIp;
+  console.log('User ID:', userId);
+
+  const payload: { contents: GeminiContent[] } = await req.json();
+
+  const uiMessages = geminiToUIMessages(payload.contents);
+  const modelMessages = await convertToModelMessages(uiMessages);
+  // console.log(modelMessages);
+
+  // Estimate token cost: ~1 token per 4 characters of text (rough heuristic).
+  // For accurate counts use https://www.npmjs.com/package/tiktoken
+  const totalChars = modelMessages.reduce((sum, m) => {
+    const content =
+      typeof m.content === 'string' ? m.content : JSON.stringify(m.content);
+    return sum + content.length;
+  }, 0);
+  const estimate = Math.ceil(totalChars / 4);
+
+  // Check the most recent user message for sensitive information and prompt injection.
+  // Pass the full conversation if you want to scan all messages.
+  const lastMessage: string = (uiMessages.at(-1)?.parts ?? [])
+    .filter(isTextUIPart)
+    .map((p) => p.text)
+    .join(' ');
+
+  return aj.protect(req, {
+    userId,
+    requested: estimate,
+    sensitiveInfoValue: lastMessage,
+    detectPromptInjectionMessage: lastMessage,
+  });
+}
+
 export async function POST(req: NextRequest, ctx: RouteContextType) {
   try {
+    const clonedRequest = req.clone();
+    const decision = await checkArcjet(req);
+
+    if (decision.isDenied()) {
+      if (
+        decision.ip.isHosting() ||
+        decision.ip.isProxy() ||
+        decision.ip.isRelay() ||
+        decision.ip.isTor() ||
+        decision.ip.isVpn()
+      ) {
+        return new Response('Forbidden', { status: 403 });
+      }
+
+      if (decision.ip.isAbuser()) {
+        return new Response('Forbidden', { status: 403 });
+      }
+
+      if (decision.reason.isBot()) {
+        return new Response('Automated clients are not permitted', {
+          status: 403,
+        });
+      } else if (decision.reason.isRateLimit()) {
+        return new Response('AI usage limit exceeded', { status: 429 });
+      } else if (decision.reason.isSensitiveInfo()) {
+        return new Response('Sensitive information detected', {
+          status: 400,
+        });
+      } else if (decision.reason.isPromptInjection()) {
+        return new Response(
+          'Prompt injection detected — please rephrase your message',
+          { status: 400 },
+        );
+      } else {
+        return new Response('Forbidden', { status: 403 });
+      }
+    }
+
     const params = await ctx.params;
     const rawModel = params.model.trim();
 
     if (rawModel.endsWith(':generateContent')) {
       const model = rawModel.slice(0, -':generateContent'.length);
-      return await handleGeminiBatch(req, model);
+      return await handleGeminiBatch(clonedRequest, model);
     }
 
     if (rawModel.endsWith(':streamGenerateContent')) {
       const model = rawModel.slice(0, -':streamGenerateContent'.length);
-      return await handleGeminiStream(req, model);
+      return await handleGeminiStream(clonedRequest, model);
     }
 
     return NextResponse.json(
