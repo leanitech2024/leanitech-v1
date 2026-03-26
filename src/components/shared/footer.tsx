@@ -57,7 +57,7 @@ export default function Footer() {
           <div className='grid grid-cols-12 gap-6'>
             <div className='col-span-12 md:col-span-7 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-100 ease-in-out fill-mode-both'>
               <h2 className='sm:text-5xl text-3xl font-medium mb-6 text-foreground'>
-                Begin your path to success contact us today.
+                Unlock your business potential with Leanitech.
               </h2>
               <Link
                 href={'#contact'}
@@ -65,7 +65,7 @@ export default function Footer() {
                   buttonVariants({ variant: 'default' }),
                   'py-3.5 px-6 rounded-full h-auto',
                 )}>
-                Get in touch
+                Connect Now
               </Link>
               {/* <Button className='py-3.5 px-6 rounded-full h-auto'>
                 Get in touch

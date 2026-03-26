@@ -22,7 +22,19 @@ const items = [
     avatar:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces',
   },
-  // ... other items
+  {
+    name: 'Ascent Wealth',
+    username: 'ascentwealth',
+    text: 'The team did an exceptional job building our website, Ascent Wealth. For a financial services brand, clarity and credibility are everything — and they’ve managed to bring both together seamlessly. The website is clean, structured, and communicates our offerings with precision while still feeling premium. It truly reflects the way we work with our clients.',
+    avatar:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces',
+  },
+  // {
+  //   name: '',
+  //   username: 'john_doe',
+  //   text: '',
+  //   avatar: '',
+  // },
 ];
 
 export const metadata = siteMetadata('Home');

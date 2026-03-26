@@ -1,8 +1,11 @@
 import { findIp } from '@arcjet/ip';
+import { Logger } from '@arcjet/logger';
 import arcjet, { createMiddleware } from '@arcjet/next';
 import type { NextRequest, ProxyConfig } from 'next/server';
 import { NextResponse } from 'next/server';
 import { filter } from './lib/arcjet';
+
+const log = new Logger({ level: 'info' });
 
 // Get your Arcjet key at <https://app.arcjet.com>.
 // Set it as an environment variable instead of hard coding it.
@@ -36,7 +39,8 @@ const aj = arcjet({
 function proxy(request: NextRequest) {
   // return NextResponse.redirect(new URL('/home', request.url));
   const ip = request.headers.get('x-forwarded-for') || findIp(request);
-  console.log('Client IP:', ip);
+  // console.log('Client IP:', ip);
+  log.debug('Client IP:', ip);
 
   return NextResponse.next();
 }
