@@ -72,7 +72,7 @@ export default function WorldMap({
   */
 
   return (
-    <div className='w-full aspect-2/1 md:aspect-2.5/1 lg:aspect-2/1 dark:bg-black bg-white rounded-lg relative font-sans overflow-hidden'>
+    <div className='w-full aspect-2/1 md:aspect-2.5/1 lg:aspect-2/1 bg-muted-background rounded-lg relative font-sans overflow-hidden'>
       <Image
         src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
         className='h-full w-full mask-[linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)] pointer-events-none select-none object-cover'

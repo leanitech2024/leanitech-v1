@@ -62,7 +62,9 @@ const faqItems = [
 
 export default function FAQsTwo() {
   return (
-    <section className='py-16 md:py-24 max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'>
+    <section
+      id='faqs'
+      className='py-16 md:py-24 max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'>
       <div className='mx-auto max-w-xl text-center'>
         <h2 className='text-balance text-3xl font-bold md:text-4xl lg:text-5xl'>
           Frequently Asked Questions

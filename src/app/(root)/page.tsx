@@ -1,10 +1,10 @@
 import CTA from '@/components/shared/cta';
 import { TestimonialMarquee } from '@/components/shared/testimonial-marquee';
 import { siteMetadata } from '@/constants/seo';
+import { ContactBlock } from '@/features/contact/components/contact';
 import AboutAndStats01 from '@/features/home/components/about-us';
 import Bentogrid from '@/features/home/components/bento-grid/bentogrid';
 import BrandSlider from '@/features/home/components/brand-slider';
-import ContactUs1 from '@/features/home/components/contact-us';
 // import FAQ from '@/features/home/components/faq';
 import Faq2 from '@/features/home/components/faq/faq';
 import Feature01 from '@/features/home/components/feature';
@@ -69,7 +69,7 @@ export default function Home() {
       </div> */}
       {/* <Testimonials /> */}
       <CTA />
-      <ContactUs1 />
+      <ContactBlock />
     </main>
   );
 }

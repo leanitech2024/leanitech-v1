@@ -35,9 +35,9 @@ const Header = ({ className }: HeaderProps) => {
   const pathname = usePathname();
 
   const isHomePage = pathname === '/';
-  const isAboutPage = pathname === '/about';
-  const isBlogPage = pathname === '/blogs';
-  const isPortfolioPage = pathname === '/portfolios';
+  // const isAboutPage = pathname === '/about';
+  // const isBlogPage = pathname === '/blogs';
+  // const isPortfolioPage = pathname === '/portfolios';
   // const isContactPage = pathname === '/contact';
 
   const handleScroll = useCallback(() => {
@@ -51,6 +51,14 @@ const Header = ({ className }: HeaderProps) => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [handleScroll]);
+
+  // remove #features and #faqs if not on home page
+  const filteredNavigations = navigations.filter((nav) => {
+    if (!isHomePage) {
+      return nav.href !== '#features' && nav.href !== '#faqs';
+    }
+    return true;
+  });
 
   return (
     <motion.header
@@ -81,23 +89,24 @@ const Header = ({ className }: HeaderProps) => {
         <div>
           <NavigationMenu className='max-xl:hidden bg-muted p-0.5 rounded-full'>
             <NavigationMenuList className='flex gap-0'>
-              {navigations.map((navItem) => (
+              {filteredNavigations.map((navItem) => (
                 <NavigationMenuItem key={navItem.title}>
                   <NavigationMenuLink
                     active={
-                      pathname === navItem.href ||
-                      (isHomePage && navItem.href === '/') ||
-                      (isAboutPage && navItem.href === '/about') ||
-                      (isBlogPage && navItem.href === '/blogs') ||
-                      (isPortfolioPage && navItem.href === '/portfolios')
+                      // pathname === navItem.href ||
+                      // (isHomePage && navItem.href === '/') ||
+                      // (isAboutPage && navItem.href === '/about') ||
+                      // (isBlogPage && navItem.href === '/blogs') ||
+                      // (isPortfolioPage && navItem.href === '/portfolios')
+                      pathname === navItem.href
                     }
                     asChild
                     className={cn(
                       'px-2 lg:px-4 py-2 text-sm font-medium rounded-full text-muted-foreground hover:text-foreground hover:bg-background outline outline-transparent hover:outline-border hover:shadow-xs transition tracking-normal',
                       // navItem.isActive ? 'bg-background text-foreground' : '',
-                      // pathname === navItem.href
-                      //   ? 'bg-background text-foreground'
-                      //   : '',
+                      pathname === navItem.href
+                        ? 'bg-background text-foreground'
+                        : '',
                       // pathname === '/' ||
                       //   pathname === '/about' ||
                       //   pathname === '/blogs' ||

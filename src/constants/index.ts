@@ -26,7 +26,7 @@ export const navigations: NavigationSection[] = [
   },
   {
     title: 'Portfolios',
-    href: '#portfolios',
+    href: 'portfolios',
   },
   {
     title: 'Faqs',
@@ -38,7 +38,7 @@ export const navigations: NavigationSection[] = [
   },
   {
     title: 'Contact',
-    href: '#contact',
+    href: '/contact',
   },
 ];
 
