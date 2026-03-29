@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { useMasonaryItems } from '../hooks/use-items-v1';
+import { useMasonaryItems } from '../hooks/use-masonary-items';
 // import { useItems } from '../hooks/use-items';
 
 export interface ControlsData {

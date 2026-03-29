@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { LucideIcon, Plus } from 'lucide-react';
+import { LucideIcon, PercentIcon, PlusIcon } from 'lucide-react';
 import { motion, useInView, useSpring, useTransform } from 'motion/react';
 import { Instrument_Serif } from 'next/font/google';
 import { useEffect, useRef } from 'react';
@@ -33,6 +33,7 @@ function AnimatedCounter({
   const springValue = useSpring(0, {
     bounce: 0,
     duration: 2000,
+    // stiffness: 100,
   });
 
   const displayValue = useTransform(springValue, (current) =>
@@ -40,10 +41,23 @@ function AnimatedCounter({
   );
 
   useEffect(() => {
-    if (isInView) {
-      springValue.set(value);
+    if (!isInView) {
+      springValue.jump(0); // reset immediately when leaving viewport
+      return;
     }
+
+    const raf = requestAnimationFrame(() => {
+      springValue.set(value); // animate 0 -> value on enter
+    });
+
+    return () => cancelAnimationFrame(raf);
   }, [isInView, value, springValue]);
+
+  // useEffect(() => {
+  //   if (isInView || !springValue.isAnimating()) {
+  //     springValue.set(value);
+  //   }
+  // }, [isInView, value, springValue]);
 
   return <motion.span>{displayValue}</motion.span>;
 }
@@ -100,7 +114,7 @@ function AboutUs({
         </motion.div>
         <div
           ref={statsRef}
-          className='w-full grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-0'>
+          className='w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-1 sm:gap-0'>
           {statisticsCounter?.map((value, index) => {
             return (
               <div
@@ -110,10 +124,18 @@ function AboutUs({
                   <div className='hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-40 bg-border' />
                 )}
                 <div className='flex gap-0 sm:gap-2 text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-medium'>
-                  <Plus
-                    strokeWidth={3.5}
-                    className='w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12'
-                  />
+                  {index === 3 ? (
+                    <PercentIcon
+                      strokeWidth={3.5}
+                      className='w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12'
+                    />
+                  ) : (
+                    <PlusIcon
+                      strokeWidth={3.5}
+                      className='w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12'
+                    />
+                  )}
+
                   <AnimatedCounter value={value.count} isInView={isInView} />
                 </div>
                 <p className='text-base font-normal text-muted-foreground text-center'>
