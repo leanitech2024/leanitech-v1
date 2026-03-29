@@ -10,7 +10,7 @@ import Faq2 from '@/features/home/components/faq/faq';
 import Feature01 from '@/features/home/components/feature';
 // import Features from '@/features/home/components/features';
 import HeroSection from '@/features/home/components/hero';
-import Portfolio from '@/features/home/components/portfolio/portfolio';
+import Portfolios from '@/features/home/components/portfolios/portfolio';
 // import Services from '@/features/home/components/services/services';
 // import Testimonials from '@/features/home/components/testimonials';
 
@@ -48,7 +48,7 @@ export default function Home() {
       {/* <Services /> */}
       <Feature01 />
       <Bentogrid />
-      <Portfolio />
+      <Portfolios />
       {/* <Features /> */}
       {/* <FAQ /> */}
       <Faq2 />

@@ -34,6 +34,12 @@ const Header = ({ className }: HeaderProps) => {
 
   const pathname = usePathname();
 
+  const isHomePage = pathname === '/';
+  const isAboutPage = pathname === '/about';
+  const isBlogPage = pathname === '/blogs';
+  const isPortfolioPage = pathname === '/portfolios';
+  // const isContactPage = pathname === '/contact';
+
   const handleScroll = useCallback(() => {
     setSticky(window.scrollY >= 50);
   }, []);
@@ -56,7 +62,7 @@ const Header = ({ className }: HeaderProps) => {
         'inset-x-0 z-50 px-4 flex items-center justify-center sticky top-0 h-20',
         className,
       )}>
-      <div
+      <nav
         className={cn(
           'w-full max-w-6xl flex items-center h-fit justify-between gap-3.5 lg:gap-6 transition-all duration-500',
           sticky
@@ -78,13 +84,26 @@ const Header = ({ className }: HeaderProps) => {
               {navigations.map((navItem) => (
                 <NavigationMenuItem key={navItem.title}>
                   <NavigationMenuLink
+                    active={
+                      pathname === navItem.href ||
+                      (isHomePage && navItem.href === '/') ||
+                      (isAboutPage && navItem.href === '/about') ||
+                      (isBlogPage && navItem.href === '/blogs') ||
+                      (isPortfolioPage && navItem.href === '/portfolios')
+                    }
                     asChild
                     className={cn(
                       'px-2 lg:px-4 py-2 text-sm font-medium rounded-full text-muted-foreground hover:text-foreground hover:bg-background outline outline-transparent hover:outline-border hover:shadow-xs transition tracking-normal',
                       // navItem.isActive ? 'bg-background text-foreground' : '',
-                      pathname === navItem.href
-                        ? 'bg-background text-foreground'
-                        : '',
+                      // pathname === navItem.href
+                      //   ? 'bg-background text-foreground'
+                      //   : '',
+                      // pathname === '/' ||
+                      //   pathname === '/about' ||
+                      //   pathname === '/blogs' ||
+                      //   pathname === '/portfolios'
+                      //   ? 'bg-background text-foreground'
+                      //   : '',
                     )}>
                     <Link href={navItem.href}>{navItem.title}</Link>
                   </NavigationMenuLink>
@@ -105,7 +124,7 @@ const Header = ({ className }: HeaderProps) => {
             <LazyMobileMenu />
           </div>
         </div>
-      </div>
+      </nav>
     </motion.header>
   );
 };

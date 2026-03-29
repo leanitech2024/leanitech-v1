@@ -28,7 +28,7 @@ const statisticsCounter = [
   },
   {
     title: 'Years of Experience',
-    count: 3,
+    count: 5,
   },
   {
     title: 'Satisfied Clients',

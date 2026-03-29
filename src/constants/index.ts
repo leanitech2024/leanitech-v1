@@ -18,15 +18,15 @@ export const navigations: NavigationSection[] = [
   },
   {
     title: 'Services',
-    href: '#services',
+    href: '/services',
   },
   {
     title: 'Features',
     href: '#features',
   },
   {
-    title: 'Portfolio',
-    href: '#portfolio',
+    title: 'Portfolios',
+    href: '#portfolios',
   },
   {
     title: 'Faqs',

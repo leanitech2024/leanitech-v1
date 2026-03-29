@@ -1,4 +1,3 @@
-import AndroidMockDevice from '@/components/extends/android-mock-device';
 import { Badge } from '@/components/ui/badge';
 import AnimatedUiBlock from './AnimatedUiBlock';
 import ReminderAnimation from './ReminderAnimation';
@@ -64,10 +63,22 @@ const Bentogrid = () => {
                 <div className='p-0 bg-muted rounded-t-xl h-full w-full flex-1 flex items-center justify-center'>
                   {/* <AppDevelopment /> */}
                   <div className='relative aspect-video lg:aspect-square h-full w-full'>
-                    <AndroidMockDevice
+                    {/* <AndroidMockDevice
                       className='w-full h-full'
                       src='https://images.unsplash.com/photo-1730326405863-c6fa7e499a6e?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                    />
+                    /> */}
+                    {/* <video className="w-full h-auto" muted={true} loop={true}>
+                      <source src="/showcase/hero.webm" type="video/webm">
+                        <source src="/showcase/hero.mp4" type="video/mp4">
+                        </video> */}
+                    <video
+                      className='w-full h-full'
+                      muted={true}
+                      loop={true}
+                      autoPlay={true}
+                      playsInline={true}>
+                      <source src='/videos/hero.webm' type='video/webm' />
+                    </video>
                   </div>
                 </div>
                 <div className='flex flex-col gap-0.5 p-8 border-t border-border'>
