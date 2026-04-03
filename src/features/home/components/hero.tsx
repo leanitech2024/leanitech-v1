@@ -94,12 +94,12 @@ function HeroSection() {
                 <motion.h1
                   initial={{ opacity: 0, y: 32 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, ease: 'easeInOut' }}
-                  className='text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-medium leading-4 sm:leading-8 md:leading-12 xl:leading-20 text-wrap'>
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  className='text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-medium leading-tight sm:leading-8 md:leading-12 lg:leading-24 xl:leading-28 text-wrap'>
                   Turning ideas into scalable{' '}
                   <TypingAnimation
                     as='span'
-                    className={`${instrumentSerif.className} tracking-tight block md:inline`}
+                    className={`${instrumentSerif.className} leading-8 sm:leading-12 md:leading-20 tracking-tight block md:inline`}
                     words={[
                       'digital solutions.',
                       'web applications.',
@@ -174,7 +174,7 @@ function HeroSection() {
                   <div className='flex flex-row items-center justify-center w-full'>
                     <AnimatedTooltip items={people} />
                   </div>
-                  <div className='gap-1 flex flex-col items-start'>
+                  <div className='gap-1 flex flex-col items-center'>
                     <div className='flex gap-1'>
                       {Array.from({ length: 5 }).map((_, index) => (
                         <Image

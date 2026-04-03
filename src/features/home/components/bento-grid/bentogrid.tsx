@@ -98,7 +98,9 @@ const Bentogrid = () => {
               <div className='rounded-xl border border-border flex flex-col'>
                 <div className='p-0 bg-muted rounded-t-xl flex-1 flex items-center justify-center'>
                   <div
-                    className={'aspect-video lg:aspect-square w-full h-full'}>
+                    className={
+                      'aspect-square sm:aspect-video lg:aspect-square w-full h-full'
+                    }>
                     <SecureSolutionsBeam />
                   </div>
                 </div>
@@ -120,7 +122,9 @@ const Bentogrid = () => {
               <div className='rounded-xl border border-border flex flex-col'>
                 <div className='p-0 bg-muted h-full w-full rounded-t-xl flex-1 flex items-center justify-center relative'>
                   <div
-                    className={'aspect-video lg:aspect-square w-full h-full'}>
+                    className={
+                      'aspect-square sm:aspect-14/9 lg:aspect-square w-full h-full'
+                    }>
                     <SeoOrbitingCircles />
                   </div>
                 </div>

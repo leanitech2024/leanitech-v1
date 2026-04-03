@@ -124,12 +124,12 @@ const Header = ({ className }: HeaderProps) => {
 
         {/* Desktop CTA */}
         <div className='flex items-center gap-4'>
-          <AnimatedThemeToggler className='hidden lg:flex' />
-          <CollaborateButton className='hidden lg:flex'>
+          <AnimatedThemeToggler className='hidden xl:flex' />
+          <CollaborateButton className='hidden xl:flex'>
             Let&apos;s Collaborate
           </CollaborateButton>
 
-          <div className='lg:hidden flex items-center'>
+          <div className='xl:hidden flex items-center'>
             <LazyMobileMenu />
           </div>
         </div>

@@ -228,7 +228,7 @@ export function TestimonialMarquee({
       ) : variant === 'stacked' ? (
         <div
           className={cn(
-            'flex flex-col gap-2 py-8 overflow-hidden h-150 justify-center -rotate-2 scale-110',
+            'flex flex-col gap-2 py-8 overflow-hidden h-full justify-center -rotate-2 scale-110',
             containerClassName,
           )}>
           <div className='absolute inset-0 z-10 bg-linear-to-r from-background via-transparent to-background pointer-events-none' />
@@ -260,7 +260,8 @@ export function TestimonialMarquee({
             direction='left'
             className='[--gap:0.75rem]'>
             {itemsToDisplay
-              .slice(Math.ceil(itemsToDisplay.length / 3) * 2)
+              // .slice(Math.ceil(itemsToDisplay.length / 3) * 2)
+              .slice(Math.ceil(itemsToDisplay.length / 3))
               .map((item, i) => (
                 <TestimonialCard key={`s-row3-${i}`} item={item} />
               ))}

@@ -1,10 +1,12 @@
 import WorldMap from '@/components/extends/global-nextwork-map';
 import { ContactBlock } from '@/features/contact/components/contact';
-import ContactUs1 from '@/features/contact/components/contact-us';
+// import ContactUs1 from '@/features/contact/components/contact-us';
 
 export default function ContactUs() {
   return (
-    <main className='py-16 xs:py-20 sm:py-16 md:py-12 lg:py-8 space-y-8'>
+    <main className='py-16 xs:py-20 sm:py-16 md:py-12 lg:py-8 space-y-8 md:space-y-12 lg:space-y-16'>
+      <ContactBlock />
+
       <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
         <div className='max-w-7xl mx-auto text-center'>
           <p className='font-bold text-xl md:text-4xl dark:text-white text-black'>
@@ -90,13 +92,23 @@ export default function ContactUs() {
                 label: 'Nairobi',
               },
             },
+            {
+              start: {
+                lat: 28.6139,
+                lng: 77.209,
+                label: 'New Delhi',
+              },
+              end: {
+                lat: -43.8688,
+                lng: 145.2093,
+                label: 'Australia',
+              },
+            },
           ]}
         />
       </section>
 
-      <ContactBlock />
-
-      <ContactUs1 />
+      {/* <ContactUs1 /> */}
     </main>
   );
 }

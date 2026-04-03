@@ -31,14 +31,14 @@ const contactInfo = [
 
 export function ContactBlock() {
   return (
-    <section className='relative max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 w-full overflow-hidden bg-background py-12 sm:py-16 md:py-20 lg:py-24'>
+    <section className='relative max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 w-full lg:py-16 overflow-hidden bg-background'>
       <div className='w-full'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className='mb-12 sm:mb-16 md:mb-20 text-center'>
+          className='mb-8 sm:mb-12 md:mb-16 text-center'>
           <h2 className='mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl'>
             Get In Touch
           </h2>
