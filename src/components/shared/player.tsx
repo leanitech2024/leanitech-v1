@@ -11,6 +11,7 @@ interface MyPlayerProps {
   src: string;
   width: number;
   height: number;
+  isInView?: boolean;
 }
 
 export const MyPlayer = ({ src, width, height }: MyPlayerProps) => {

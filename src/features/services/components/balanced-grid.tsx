@@ -1,16 +1,15 @@
 'use client';
 
-import { MyPlayer } from '@/components/shared/player';
 import { Frame, BalancedMasonryGrid as MasonryGrid } from '@masonry-grid/react';
-import GLightbox from 'glightbox';
-import 'glightbox/dist/css/glightbox.css';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useInView } from 'motion/react';
+import { CldImage } from 'next-cloudinary';
+import { useRef, useState } from 'react';
+
+import { MyPlayer } from '@/components/shared/player';
 
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { useMasonaryItems } from '../hooks/use-masonary-items';
-// import { useItems } from '../hooks/use-items';
 
 export interface ControlsData {
   itemsCount: number;
@@ -31,6 +30,7 @@ type BalancedGridProps =
         imgSrc: string;
         width: number;
         height: number;
+        public_id: string;
       }[];
       srcType: 'image';
     }
@@ -40,6 +40,7 @@ type BalancedGridProps =
         videoSrc: string;
         width: number;
         height: number;
+        public_id: string;
       }[];
       srcType: 'video';
     };
@@ -51,7 +52,7 @@ export const defaultControlsData: ControlsData = {
   containerWidth: 100,
 };
 
-function Controls({ data, onChange }: ControlsProps) {
+export function Controls({ data, onChange }: ControlsProps) {
   const handleChange = (key: keyof ControlsData, value: number) => {
     onChange({ ...data, [key]: value });
   };
@@ -121,68 +122,40 @@ function Controls({ data, onChange }: ControlsProps) {
   );
 }
 
-const initLightbox = () => {
-  return GLightbox({
-    autoplayVideos: false,
-    closeEffect: 'fade',
-    closeButton: true,
-    closeOnOutsideClick: true,
-    descPosition: 'bottom',
-    draggable: true,
-    dragAutoSnap: true,
-    keyboardNavigation: true,
-    loop: true,
-    openEffect: 'fade', // fade, bounce, slide, none
-    selector: '.glightbox',
-    slideEffect: 'slide',
-    touchNavigation: true,
-    touchFollowAxis: true,
-    width: '100%',
-    height: '100%',
-    zoomable: true,
-    // slideHTML: `
-    //   <div class="gslide">
-    //     <div class="gslide-inner-content">
-    //       <div class="ginner-container">
-    //         <div class="gslide-media">
-    //           <video class="gvideo" controls>
-    //             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-    //             Your browser does not support the video tag.
-    //           </video>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // `,
-  });
-};
-
 export default function BalancedGrid(props: BalancedGridProps) {
   const { data, srcType } = props;
 
-  const [controlsData, setControlsData] = useState<ControlsData>({
+  const [controlsData] = useState<ControlsData>({
     itemsCount: data.length,
     frameWidth: 200,
     gap: 10,
     containerWidth: 100,
   });
 
+  const masonaryRef = useRef<HTMLDivElement | null>(null);
+
+  const inView = useInView(masonaryRef, {
+    margin: '-200px',
+    once: false,
+    initial: true,
+  });
   const items = useMasonaryItems(controlsData.itemsCount, data);
 
-  useEffect(() => {
-    const lightbox = initLightbox();
+  // useEffect(() => {
+  //   const lightbox = initLightbox();
 
-    return () => {
-      lightbox.destroy();
-    };
-  }, []);
+  //   return () => {
+  //     lightbox.destroy();
+  //   };
+  // }, []);
 
   if (srcType === 'video') {
     return (
       <div className='container space-y-8'>
-        <Controls onChange={setControlsData} data={controlsData} />
+        {/* <Controls onChange={setControlsData} data={controlsData} /> */}
 
         <MasonryGrid
+          // ref={masonaryContainerRef}
           className='container'
           gap={controlsData.gap}
           frameWidth={controlsData.frameWidth}
@@ -193,13 +166,15 @@ export default function BalancedGrid(props: BalancedGridProps) {
               className='frame'
               width={width}
               height={height}
-              style={{ backgroundColor: 'transparent' }}>
+              // style={{ backgroundColor: 'transparent' }}
+            >
               {/* <MyPlayer src='https://stream.mux.com/BV3YZtogl89mg9VcNBhhnHm02Y34zI1nlMuMQfAbl3dM/highest.mp4' /> */}
               <MyPlayer
                 id={id}
                 src={data[i % data.length].videoSrc}
                 width={width}
                 height={height}
+                isInView={inView}
               />
             </Frame>
           ))}
@@ -209,8 +184,8 @@ export default function BalancedGrid(props: BalancedGridProps) {
   }
 
   return (
-    <div className='container space-y-8'>
-      <Controls onChange={setControlsData} data={controlsData} />
+    <div ref={masonaryRef} className='container space-y-8'>
+      {/* <Controls onChange={setControlsData} data={controlsData} /> */}
 
       <MasonryGrid
         className='container'
@@ -220,35 +195,19 @@ export default function BalancedGrid(props: BalancedGridProps) {
         {items.map(({ width, height, id }, i) => (
           <Frame
             key={id}
+            // style={{ backgroundColor: 'transparent' }}
             className='frame'
             width={width}
-            height={height}
-            style={{ backgroundColor: 'transparent' }}>
-            <a
-              key={id}
-              href={data[i % data.length].imgSrc}
-              className='glightbox glightbox-mobile'
-              // data-title='My title'
-              // data-description='description here'
-              // data-desc-position='right'
-              // data-type='image'
-              data-effect='fade'
-              // data-width='900px'
-              // data-height='auto'
-              data-zoomable='true'
-              data-draggable='false'
-              data-title={`Photo ${i + 1}`}
-              data-description={`This is the description for photo ${i + 1}.`}
-              data-type='image'
-              data-glightbox={'type: image'}>
-              <Image
-                src={data[i % data.length].imgSrc}
-                alt={`Photo ${i + 1}`}
-                width={width}
-                height={height}
-                className={'w-full h-full'}
-              />
-            </a>
+            height={height}>
+            <CldImage
+              width={width}
+              height={height}
+              src={data[i % data.length].public_id}
+              className={'w-full h-full'}
+              loading={inView ? 'eager' : 'lazy'}
+              sizes='100vw'
+              alt='Description of my image'
+            />
           </Frame>
         ))}
       </MasonryGrid>

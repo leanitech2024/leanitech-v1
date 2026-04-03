@@ -43,6 +43,7 @@ export async function getResoursesByFolder(folder: string) {
       imgSrc: string;
       width: number;
       height: number;
+      public_id: string;
     }[] = [];
     response.resources.map((resource) => {
       result.push({
@@ -50,6 +51,7 @@ export async function getResoursesByFolder(folder: string) {
         imgSrc: resource.secure_url,
         width: resource.width,
         height: resource.height,
+        public_id: resource.public_id,
       });
     });
 

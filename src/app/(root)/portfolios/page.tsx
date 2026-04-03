@@ -364,7 +364,7 @@ export const portfolios: PortfolioItem[] = [
   },
 ];
 
-export default async function PortfoliosPage() {
+export default function PortfoliosPage() {
   // Home > leaniech-v1 > portfolios = clodinary folder name
   // const result = await getResoursesByFolder('leanitech-v1/video work');
   // console.log('Cloudinary Resources:', JSON.stringify(result, null, 2));

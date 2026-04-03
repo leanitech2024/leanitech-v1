@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useRef, useState } from 'react';
 
-export function useInView(ref: RefObject<HTMLElement | null>, once = true) {
+export function useInView(ref: RefObject<HTMLDivElement | null>, once = true) {
   const [inView, setInView] = useState(false);
   const triggered = useRef(false);
 
