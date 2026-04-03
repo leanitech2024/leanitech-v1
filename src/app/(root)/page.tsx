@@ -11,6 +11,7 @@ import Feature01 from '@/features/home/components/feature';
 // import Features from '@/features/home/components/features';
 import HeroSection from '@/features/home/components/hero';
 import Portfolios from '@/features/home/components/portfolios/portfolio';
+import TechStacks from '@/features/home/components/tech-stacks';
 // import Services from '@/features/home/components/services/services';
 // import Testimonials from '@/features/home/components/testimonials';
 
@@ -107,6 +108,7 @@ export default function Home() {
       <Portfolios />
       {/* <Features /> */}
       {/* <FAQ /> */}
+      <TechStacks />
       <Faq2 />
       {/* <div className='relative w-full overflow-hidden bg-background/50 mb-16'>
         <TestimonialMarquee items={items} />
