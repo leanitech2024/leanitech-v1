@@ -129,7 +129,7 @@ const Header = ({ className }: HeaderProps) => {
             Let&apos;s Collaborate
           </CollaborateButton>
 
-          <div className='xl:hidden flex items-center'>
+          <div className='flex items-center xl:hidden'>
             <LazyMobileMenu />
           </div>
         </div>
@@ -143,7 +143,7 @@ export default Header;
 export const LazyMobileMenu = dynamic(() => import('./mobile-menu'), {
   ssr: false,
   loading: () => (
-    <span className='rounded-full border border-border p-2 block opacity-0'>
+    <span className='block p-2 border rounded-full opacity-0 border-border'>
       <Icon icon='solar:hamburger-menu-linear' width={20} height={20} />
     </span>
   ),

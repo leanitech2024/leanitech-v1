@@ -3,6 +3,7 @@
 import SplashCursor from '@/components/backgrounds/animations/splash-cursor';
 import { AnimatedTooltip } from '@/components/extends/animated-tooltip';
 import { TypingAnimation } from '@/components/extends/typing-animation';
+import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
 import { Button } from '@/components/ui/button';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -71,9 +72,9 @@ function HeroSection() {
     <section
       id='home'
       className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
-      <div className='w-full h-full relative'>
+      <div className='relative w-full h-full'>
         {!isDev && (
-          <div className='absolute inset-0 -z-1 pointer-events-none'>
+          <div className='absolute inset-0 pointer-events-none -z-1'>
             <SplashCursor
               SIM_RESOLUTION={128}
               DYE_RESOLUTION={1440}
@@ -87,78 +88,88 @@ function HeroSection() {
             />
           </div>
         )}
-        <div className='relative w-full pt-0 md:pt-20 pb-6 md:pb-10 before:absolute before:w-full before:h-full before:bg-linear-to-r before:from-sky-100 before:via-white before:to-amber-100 before:rounded-full before:top-24 before:blur-3xl before:-z-10 dark:before:from-slate-800 dark:before:via-black dark:before:to-stone-700 dark:before:rounded-full dark:before:blur-3xl dark:before:-z-10'>
-          <div className='container mx-auto relative z-10'>
-            <div className='flex flex-col max-w-5xl mx-auto gap-8'>
-              <div className='relative flex flex-col text-center items-center gap-4 md:gap-6'>
+        <div className='relative w-full pt-0 pb-6 md:pt-20 md:pb-10 before:absolute before:w-full before:h-full before:bg-linear-to-r before:from-sky-100 before:via-white before:to-amber-100 before:rounded-full before:top-24 before:blur-3xl before:-z-10 dark:before:from-slate-800 dark:before:via-black dark:before:to-stone-700 dark:before:rounded-full dark:before:blur-3xl dark:before:-z-10'>
+          <div className='container relative z-10 mx-auto'>
+            <div className='flex flex-col max-w-5xl gap-8 mx-auto'>
+              <div className='relative flex flex-col items-center gap-4 text-center md:gap-6'>
                 <motion.h1
                   initial={{ opacity: 0, y: 32 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: 'easeInOut' }}
-                  className='text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-medium leading-tight sm:leading-8 md:leading-12 lg:leading-24 xl:leading-28 text-wrap'>
-                  Turning ideas into scalable{' '}
-                  <TypingAnimation
-                    as='span'
-                    className={`${instrumentSerif.className} leading-8 sm:leading-12 md:leading-20 tracking-tight block md:inline`}
-                    words={[
-                      'digital solutions.',
-                      'web applications.',
-                      'software products.',
-                      'digital success.',
-                    ]}
-                    loop
-                  />
+                  className='text-3xl font-medium leading-tight sm:text-4xl md:text-6xl lg:text-8xl sm:leading-8 md:leading-12 lg:leading-24 xl:leading-28 text-wrap'>
+                  <AfterBeforeWrapper>
+                    Turning ideas into scalable
+                  </AfterBeforeWrapper>{' '}
+                  <AfterBeforeWrapper className='pb-2'>
+                    <TypingAnimation
+                      as='span'
+                      className={`${instrumentSerif.className} leading-8 sm:leading-12 md:leading-20 tracking-tight block md:inline`}
+                      words={[
+                        'digital solutions.',
+                        'web applications.',
+                        'software products.',
+                        'digital success.',
+                      ]}
+                      loop
+                    />
+                  </AfterBeforeWrapper>
                   {/* <span
                     className={`${instrumentSerif.className} tracking-tight`}>
                     digital success
                   </span> */}
                 </motion.h1>
-                <motion.blockquote
-                  initial={{ opacity: 0, y: 32 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.05, ease: 'easeInOut' }}
-                  className='text-base font-normal max-w-4xl text-muted-foreground border-l-2 pl-6 italic'>
-                  {/* <blockquote className='mt-6 border-l-2 pl-6 italic'>
+                <AfterBeforeWrapper>
+                  <motion.blockquote
+                    initial={{ opacity: 0, y: 32 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.05, ease: 'easeInOut' }}
+                    className='max-w-4xl pl-6 text-base italic font-normal text-muted-foreground'>
+                    {/* <blockquote className='pl-6 mt-6 italic border-l-2'>
                     &quot;After all,&quot; he said, &quot;everyone enjoys a good
                     joke, so it&apos;s only fair that they should pay for the
                     privilege.&quot;
                   </blockquote> */}
-                  <p>
-                    &quot;At Leanitech, we empower startups and enterprises to
-                    solve complex business challenges through innovative
-                    software, modern web development, and data-driven digital
-                    strategies
-                  </p>
-                  <cite>
-                    &mdash;guiding you from idea to impactful success.&quot;
-                  </cite>
-                </motion.blockquote>
+
+                    <p>
+                      &quot;At Leanitech, we empower startups and enterprises to
+                      solve complex business challenges through innovative
+                      software, modern web development, and data-driven digital
+                      strategies
+                    </p>
+                    <cite>
+                      &mdash;guiding you from idea to impactful success.&quot;
+                    </cite>
+                  </motion.blockquote>
+                </AfterBeforeWrapper>
                 {/* <motion.p
                   initial={{ opacity: 0, y: 32 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.1, ease: 'easeInOut' }}
-                  className='text-base font-normal max-w-2xl text-muted-foreground'>
+                  className='max-w-2xl text-base font-normal text-muted-foreground'>
                   At Leanitech, we empower startups and enterprises to solve
                   complex business challenges through innovative software,
                   modern web development, and data-driven digital
                   strategies—guiding you from idea to impactful success.
                 </motion.p> */}
               </div>
+
               <motion.div
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2, ease: 'easeInOut' }}
-                className='flex items-center flex-col justify-center gap-12'>
-                <Button className='relative text-sm font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-all duration-500 hover:ps-14 hover:pe-6 w-fit overflow-hidden'>
-                  <span className='relative z-10 transition-all duration-500'>
-                    Get Started
-                  </span>
-                  <span className='absolute right-1 w-10 h-10 bg-background text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)] group-hover:rotate-45'>
-                    <ArrowUpRight size={16} />
-                  </span>
-                </Button>
-                <div className='flex items-center flex-wrap justify-center sm:gap-7 gap-3'>
-                  {/* <ul className='avatar flex flex-row items-center'>
+                className='flex flex-col items-center justify-center gap-12'>
+                <AfterBeforeWrapper>
+                  <Button className='relative h-12 p-1 overflow-hidden text-sm font-medium transition-all duration-500 rounded-full ps-6 pe-14 group hover:ps-14 hover:pe-6 w-fit'>
+                    <span className='relative z-10 transition-all duration-500'>
+                      Get Started
+                    </span>
+                    <span className='absolute right-1 w-10 h-10 bg-background text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)] group-hover:rotate-45'>
+                      <ArrowUpRight size={16} />
+                    </span>
+                  </Button>
+                </AfterBeforeWrapper>
+                <div className='flex flex-wrap items-center justify-center gap-3 sm:gap-7'>
+                  {/* <ul className='flex flex-row items-center avatar'>
                     {avatarList.map((avatar, index) => (
                       <li key={index} className='-mr-2 z-1 avatar-hover:ml-2'>
                         <Image
@@ -166,31 +177,39 @@ function HeroSection() {
                           alt='Avatar'
                           width={40}
                           height={40}
-                          className='rounded-full border-2 border-white'
+                          className='border-2 border-white rounded-full'
                         />
                       </li>
                     ))}
                   </ul> */}
-                  <div className='flex flex-row items-center justify-center w-full'>
-                    <AnimatedTooltip items={people} />
-                  </div>
-                  <div className='gap-1 flex flex-col items-center'>
-                    <div className='flex gap-1'>
-                      {Array.from({ length: 5 }).map((_, index) => (
-                        <Image
-                          key={index}
-                          src='https://images.shadcnspace.com/assets/svgs/icon-star.svg'
-                          alt='star'
-                          className='h-4 w-4'
-                          width={16}
-                          height={16}
-                        />
-                      ))}
+                  <AfterBeforeWrapper>
+                    <div className='flex flex-row items-center justify-center w-full py-2'>
+                      <AnimatedTooltip items={people} />
                     </div>
-                    <p className='sm:text-sm text-xs font-normal text-muted-foreground'>
-                      Trusted by 1000+ clients
-                    </p>
-                  </div>
+
+                    <div className='flex flex-col items-center gap-2'>
+                      <AfterBeforeWrapper>
+                        <div className='flex gap-1'>
+                          {Array.from({ length: 5 }).map((_, index) => (
+                            <Image
+                              key={index}
+                              src='https://images.shadcnspace.com/assets/svgs/icon-star.svg'
+                              alt='star'
+                              className='w-4 h-4'
+                              width={16}
+                              height={16}
+                            />
+                          ))}
+                        </div>
+                      </AfterBeforeWrapper>
+
+                      <AfterBeforeWrapper>
+                        <p className='text-xs font-normal sm:text-sm text-muted-foreground'>
+                          Trusted by 1000+ clients
+                        </p>
+                      </AfterBeforeWrapper>
+                    </div>
+                  </AfterBeforeWrapper>
                 </div>
               </motion.div>
             </div>

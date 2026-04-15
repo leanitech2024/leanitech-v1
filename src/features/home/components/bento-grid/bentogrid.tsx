@@ -1,3 +1,4 @@
+import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
 import { Badge } from '@/components/ui/badge';
 import AnimatedUiBlock from './AnimatedUiBlock';
 import ReminderAnimation from './ReminderAnimation';
@@ -10,21 +11,25 @@ const Bentogrid = () => {
       id='features'
       className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
       <div className='py-11 md:py-20'>
-        <div className='container mx-auto flex flex-col gap-12'>
-          <div className='flex flex-col gap-4 items-center justify-center max-w-3xl mx-auto'>
-            <Badge
-              variant={'outline'}
-              className='px-3 py-1 h-auto text-sm font-normal'>
-              Our Services
-            </Badge>
-            <h2 className='text-center md:text-5xl text-3xl mx-auto font-medium'>
-              Comprehensive IT Solutions Tailored to Your Business Needs
-            </h2>
+        <div className='container flex flex-col gap-12 mx-auto'>
+          <div className='flex flex-col items-center justify-center max-w-3xl gap-4 mx-auto'>
+            <AfterBeforeWrapper className={'py-1'}>
+              <Badge
+                variant={'outline'}
+                className='h-auto px-3 py-1 text-sm font-normal'>
+                Our Services
+              </Badge>
+            </AfterBeforeWrapper>
+            <AfterBeforeWrapper>
+              <h2 className='mx-auto text-3xl font-medium text-center md:text-5xl'>
+                Comprehensive IT Solutions Tailored to Your Business Needs
+              </h2>
+            </AfterBeforeWrapper>
           </div>
           <div className='grid grid-cols-12 gap-5'>
-            <div className='lg:col-span-4 col-span-12 overflow-hidden'>
-              <div className='rounded-xl border border-border'>
-                <div className='bg-muted rounded-t-xl py-8 px-4 relative'>
+            <div className='col-span-12 overflow-hidden lg:col-span-4'>
+              <div className='border rounded-xl border-border'>
+                <div className='relative px-4 py-8 bg-muted rounded-t-xl'>
                   <ReminderAnimation />
                 </div>
                 <div className='flex flex-col gap-0.5 p-8 border-t border-border'>
@@ -38,9 +43,9 @@ const Bentogrid = () => {
                 </div>
               </div>
             </div>
-            <div className='lg:col-span-8 col-span-12 overflow-hidden'>
-              <div className='rounded-xl border border-border'>
-                <div className='bg-muted rounded-t-xl py-7 lg:px-30 px-6 relative'>
+            <div className='col-span-12 overflow-hidden lg:col-span-8'>
+              <div className='border rounded-xl border-border'>
+                <div className='relative px-6 bg-muted rounded-t-xl py-7 lg:px-30'>
                   <AnimatedUiBlock />
                 </div>
                 <div className='flex flex-col gap-0.5 p-8 border-t border-border'>
@@ -58,11 +63,11 @@ const Bentogrid = () => {
               </div>
             </div>
 
-            <div className='lg:col-span-4 col-span-12 overflow-hidden'>
-              <div className='rounded-xl border border-border flex flex-col'>
-                <div className='p-0 bg-muted rounded-t-xl h-full w-full flex-1 flex items-center justify-center'>
+            <div className='col-span-12 overflow-hidden lg:col-span-4'>
+              <div className='flex flex-col border rounded-xl border-border'>
+                <div className='flex items-center justify-center flex-1 w-full h-full p-0 bg-muted rounded-t-xl'>
                   {/* <AppDevelopment /> */}
-                  <div className='relative aspect-video lg:aspect-square h-full w-full'>
+                  <div className='relative w-full h-full aspect-video lg:aspect-square'>
                     {/* <AndroidMockDevice
                       className='w-full h-full'
                       src='https://images.unsplash.com/photo-1730326405863-c6fa7e499a6e?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
@@ -94,9 +99,9 @@ const Bentogrid = () => {
               </div>
             </div>
 
-            <div className='lg:col-span-4 col-span-12 overflow-hidden'>
-              <div className='rounded-xl border border-border flex flex-col'>
-                <div className='p-0 bg-muted rounded-t-xl flex-1 flex items-center justify-center'>
+            <div className='col-span-12 overflow-hidden lg:col-span-4'>
+              <div className='flex flex-col border rounded-xl border-border'>
+                <div className='flex items-center justify-center flex-1 p-0 bg-muted rounded-t-xl'>
                   <div
                     className={
                       'aspect-square sm:aspect-video lg:aspect-square w-full h-full'
@@ -118,9 +123,9 @@ const Bentogrid = () => {
               </div>
             </div>
 
-            <div className='lg:col-span-4 col-span-12'>
-              <div className='rounded-xl border border-border flex flex-col'>
-                <div className='p-0 bg-muted h-full w-full rounded-t-xl flex-1 flex items-center justify-center relative'>
+            <div className='col-span-12 lg:col-span-4'>
+              <div className='flex flex-col border rounded-xl border-border'>
+                <div className='relative flex items-center justify-center flex-1 w-full h-full p-0 bg-muted rounded-t-xl'>
                   <div
                     className={
                       'aspect-square sm:aspect-14/9 lg:aspect-square w-full h-full'

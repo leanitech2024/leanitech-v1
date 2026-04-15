@@ -1,3 +1,4 @@
+import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
 import {
   Accordion,
   AccordionContent,
@@ -65,27 +66,32 @@ export default function FAQsTwo() {
     <section
       id='faqs'
       className='py-16 md:py-24 max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'>
-      <div className='mx-auto max-w-xl text-center'>
-        <h2 className='text-balance text-3xl font-bold md:text-4xl lg:text-5xl'>
-          Frequently Asked Questions
-        </h2>
-        <p className='text-muted-foreground mt-4 text-balance'>
-          Discover quick and comprehensive answers to common questions about our
-          platform, services, and features.
-        </p>
+      <div className='max-w-xl mx-auto text-center'>
+        <AfterBeforeWrapper className='py-1'>
+          <h2 className='text-3xl font-bold text-balance md:text-4xl lg:text-5xl'>
+            Frequently Asked Questions
+          </h2>
+        </AfterBeforeWrapper>
+
+        <AfterBeforeWrapper>
+          <p className='mt-4 text-muted-foreground text-balance'>
+            Discover quick and comprehensive answers to common questions about
+            our platform, services, and features.
+          </p>
+        </AfterBeforeWrapper>
       </div>
 
       <div className='mt-12'>
         <Accordion
           type='single'
           collapsible
-          className='ring-muted px-4 w-full border py-3 shadow-sm ring-4 dark:ring-0'>
+          className='w-full px-4 py-3 border shadow-sm ring-muted ring-4 dark:ring-0'>
           {faqItems.map((item) => (
             <AccordionItem
               key={item.id}
               value={item.id}
               className='border-dashed'>
-              <AccordionTrigger className='cursor-pointer text-base hover:no-underline'>
+              <AccordionTrigger className='text-base cursor-pointer hover:no-underline'>
                 {item.question}
               </AccordionTrigger>
               <AccordionContent className={'px-4'}>
@@ -95,12 +101,14 @@ export default function FAQsTwo() {
           ))}
         </Accordion>
 
-        <p className='text-muted-foreground mt-6 px-4'>
-          Can&apos;t find what you&apos;re looking for? Contact our{' '}
-          <Link href='#' className='text-primary font-medium hover:underline'>
-            customer support team
-          </Link>
-        </p>
+        <AfterBeforeWrapper>
+          <p className='px-4 mt-6 text-muted-foreground'>
+            Can&apos;t find what you&apos;re looking for? Contact our{' '}
+            <Link href='#' className='font-medium text-primary hover:underline'>
+              customer support team
+            </Link>
+          </p>
+        </AfterBeforeWrapper>
       </div>
     </section>
   );
