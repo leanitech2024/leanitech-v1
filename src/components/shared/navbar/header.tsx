@@ -71,14 +71,17 @@ const Header = ({ className }: HeaderProps) => {
       viewport={{ once: true }}
       transition={{ duration: 0.7, ease: 'easeInOut' }}
       className={cn(
-        'z-50 sticky h-16 top-0 w-full',
-        isMobile ? '-top-14' : '',
+        'z-50 sticky h-16',
+        isMobile ? '-top-14' : 'top-0',
         // !sticky ? 'top-0' : '-top-52 md:top-4 transition-all duration-300',
         // 'inset-x-0',
         // 'flex items-center justify-center',
         // 'mx-auto',
         'lg:mx-0',
-        'grid grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] [--gutter-width:2.5rem] md:-mx-4 md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] justify-center',
+        'md:-mr-4',
+        'md:-ml-4',
+
+        'grid grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] [--gutter-width:2.5rem] md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] justify-center',
         className,
       )}>
       {!sticky ? <LeftSidePattern /> : <div></div>}
@@ -86,7 +89,7 @@ const Header = ({ className }: HeaderProps) => {
 
       <nav
         className={cn(
-          'w-full max-w-6xl mx-auto flex items-center h-16 justify-between gap-3.5 lg:gap-6 transition-all duration-500',
+          'max-w-(--breakpoint-xl) w-full mx-auto px-2 flex items-center h-16 justify-between gap-3.5 lg:gap-6 transition-all duration-500',
           sticky
             ? 'p-2.5 bg-background/60 backdrop-blur-lg border border-border/40 shadow-2xl shadow-primary/5 rounded-full'
             : 'bg-transparent border-transparent',
@@ -94,7 +97,8 @@ const Header = ({ className }: HeaderProps) => {
         {/* Logo */}
         <div
           className={cn(
-            'ml-4',
+            'ml-0',
+            'rounded-tl-xl rounded-bl-xl',
             // 'relative before:absolute before:top-0 before:h-px before:w-[200vw] before:bg-gray-950/5 dark:before:bg-white/10 before:-left-[100vw] after:absolute after:bottom-0 after:h-px after:w-[200vw] after:bg-gray-950/5 dark:after:bg-white/10 after:-left-[100vw]',
 
             // change the direction to left and right from top and bottom

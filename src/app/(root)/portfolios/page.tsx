@@ -1,6 +1,7 @@
-import WorldMap from '@/components/extends/global-nextwork-map';
-import { CountdownBanner } from '@/components/extends/the-future-arrives-soon-cta';
+// import WorldMap from '@/components/extends/global-nextwork-map';
+// import { CountdownBanner } from '@/components/extends/the-future-arrives-soon-cta';
 // import { MyPlayer } from '@/components/shared/player';
+import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
 import PortfolioCard from '@/features/home/components/portfolios/portfolio-card';
 import PortfolioMotionWrapper from '@/features/home/components/portfolios/portfolio-motion-wrapper';
 // import { getResoursesByFolder } from '@/lib/cloudinary';
@@ -371,7 +372,7 @@ export default function PortfoliosPage() {
 
   return (
     <main className='py-16 xs:py-20 sm:py-16 md:py-12 lg:py-8 space-y-8'>
-      <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
+      {/* <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
         <div className='max-w-7xl mx-auto text-center'>
           <p className='font-bold text-xl md:text-4xl dark:text-white text-black'>
             Global Network
@@ -458,20 +459,26 @@ export default function PortfoliosPage() {
             },
           ]}
         />
-      </section>
+      </section> */}
 
-      <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
+      {/* <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
         <CountdownBanner />
-      </section>
+      </section> */}
 
-      <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
-        <h1 className='text-3xl font-bold mb-4'>Portfolios</h1>
-        <p className='text-lg text-muted-foreground mb-8'>
-          Explore our diverse range of portfolios showcasing our expertise and
-          creativity in various industries. Each portfolio highlights our
-          commitment to delivering exceptional results and innovative solutions
-          for our clients.
-        </p>
+      <section className={'max-w-(--breakpoint-md) mx-auto px-4 sm:px-6'}>
+        <AfterBeforeWrapper>
+          <h1 className='text-3xl text-center font-bold mb-4'>
+            Our Portfolios
+          </h1>
+        </AfterBeforeWrapper>
+        <AfterBeforeWrapper>
+          <p className='text-lg text-center text-muted-foreground mb-8'>
+            Explore our diverse range of portfolios showcasing our expertise and
+            creativity in various industries. Each portfolio highlights our
+            commitment to delivering exceptional results and innovative
+            solutions for our clients.
+          </p>
+        </AfterBeforeWrapper>
       </section>
 
       <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>

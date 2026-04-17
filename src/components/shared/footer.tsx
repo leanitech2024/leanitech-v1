@@ -13,8 +13,8 @@ export default function Footer() {
     { label: 'Testimonials', href: '#' },
     { label: 'Blogs', href: '/blogs' },
     { label: 'Resources', href: '#' },
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
+    { label: 'Privacy Policy', href: '/privacy-policy' },
+    { label: 'Terms of Service', href: '/terms-and-conditions' },
     { label: 'Contact Us', href: '#' },
   ];
   return (

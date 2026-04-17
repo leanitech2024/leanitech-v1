@@ -104,6 +104,40 @@ const posts = defineCollection({
   },
 });
 
+const privacy = defineCollection({
+  name: 'privacy',
+  directory: 'src/contents/privacy',
+  include: '**/*.mdx',
+  schema: postSchema,
+  transform: async (document, context) => {
+    // Transform the content to a MDX component
+    const mdx = await compileMDX(context, document, {
+      remarkPlugins: [remarkGfm],
+    });
+    return {
+      ...document,
+      mdx,
+    };
+  },
+});
+
+const terms = defineCollection({
+  name: 'terms',
+  directory: 'src/contents/terms',
+  include: '**/*.mdx',
+  schema: postSchema,
+  transform: async (document, context) => {
+    // Transform the content to a MDX component
+    const mdx = await compileMDX(context, document, {
+      remarkPlugins: [remarkGfm],
+    });
+    return {
+      ...document,
+      mdx,
+    };
+  },
+});
+
 export default defineConfig({
-  content: [posts],
+  content: [posts, privacy, terms],
 });
