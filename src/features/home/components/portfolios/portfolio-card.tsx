@@ -7,23 +7,24 @@ import Link from 'next/link';
 export default function PortfolioCard(props: PortfolioItem) {
   const { id, title, imgSrc, tags, link } = props;
   return (
-    <Card className='p-0 ring-0 overflow-hidden shadow-none border-0 bg-transparent'>
-      <CardContent className='p-0 flex flex-col gap-6'>
-        <div className='relative aspect-auto overflow-hidden rounded-2xl'>
-          <Link href={link}>
+    <Card className='p-0 overflow-hidden bg-transparent border-0 shadow-none ring-0'>
+      <CardContent className='flex flex-col gap-6 p-0'>
+        <div className='relative overflow-hidden aspect-auto rounded-2xl'>
+          <Link href={link} target='_blank'>
             <Image
               src={imgSrc}
               alt={`${id} Portfolio Cover`}
               width={600}
               height={370}
-              className='rounded-2xl object-cover w-full h-full transition-transform duration-500 group-hover:scale-105'
+              className='object-cover w-full h-full transition-transform duration-500 rounded-2xl group-hover:scale-105'
             />
           </Link>
         </div>
         <div className='flex flex-col gap-3'>
           <Link
             href={link}
-            className='text-foreground text-2xl font-medium tracking-tighter w-fit'>
+            target='_blank'
+            className='text-2xl font-medium tracking-tighter text-foreground w-fit'>
             {title}
           </Link>
           <div className='flex flex-wrap gap-3'>
@@ -31,7 +32,7 @@ export default function PortfolioCard(props: PortfolioItem) {
               <Badge
                 key={tagIndex}
                 variant='outline'
-                className='text-sm font-normal px-3 py-1 h-7'>
+                className='px-3 py-1 text-sm font-normal h-7'>
                 {tag}
               </Badge>
             ))}

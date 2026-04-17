@@ -1,6 +1,14 @@
 'use client';
 
 import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
+import { PlusIcons } from '@/components/shared/card-decorators';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { LucideIcon, PercentIcon, PlusIcon } from 'lucide-react';
 import { motion, useInView, useSpring, useTransform } from 'motion/react';
@@ -43,7 +51,10 @@ function AnimatedCounter({
 
   useEffect(() => {
     if (!isInView) {
-      springValue.jump(0); // reset immediately when leaving viewport
+      // springValue.jump(0); // reset immediately when leaving viewport
+
+      // reverse value set instead of 0
+      springValue.jump(0, true);
       return;
     }
 
@@ -122,34 +133,44 @@ function AboutUs({
         <AfterBeforeWrapper>
           <div
             ref={statsRef}
-            className='grid w-full grid-cols-1 gap-1 sm:grid-cols-2 xl:grid-cols-4 sm:gap-0'>
+            className='grid w-full grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 sm:gap-6'>
             {statisticsCounter?.map((value, index) => {
               return (
-                <div
+                <Card
                   key={index}
-                  className='relative flex flex-col items-center justify-center gap-3 px-6 py-5 sm:py-10'>
-                  {index !== 0 && (
-                    <div className='absolute left-0 hidden w-px h-40 -translate-y-1/2 sm:block top-1/2 bg-border' />
-                  )}
-                  <div className='flex gap-0 text-3xl font-medium sm:gap-2 sm:text-5xl md:text-7xl lg:text-9xl'>
-                    {index === 3 ? (
-                      <PercentIcon
-                        strokeWidth={3.5}
-                        className='w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12'
-                      />
-                    ) : (
-                      <PlusIcon
-                        strokeWidth={3.5}
-                        className='w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12'
-                      />
-                    )}
+                  className='relative bg-transparent w-full rounded-none shadow-none min-w-60 sm:min-w-72'>
+                  <PlusIcons />
+                  <CardHeader>
+                    <CardTitle>
+                      {index === 3 ? (
+                        <PercentIcon
+                          strokeWidth={3.5}
+                          className='w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12'
+                        />
+                      ) : (
+                        <PlusIcon
+                          strokeWidth={3.5}
+                          className='w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12'
+                        />
+                      )}
+                    </CardTitle>
+                  </CardHeader>
 
-                    <AnimatedCounter value={value.count} isInView={isInView} />
-                  </div>
-                  <p className='text-base font-normal text-center text-muted-foreground'>
-                    {value.title}
-                  </p>
-                </div>
+                  <CardContent>
+                    <div className='flex justify-center gap-0 text-3xl font-medium sm:gap-2 sm:text-5xl md:text-7xl lg:text-9xl'>
+                      <AnimatedCounter
+                        value={value.count}
+                        isInView={isInView}
+                      />
+                    </div>
+                  </CardContent>
+
+                  <CardDescription>
+                    <p className='text-base font-normal text-center text-muted-foreground'>
+                      {value.title}
+                    </p>
+                  </CardDescription>
+                </Card>
               );
             })}
           </div>

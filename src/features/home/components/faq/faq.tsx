@@ -104,7 +104,9 @@ export default function FAQsTwo() {
         <AfterBeforeWrapper>
           <p className='px-4 mt-6 text-muted-foreground'>
             Can&apos;t find what you&apos;re looking for? Contact our{' '}
-            <Link href='#' className='font-medium text-primary hover:underline'>
+            <Link
+              href='#contact'
+              className='font-medium text-primary hover:underline'>
               customer support team
             </Link>
           </p>

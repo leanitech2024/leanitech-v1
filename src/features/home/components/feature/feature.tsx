@@ -2,7 +2,12 @@ import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { buttonVariants } from '@/components/ui/button';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { LucideIcon } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -111,7 +116,38 @@ const Feature = ({ featureData }: { featureData: Features }) => {
                     duration: 0.8,
                     ease: [0.21, 0.47, 0.32, 0.98],
                   }}>
-                  <Card className='h-full border-0 bg-muted ring-0'>
+                  <div className='relative w-full h-full overflow-hidden rounded-xl'>
+                    <div
+                      className='absolute z-0 rounded-lg inset-1'
+                      style={{
+                        backgroundImage:
+                          'repeating-linear-gradient(45deg, transparent, transparent 2px, var(--border) 2px, var(--border) 4px)',
+                        opacity: 0.5, // Adjust this value (0.0 to 1.0) to change opacity
+                      }}
+                    />
+                    <Card className='z-10 w-full h-full bg-transparent border-2 isolate border-border'>
+                      <CardHeader className={'w-fit'}>
+                        <div className={'p-4 bg-background rounded-full'}>
+                          <value.icon
+                            className='w-6 h-6 text-muted-foreground'
+                            strokeWidth={1.5}
+                          />
+                        </div>
+                        {/* <CardTitle>
+                          <value.icon
+                            className='w-6 h-6 text-muted-foreground'
+                            strokeWidth={1.5}
+                          />
+                        </CardTitle> */}
+                      </CardHeader>
+                      <CardContent className={'mt-auto'}>
+                        <p className='text-base font-normal text-primary'>
+                          {value?.content}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  {/* <Card className='h-full border-0 bg-muted ring-0'>
                     <CardContent className='flex flex-col items-start justify-between w-full h-full gap-4 px-8'>
                       <div className={'p-4 bg-background rounded-full'}>
                         <value.icon
@@ -123,7 +159,7 @@ const Feature = ({ featureData }: { featureData: Features }) => {
                         {value?.content}
                       </p>
                     </CardContent>
-                  </Card>
+                  </Card> */}
                 </motion.div>
               );
             })}

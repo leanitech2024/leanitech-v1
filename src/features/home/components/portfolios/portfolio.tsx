@@ -36,11 +36,11 @@ const Portfolios = () => {
         {/* <AfterBeforeWrapper> */}
         <div className='grid w-full grid-cols-1 gap-6 p-3 md:grid-cols-2 md:gap-x-7 md:gap-y-8 bg-muted-foreground/10 dark:bg-muted-foreground/25'>
           {portfolios.slice(0, 4).map((item, index) => (
-            <LinearGradientBackground key={item.id} className='p-4'>
-              <PortfolioMotionWrapper index={index}>
+            <PortfolioMotionWrapper key={item.id} index={index}>
+              <LinearGradientBackground className='p-4'>
                 <PortfolioCard {...item} />
-              </PortfolioMotionWrapper>
-            </LinearGradientBackground>
+              </LinearGradientBackground>
+            </PortfolioMotionWrapper>
           ))}
         </div>
         {/* </AfterBeforeWrapper> */}
@@ -85,7 +85,7 @@ function LinearGradientBackground({
   return (
     <div
       className={cn(
-        `relative border-(--pattern-fg) bg-[repeating-linear-gradient(81deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 max-lg:h-66 max-lg:border-t lg:border-l dark:[--pattern-fg:var(--color-white)]/10`,
+        `relative h-full w-full border-(--pattern-fg) bg-[repeating-linear-gradient(81deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-foreground)]/15 max-lg:border-t lg:border-l dark:[--pattern-fg:var(--color-foreground)]/15`,
         className,
       )}>
       {children}

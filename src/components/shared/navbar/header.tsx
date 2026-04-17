@@ -10,6 +10,7 @@ import {
   NavigationMenuList,
 } from '@/components/ui/navigation-menu';
 import { navigations } from '@/constants';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
 import { Icon } from '@iconify/react';
 import { motion } from 'motion/react';
@@ -17,6 +18,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
+import { LeftSidePattern, RightSidePattern } from '../side-patterns';
 
 export type NavigationSection = {
   title: string;
@@ -33,6 +35,8 @@ const Header = ({ className }: HeaderProps) => {
   const [sticky, setSticky] = useState(false);
 
   const pathname = usePathname();
+
+  const isMobile = useIsMobile();
 
   const isHomePage = pathname === '/';
   // const isAboutPage = pathname === '/about';
@@ -67,18 +71,35 @@ const Header = ({ className }: HeaderProps) => {
       viewport={{ once: true }}
       transition={{ duration: 0.7, ease: 'easeInOut' }}
       className={cn(
-        'inset-x-0 z-50 px-4 flex items-center justify-center sticky top-0 h-20',
+        'z-50 sticky h-16 top-0 w-full',
+        isMobile ? '-top-14' : '',
+        // !sticky ? 'top-0' : '-top-52 md:top-4 transition-all duration-300',
+        // 'inset-x-0',
+        // 'flex items-center justify-center',
+        // 'mx-auto',
+        'lg:mx-0',
+        'grid grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] [--gutter-width:2.5rem] md:-mx-4 md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] justify-center',
         className,
       )}>
+      {!sticky ? <LeftSidePattern /> : <div></div>}
+      {/* {!sticky ? <LeftSidePattern /> : !isMobile ? <LeftSidePattern /> : null} */}
+
       <nav
         className={cn(
-          'w-full max-w-6xl flex items-center h-fit justify-between gap-3.5 lg:gap-6 transition-all duration-500',
+          'w-full max-w-6xl mx-auto flex items-center h-16 justify-between gap-3.5 lg:gap-6 transition-all duration-500',
           sticky
             ? 'p-2.5 bg-background/60 backdrop-blur-lg border border-border/40 shadow-2xl shadow-primary/5 rounded-full'
             : 'bg-transparent border-transparent',
         )}>
         {/* Logo */}
-        <div className={'ml-4'}>
+        <div
+          className={cn(
+            'ml-4',
+            // 'relative before:absolute before:top-0 before:h-px before:w-[200vw] before:bg-gray-950/5 dark:before:bg-white/10 before:-left-[100vw] after:absolute after:bottom-0 after:h-px after:w-[200vw] after:bg-gray-950/5 dark:after:bg-white/10 after:-left-[100vw]',
+
+            // change the direction to left and right from top and bottom
+            // 'relative before:absolute before:left-0 before:w-px before:h-28 before:bg-gray-950/5 dark:before:bg-white/55 before:-top-24 after:absolute after:right-0 after:w-px after:h-16 after:bg-gray-950/5 dark:after:bg-white/55 after:-top-24',
+          )}>
           <Link href='/'>
             {/* <Logo className='gap-3' /> */}
             <Logo className={'w-auto h-6'} />
@@ -134,6 +155,7 @@ const Header = ({ className }: HeaderProps) => {
           </div>
         </div>
       </nav>
+      {!sticky ? <RightSidePattern /> : <div></div>}
     </motion.header>
   );
 };
