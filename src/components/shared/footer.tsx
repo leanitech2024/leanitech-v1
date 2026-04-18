@@ -1,28 +1,14 @@
+import Link from 'next/link';
+
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-// import { Separator } from '@/components/ui/separator';
+import { footerLinks, socialLinks } from '@/constants';
 import { cn } from '@/lib/utils';
-import {
-  IconBrandFacebook,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-} from '@tabler/icons-react';
-import Link from 'next/link';
 import { buttonGroupVariants } from '../ui/button-group';
 import AfterBeforeWrapper from './after-before-wrapper';
 import { LeftSidePattern, RightSidePattern } from './side-patterns';
 
 export default function Footer() {
-  const footerLinks = [
-    { label: 'Home', href: '#' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Testimonials', href: '#' },
-    { label: 'Blogs', href: '/blogs' },
-    { label: 'Resources', href: '#' },
-    { label: 'Privacy Policy', href: '/privacy-policy' },
-    { label: 'Terms of Service', href: '/terms-and-conditions' },
-    { label: 'Contact Us', href: '#' },
-  ];
   return (
     <div
       className={
@@ -70,6 +56,7 @@ export default function Footer() {
                     <Link
                       key={link.label}
                       href={link.href}
+                      title={link.label}
                       className='block text-base text-muted-foreground hover:text-primary'>
                       {link.label}
                     </Link>
@@ -89,39 +76,20 @@ export default function Footer() {
                   className={buttonGroupVariants({
                     orientation: 'horizontal',
                   })}>
-                  <Link
-                    className={buttonVariants({
-                      size: 'sm',
-                      variant: 'outline',
-                      className: 'text-primary',
-                    })}
-                    target='_blank'
-                    href={'https://www.facebook.com/leanitechsolutions'}
-                    title='Facebook'>
-                    <IconBrandFacebook className={'size-4 md:size-6'} />
-                  </Link>
-                  <Link
-                    className={buttonVariants({
-                      size: 'sm',
-                      variant: 'outline',
-                      className: 'text-primary',
-                    })}
-                    target='_blank'
-                    href={'https://www.instagram.com/leanitech/'}
-                    title='Instagram'>
-                    <IconBrandInstagram className={'size-4 md:size-6'} />
-                  </Link>
-                  <Link
-                    className={buttonVariants({
-                      size: 'sm',
-                      variant: 'outline',
-                      className: 'text-primary',
-                    })}
-                    target='_blank'
-                    href={'https://www.linkedin.com/company/leanitech'}
-                    title='Linkedin'>
-                    <IconBrandLinkedin className={'size-4 md:size-6'} />
-                  </Link>
+                  {socialLinks.map((link) => (
+                    <Link
+                      key={link.id}
+                      className={buttonVariants({
+                        size: 'sm',
+                        variant: 'outline',
+                        className: 'text-primary',
+                      })}
+                      target='_blank'
+                      href={link.href}
+                      title={link.title}>
+                      {link.icon}
+                    </Link>
+                  ))}
                 </div>
               </div>
             </AfterBeforeWrapper>

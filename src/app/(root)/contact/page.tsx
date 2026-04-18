@@ -1,10 +1,28 @@
+import SplashCursor from '@/components/backgrounds/animations/splash-cursor';
 import WorldMap from '@/components/extends/global-nextwork-map';
 import { ContactBlock } from '@/features/contact/components/contact';
 // import ContactUs1 from '@/features/contact/components/contact-us';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 export default function ContactUs() {
   return (
-    <main className='py-16 xs:py-20 sm:py-16 md:py-12 lg:py-8 space-y-8 md:space-y-12 lg:space-y-16'>
+    <main className='py-16 xs:py-20 sm:py-16 md:py-12 lg:py-8 space-y-8 md:space-y-12 lg:space-y-16 relative'>
+      {!isDev && (
+        <div className='absolute inset-0 pointer-events-none -z-1'>
+          <SplashCursor
+            SIM_RESOLUTION={128}
+            DYE_RESOLUTION={1440}
+            DENSITY_DISSIPATION={3.5}
+            VELOCITY_DISSIPATION={2}
+            PRESSURE={0.1}
+            CURL={3}
+            SPLAT_RADIUS={0.2}
+            SPLAT_FORCE={6000}
+            COLOR_UPDATE_SPEED={10}
+          />
+        </div>
+      )}
       <ContactBlock />
 
       <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>

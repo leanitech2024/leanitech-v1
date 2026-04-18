@@ -1,3 +1,4 @@
+import SplashCursor from '@/components/backgrounds/animations/splash-cursor';
 import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
 import { LazyPortfolioCarousel } from '@/features/portfolios/lazy';
 // import { portfolios } from '@/constants/portfolios';
@@ -6,13 +7,31 @@ import { LazyPortfolioCarousel } from '@/features/portfolios/lazy';
 // import { PortfolioCarousel } from '@/features/portfolios/portfolio-carousel';
 // import { getResoursesByFolder } from '@/lib/cloudinary';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 export default function PortfoliosPage() {
   // Home > leaniech-v1 > portfolios = clodinary folder name
   // const result = await getResoursesByFolder('leanitech-v1/portfolios');
   // console.log('Cloudinary Resources:', JSON.stringify(result, null, 2));
 
   return (
-    <main className='pt-16 xs:pt-20 sm:pt-16 md:pt-12 lg:pt-8 space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16'>
+    <main className='pt-16 xs:pt-20 sm:pt-16 md:pt-12 lg:pt-8 space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16 relative'>
+      {!isDev && (
+        <div className='absolute inset-0 pointer-events-none -z-1'>
+          <SplashCursor
+            SIM_RESOLUTION={128}
+            DYE_RESOLUTION={1440}
+            DENSITY_DISSIPATION={3.5}
+            VELOCITY_DISSIPATION={2}
+            PRESSURE={0.1}
+            CURL={3}
+            SPLAT_RADIUS={0.2}
+            SPLAT_FORCE={6000}
+            COLOR_UPDATE_SPEED={10}
+          />
+        </div>
+      )}
+
       <section className={'max-w-(--breakpoint-md) mx-auto px-4 sm:px-6'}>
         <AfterBeforeWrapper>
           <h1 className='text-xl md:text-2xl lg:text-3xl text-center font-bold'>
@@ -49,26 +68,6 @@ export default function PortfoliosPage() {
           </p>
         </AfterBeforeWrapper>
       </section>
-
-      {/* <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
-        <PortfolioCarousel />
-      </section> */}
-
-      {/* <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
-        <div className='container mx-auto'>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-7 md:gap-y-24 w-full'>
-            {portfolios.map((item, index) => (
-              <PortfolioMotionWrapper key={item.id} index={index}>
-                <PortfolioCard {...item} />
-              </PortfolioMotionWrapper>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
-        <MyPlayer src='https://stream.mux.com/BV3YZtogl89mg9VcNBhhnHm02Y34zI1nlMuMQfAbl3dM/highest.mp4' />
-      </section> */}
     </main>
   );
 }

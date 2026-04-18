@@ -1,9 +1,28 @@
+import SplashCursor from '@/components/backgrounds/animations/splash-cursor';
 import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
 import ServicesTab from '@/features/services/components/services-tab';
+
+const isDev = process.env.NODE_ENV === 'development';
 
 export default function ServicePage() {
   return (
     <main className='pt-16 xs:pt-20 sm:pt-16 md:pt-12 lg:pt-8 space-y-8'>
+      {!isDev && (
+        <div className='absolute inset-0 pointer-events-none -z-1'>
+          <SplashCursor
+            SIM_RESOLUTION={128}
+            DYE_RESOLUTION={1440}
+            DENSITY_DISSIPATION={3.5}
+            VELOCITY_DISSIPATION={2}
+            PRESSURE={0.1}
+            CURL={3}
+            SPLAT_RADIUS={0.2}
+            SPLAT_FORCE={6000}
+            COLOR_UPDATE_SPEED={10}
+          />
+        </div>
+      )}
+
       <section className={'max-w-(--breakpoint-md) mx-auto px-4 sm:px-6'}>
         <AfterBeforeWrapper>
           <h1 className='text-xl md:text-2xl lg:text-3xl text-center font-bold'>
