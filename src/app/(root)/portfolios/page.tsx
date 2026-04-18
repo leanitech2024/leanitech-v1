@@ -12,108 +12,15 @@ export default function PortfoliosPage() {
   // console.log('Cloudinary Resources:', JSON.stringify(result, null, 2));
 
   return (
-    <main className='py-16 xs:py-20 sm:py-16 md:py-12 lg:py-8 space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16'>
-      {/* <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
-        <div className='max-w-7xl mx-auto text-center'>
-          <p className='font-bold text-xl md:text-4xl dark:text-white text-black'>
-            Global Network
-          </p>
-          <p className='text-sm md:text-lg text-neutral-500 max-w-2xl mx-auto py-4'>
-            Connect with teams and clients worldwide. Our platform enables
-            seamless collaboration across continents, bringing the world to your
-            workspace.
-          </p>
-        </div>
-        <WorldMap
-          dots={[
-            {
-              start: {
-                lat: 64.2008,
-                lng: -149.4937,
-                label: 'Fairbanks',
-              },
-              end: {
-                lat: 34.0522,
-                lng: -118.2437,
-                label: 'Los Angeles',
-              },
-            },
-            {
-              start: {
-                lat: 64.2008,
-                lng: -149.4937,
-                label: 'Fairbanks',
-              },
-              end: {
-                lat: -15.7975,
-                lng: -47.8919,
-                label: 'Brasília',
-              },
-            },
-            {
-              start: {
-                lat: -15.7975,
-                lng: -47.8919,
-                label: 'Brasília',
-              },
-              end: {
-                lat: 38.7223,
-                lng: -9.1393,
-                label: 'Lisbon',
-              },
-            },
-            {
-              start: {
-                lat: 51.5074,
-                lng: -0.1278,
-                label: 'London',
-              },
-              end: {
-                lat: 28.6139,
-                lng: 77.209,
-                label: 'New Delhi',
-              },
-            },
-            {
-              start: {
-                lat: 28.6139,
-                lng: 77.209,
-                label: 'New Delhi',
-              },
-              end: {
-                lat: 43.1332,
-                lng: 131.9113,
-                label: 'Vladivostok',
-              },
-            },
-            {
-              start: {
-                lat: 28.6139,
-                lng: 77.209,
-                label: 'New Delhi',
-              },
-              end: {
-                lat: -1.2921,
-                lng: 36.8219,
-                label: 'Nairobi',
-              },
-            },
-          ]}
-        />
-      </section> */}
-
-      {/* <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
-        <CountdownBanner />
-      </section> */}
-
+    <main className='pt-16 xs:pt-20 sm:pt-16 md:pt-12 lg:pt-8 space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16'>
       <section className={'max-w-(--breakpoint-md) mx-auto px-4 sm:px-6'}>
         <AfterBeforeWrapper>
-          <h1 className='text-3xl text-center font-bold mb-4'>
+          <h1 className='text-xl md:text-2xl lg:text-3xl text-center font-bold'>
             Our Portfolios
           </h1>
         </AfterBeforeWrapper>
         <AfterBeforeWrapper>
-          <p className='text-lg text-center text-muted-foreground mb-8'>
+          <p className='text-xs sm:text-sm md:text-base lg:text-lg text-center text-muted-foreground'>
             Explore our diverse range of portfolios showcasing our expertise and
             creativity in various industries. Each portfolio highlights our
             commitment to delivering exceptional results and innovative

@@ -1,6 +1,7 @@
 'use client';
 
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 import { useState } from 'react';
@@ -25,24 +26,35 @@ type TabsProps = {
   contentClassName?: string;
 };
 
+type Toggle = 'logo' | 'poster' | 'video' | 'other';
+
 export default function Tabs({
   tabs,
   containerClassName,
-  activeTabClassName,
-  tabClassName,
+  // activeTabClassName,
+  // tabClassName,
   contentClassName,
 }: TabsProps) {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [hovering, setHovering] = useState(false);
+  // const [hovering, setHovering] = useState(false);
+  const [toggleValue, setToggleValue] = useState<Toggle>('logo');
 
-  const handleSelect = (idx: number) => {
-    setActiveIdx(idx);
-  };
+  // const handleSelect = (idx: number) => {
+  //   setActiveIdx(idx);
+  // };
 
   const reorderedTabs = [
     tabs[activeIdx],
     ...tabs.filter((_, i) => i !== activeIdx),
   ];
+
+  function handleToggleChange(value: Toggle) {
+    setToggleValue(value);
+    const idx = tabs.findIndex((tab) => tab.value === value);
+    if (idx !== -1) {
+      setActiveIdx(idx);
+    }
+  }
 
   return (
     <>
@@ -52,10 +64,57 @@ export default function Tabs({
         //   containerClassName,
         // )}
         className={cn(
-          'flex flex-row items-center justify-center w-full',
+          'flex flex-col items-center justify-center w-full',
           containerClassName,
         )}>
-        <ScrollArea className='w-96 rounded-full border relative whitespace-nowrap perspective-[1000px] h-full'>
+        <AfterBeforeWrapper>
+          <ToggleGroup
+            className='border-l border-r border-border'
+            type='single'
+            defaultValue={toggleValue}
+            onValueChange={handleToggleChange}>
+            {/* {tabs.map((tab, idx) => {
+            const isActive = idx === activeIdx;
+            return (
+              <ToggleGroupItem
+                key={tab.value}
+                style={{ transformStyle: 'preserve-3d' }}
+                value='logo'
+                // onMouseEnter={() => setHovering(true)}
+                // onMouseLeave={() => setHovering(false)}
+              >
+                {tab.title}
+              </ToggleGroupItem>
+            );
+          })} */}
+            <ToggleGroupItem
+              className='rounded-none'
+              style={{ transformStyle: 'preserve-3d' }}
+              value='logo'>
+              Logo
+            </ToggleGroupItem>
+            <ToggleGroupItem
+              className='rounded-none'
+              style={{ transformStyle: 'preserve-3d' }}
+              value='poster'>
+              Poster
+            </ToggleGroupItem>
+            <ToggleGroupItem
+              className='rounded-none'
+              style={{ transformStyle: 'preserve-3d' }}
+              value='video'>
+              Video
+            </ToggleGroupItem>
+            <ToggleGroupItem
+              className='rounded-none'
+              style={{ transformStyle: 'preserve-3d' }}
+              value='other'>
+              Other
+            </ToggleGroupItem>
+          </ToggleGroup>
+        </AfterBeforeWrapper>
+
+        {/* <ScrollArea className='w-96 rounded-full border relative whitespace-nowrap perspective-[1000px] h-full'>
           <div className='flex flex-row items-center justify-start w-full space-x-4 py-2 sm:px-2 pr-30 sm:pr-0'>
             {tabs.map((tab, idx) => {
               const isActive = idx === activeIdx;
@@ -96,12 +155,12 @@ export default function Tabs({
             })}
           </div>
           <ScrollBar orientation='horizontal' />
-        </ScrollArea>
+        </ScrollArea> */}
       </div>
 
       <FadeInStack
         tabs={reorderedTabs}
-        hovering={hovering}
+        // hovering={hovering}
         className={cn('mt-10', contentClassName)}
       />
     </>

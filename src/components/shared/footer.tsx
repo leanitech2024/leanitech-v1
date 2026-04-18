@@ -2,7 +2,13 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 // import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
+import {
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+} from '@tabler/icons-react';
 import Link from 'next/link';
+import { buttonGroupVariants } from '../ui/button-group';
 import AfterBeforeWrapper from './after-before-wrapper';
 import { LeftSidePattern, RightSidePattern } from './side-patterns';
 
@@ -71,15 +77,54 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div className='flex flex-col gap-12'>
-              {/* <Separator /> */}
-              <AfterBeforeWrapper>
+            <AfterBeforeWrapper>
+              <div className='flex items-center flex-wrap justify-between gap-4'>
+                {/* <Separator /> */}
                 <p className='text-sm duration-1000 ease-in-out delay-300 text-muted-foreground animate-in fade-in slide-in-from-bottom-10 fill-mode-both'>
                   &copy;{new Date().getFullYear()} Leanitech. All Rights
                   Reserved
                 </p>
-              </AfterBeforeWrapper>
-            </div>
+
+                <div
+                  className={buttonGroupVariants({
+                    orientation: 'horizontal',
+                  })}>
+                  <Link
+                    className={buttonVariants({
+                      size: 'sm',
+                      variant: 'outline',
+                      className: 'text-primary',
+                    })}
+                    target='_blank'
+                    href={'https://www.facebook.com/leanitechsolutions'}
+                    title='Facebook'>
+                    <IconBrandFacebook className={'size-4 md:size-6'} />
+                  </Link>
+                  <Link
+                    className={buttonVariants({
+                      size: 'sm',
+                      variant: 'outline',
+                      className: 'text-primary',
+                    })}
+                    target='_blank'
+                    href={'https://www.instagram.com/leanitech/'}
+                    title='Instagram'>
+                    <IconBrandInstagram className={'size-4 md:size-6'} />
+                  </Link>
+                  <Link
+                    className={buttonVariants({
+                      size: 'sm',
+                      variant: 'outline',
+                      className: 'text-primary',
+                    })}
+                    target='_blank'
+                    href={'https://www.linkedin.com/company/leanitech'}
+                    title='Linkedin'>
+                    <IconBrandLinkedin className={'size-4 md:size-6'} />
+                  </Link>
+                </div>
+              </div>
+            </AfterBeforeWrapper>
           </div>
         </div>
       </footer>

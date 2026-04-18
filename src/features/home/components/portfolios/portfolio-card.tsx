@@ -1,8 +1,8 @@
-import { PortfolioItem } from '@/app/(root)/portfolios/page';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 
 export default function PortfolioCard(props: PortfolioItem) {
   const { id, title, imgSrc, tags, link } = props;

@@ -18,12 +18,13 @@ export default function TechStacks() {
             className={
               'col-span-2 backdrop-blur-[2px] bg-background/10 p-8 flex flex-col items-start justify-center z-10 absolute md:relative w-full h-full'
             }>
-            <h1 className='mb-4 text-4xl font-bold sm:text-6xl text-foreground'>
-              Build your idea
-            </h1>
+            <h4 className='mb-4 text-4xl font-bold sm:text-6xl text-foreground'>
+              Build Your Digital Future
+            </h4>
             <p className='max-w-lg mb-6 text-muted-foreground'>
-              RUIXEN is a modern and responsive UI kit for React, Next.js, and
-              Tailwind CSS.
+              Leanitech delivers modern, scalable solutions in Web Development,
+              Mobile Apps, AI, SaaS, and Digital Marketing to turn your ideas
+              into powerful digital products.
             </p>
             <div className='flex items-center gap-3'>
               <Button variant='default' asChild>
