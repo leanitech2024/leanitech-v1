@@ -1,7 +1,7 @@
-import { portfolios } from '@/app/(root)/portfolios/page';
 import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
 import CollaborateButton from '@/components/shared/collaborate-button';
 import { Badge } from '@/components/ui/badge';
+import { portfolios } from '@/constants/portfolios';
 import { cn } from '@/lib/utils';
 import PortfolioCard from './portfolio-card';
 import PortfolioMotionWrapper from './portfolio-motion-wrapper';

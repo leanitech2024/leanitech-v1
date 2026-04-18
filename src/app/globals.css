@@ -123,6 +123,11 @@
       transform: rotate(360deg);
     }
   }
+
+  --swiper-pagination-bottom: 0.2rem;
+  --swiper-navigation-color: var(--foreground);
+  --swiper-pagination-color: var(--foreground);
+  --swiper-pagination-bullet-inactive-color: var(--foreground);
 }
 
 /* --animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
