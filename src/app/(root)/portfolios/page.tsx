@@ -1,5 +1,6 @@
 import SplashCursor from '@/components/backgrounds/animations/splash-cursor';
 import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
+import { siteMetadata } from '@/constants/seo';
 import { LazyPortfolioCarousel } from '@/features/portfolios/lazy';
 // import { portfolios } from '@/constants/portfolios';
 // import PortfolioCard from '@/features/home/components/portfolios/portfolio-card';
@@ -8,6 +9,8 @@ import { LazyPortfolioCarousel } from '@/features/portfolios/lazy';
 // import { getResoursesByFolder } from '@/lib/cloudinary';
 
 const isDev = process.env.NODE_ENV === 'development';
+
+export const metadata = siteMetadata('Portfolios');
 
 export default function PortfoliosPage() {
   // Home > leaniech-v1 > portfolios = clodinary folder name

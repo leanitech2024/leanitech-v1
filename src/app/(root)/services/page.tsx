@@ -1,8 +1,11 @@
 import SplashCursor from '@/components/backgrounds/animations/splash-cursor';
 import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
+import { siteMetadata } from '@/constants/seo';
 import ServicesTab from '@/features/services/components/services-tab';
 
 const isDev = process.env.NODE_ENV === 'development';
+
+export const metadata = siteMetadata('Our Expertise');
 
 export default function ServicePage() {
   return (

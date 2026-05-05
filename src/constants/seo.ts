@@ -95,5 +95,19 @@ export function siteMetadata(title?: string): Metadata {
       follow: true,
     },
     manifest: '/favicons/site.webmanifest',
+    verification: {
+      google: 'google-site-verification=abc123',
+      other: {
+        'facebook-domain-verification': 'ibrfwf42dgqohuh7e7sdr77sgiu75n',
+      },
+    },
+    category: 'technology',
+    classification: 'Software Development Company',
+    referrer: 'origin',
+    generator: 'Next.js',
+    applicationName: 'LeaniTech Website',
+    alternates: {
+      canonical: seo.baseURL,
+    },
   };
 }

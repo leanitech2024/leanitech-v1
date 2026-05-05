@@ -1,9 +1,12 @@
 import SplashCursor from '@/components/backgrounds/animations/splash-cursor';
 import WorldMap from '@/components/extends/global-nextwork-map';
+import { siteMetadata } from '@/constants/seo';
 import { ContactBlock } from '@/features/contact/components/contact';
 // import ContactUs1 from '@/features/contact/components/contact-us';
 
 const isDev = process.env.NODE_ENV === 'development';
+
+export const metadata = siteMetadata('Contact Us');
 
 export default function ContactUs() {
   return (
