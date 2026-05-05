@@ -28,7 +28,7 @@ export default function BlogsPage() {
   return (
     <main
       className={
-        'relative pt-16 xs:pt-20 sm:pt-16 md:pt-12 lg:pt-8 space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16'
+        'relative pt-8 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-24 space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16'
       }>
       {!isDev && (
         <div className='absolute inset-0 pointer-events-none -z-1'>
@@ -73,77 +73,79 @@ export default function BlogsPage() {
       </section>
 
       <section className={'max-w-(--breakpoint-xl) mx-auto px-4 2xl:px-0'}>
-        <div
-          className={
-            'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6'
-          }>
-          {posts.map((post) => (
-            <Card key={post._meta.filePath} className={'mb-4'}>
-              <CardContent>
-                <div className={'aspect-video w-full h-full'}>
-                  <Image
-                    src={post.cover}
-                    alt={post.coverAlt}
-                    width={600}
-                    height={400}
-                    className={'w-full h-full rounded-md object-cover'}
-                  />
-                </div>
-              </CardContent>
-              <CardHeader>
-                <CardTitle>{post.title}</CardTitle>
-                <CardDescription>{post.description}</CardDescription>
-              </CardHeader>
-
-              <CardContent className={'space-y-4'}>
-                <div className={'space-x-2'}>
-                  {post.categories.map((category) => (
-                    <Badge key={crypto.randomUUID()}>{category}</Badge>
-                  ))}
-                </div>
-                <div className={'flex items-center gap-2'}>
-                  <div className={''}>
+        <AfterBeforeWrapper>
+          <div
+            className={
+              'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6'
+            }>
+            {posts.map((post) => (
+              <Card key={post._meta.filePath} className={'mb-4'}>
+                <CardContent>
+                  <div className={'aspect-video w-full h-full'}>
                     <Image
-                      src={post.avatar}
-                      alt={`${post.author}'s avatar`}
-                      width={40}
-                      height={40}
-                      className={'rounded-full'}
+                      src={post.cover}
+                      alt={post.coverAlt}
+                      width={600}
+                      height={400}
+                      className={'w-full h-full rounded-md object-cover'}
                     />
                   </div>
-                  <div>
-                    <p className={'font-semibold'}>By {post.author}</p>
-                    <p className={'text-sm inline-flex items-center gap-1'}>
-                      <Icon
-                        icon='mdi:clock-time-four-outline'
-                        className={'size-4'}
-                      />
-                      {post.readTime} min read
-                    </p>
+                </CardContent>
+                <CardHeader>
+                  <CardTitle>{post.title}</CardTitle>
+                  <CardDescription>{post.description}</CardDescription>
+                </CardHeader>
+
+                <CardContent className={'space-y-4'}>
+                  <div className={'space-x-2'}>
+                    {post.categories.map((category) => (
+                      <Badge key={crypto.randomUUID()}>{category}</Badge>
+                    ))}
                   </div>
-                </div>
-              </CardContent>
-              <CardFooter className={'justify-between'}>
-                <p className={'text-xs flex flex-col'}>
-                  <span>Last modified on</span>
-                  <span>
-                    {new Date(post.lastModified).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric',
-                    })}
-                  </span>
-                </p>
-                <Link
-                  href={`/blogs/${post.slug}`}
-                  className={'inline-flex items-center gap-1 text-primary'}>
-                  Know more
-                  <Icon icon='mdi:arrow-right' className={'size-4'} />
-                </Link>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+                  <div className={'flex items-center gap-2'}>
+                    <div className={''}>
+                      <Image
+                        src={post.avatar}
+                        alt={`${post.author}'s avatar`}
+                        width={40}
+                        height={40}
+                        className={'rounded-full'}
+                      />
+                    </div>
+                    <div>
+                      <p className={'font-semibold'}>By {post.author}</p>
+                      <p className={'text-sm inline-flex items-center gap-1'}>
+                        <Icon
+                          icon='mdi:clock-time-four-outline'
+                          className={'size-4'}
+                        />
+                        {post.readTime} min read
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+                <CardFooter className={'justify-between'}>
+                  <p className={'text-xs flex flex-col'}>
+                    <span>Last modified on</span>
+                    <span>
+                      {new Date(post.lastModified).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                      })}
+                    </span>
+                  </p>
+                  <Link
+                    href={`/blogs/${post.slug}`}
+                    className={'inline-flex items-center gap-1 text-primary'}>
+                    Know more
+                    <Icon icon='mdi:arrow-right' className={'size-4'} />
+                  </Link>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </AfterBeforeWrapper>
       </section>
     </main>
   );

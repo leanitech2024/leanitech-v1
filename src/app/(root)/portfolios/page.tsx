@@ -15,7 +15,7 @@ export default function PortfoliosPage() {
   // console.log('Cloudinary Resources:', JSON.stringify(result, null, 2));
 
   return (
-    <main className='pt-16 xs:pt-20 sm:pt-16 md:pt-12 lg:pt-8 space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16 relative'>
+    <main className='py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16 relative'>
       {!isDev && (
         <div className='absolute inset-0 pointer-events-none -z-1'>
           <SplashCursor

@@ -6,7 +6,7 @@ const isDev = process.env.NODE_ENV === 'development';
 
 export default function ServicePage() {
   return (
-    <main className='pt-16 xs:pt-20 sm:pt-16 md:pt-12 lg:pt-8 space-y-8'>
+    <main className='py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 space-y-8'>
       {!isDev && (
         <div className='absolute inset-0 pointer-events-none -z-1'>
           <SplashCursor

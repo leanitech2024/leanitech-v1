@@ -149,7 +149,10 @@ export default function AboutUsSection() {
     <section
       id='about-section'
       ref={sectionRef}
-      className={cn('relative py-24', sectionClasses)}>
+      className={cn(
+        'relative py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24',
+        sectionClasses,
+      )}>
       {/* Decorative background elements */}
       <AboutDecorativeElements />
 
