@@ -98,7 +98,7 @@ export function siteMetadata(title?: string): Metadata {
     verification: {
       google: 'd5uu6aKvCX3UGcR0xiBj037FHCtrm4RqGb9LRPdXzoY',
       other: {
-        'facebook-domain-verification': 'ibrfwf42dgqohuh7e7sdr77sgiu75n',
+        'facebook-domain-verification': 'ldkxcdrhcc373spgfrmo6jdu8t351s',
       },
     },
     category: 'technology',
