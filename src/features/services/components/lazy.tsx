@@ -26,16 +26,18 @@ function LazyMasonaryGrid() {
       gap={10}
       frameWidth={200}
       style={{ width: `${String(100)}%` }}>
+      {/* eslint-disable-next-line */}
       {items.map(({ width, height, backgroundColor }, i) => (
         <Frame
           key={i}
           className='frame'
           width={width}
           height={height}
-          style={{ backgroundColor }}>
+          // style={{ backgroundColor }}
+        >
           <Skeleton
-            className={'animate-pulse'}
-            style={{ width: '100%', height: '100%' }}
+            className={'animate-pulse w-full h-full rounded-md'}
+            // style={{ width: '100%', height: '100%' }}
           />
         </Frame>
       ))}
