@@ -38,7 +38,7 @@ export function siteMetadata(title?: string): Metadata {
       description: seo.description,
       images: [
         {
-          url: '/favicons/og-image.jpg',
+          url: '/og-image.png',
           width: 1200,
           height: 630,
           alt: 'LeaniTech Open Graph Image',
