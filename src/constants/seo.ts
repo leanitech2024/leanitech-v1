@@ -93,15 +93,23 @@ export function siteMetadata(title?: string): Metadata {
     robots: {
       index: true,
       follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        noarchive: false,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
-    manifest: '/favicons/site.webmanifest',
+    manifest: `${seo.baseURL}/manifest.webmanifest`,
     verification: {
       google: 'd5uu6aKvCX3UGcR0xiBj037FHCtrm4RqGb9LRPdXzoY',
       other: {
         'facebook-domain-verification': 'ldkxcdrhcc373spgfrmo6jdu8t351s',
       },
     },
-    category: 'technology',
+    category: 'Technology',
     classification: 'Software Development Company',
     referrer: 'origin',
     generator: 'Next.js',

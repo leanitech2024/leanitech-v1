@@ -3,6 +3,19 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
+
+  experimental: {
+    typedEnv: true,
+  },
+  typedRoutes: true,
+  generateEtags: true,
+  logging: {
+    fetches: {
+      fullUrl: true,
+      hmrRefreshes: true,
+    },
+    incomingRequests: true,
+  },
   reactCompiler: true,
 
   images: {
