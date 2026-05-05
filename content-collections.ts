@@ -8,6 +8,7 @@ import {
   type Schema,
 } from '@content-collections/core';
 import { compileMDX } from '@content-collections/mdx';
+import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { z } from 'zod';
 
@@ -72,6 +73,7 @@ const posts = defineCollection({
     // Transform the content to a MDX component
     const mdx = await compileMDX(context, document, {
       remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypeSlug],
     });
 
     // Get last modification date from Git
