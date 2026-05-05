@@ -17,6 +17,7 @@ import EffectCarousel from '@/components/swiper-effects/effect-carousel';
 import { Badge } from '@/components/ui/badge';
 import { buttonVariants } from '@/components/ui/button';
 import { portfolios } from '@/constants/portfolios';
+import { Route } from 'next';
 
 export default function SwiperCarousel() {
   return (
@@ -93,7 +94,7 @@ export default function SwiperCarousel() {
               </div>
               <div>
                 <Link
-                  href={portfolio.link}
+                  href={portfolio.link as Route}
                   target='_blank'
                   className={buttonVariants({ variant: 'link' })}>
                   View

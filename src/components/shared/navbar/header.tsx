@@ -14,6 +14,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
 import { Icon } from '@iconify/react';
 import { motion } from 'motion/react';
+import { Route } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -139,7 +140,7 @@ const Header = ({ className }: HeaderProps) => {
                       //   ? 'bg-background text-foreground'
                       //   : '',
                     )}>
-                    <Link href={navItem.href}>{navItem.title}</Link>
+                    <Link href={navItem.href as Route}>{navItem.title}</Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}

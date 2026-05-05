@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { ArrowUpRightIcon } from 'lucide-react';
+import { Route } from 'next';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 
@@ -27,7 +28,7 @@ export default function CollaborateButton({
     return (
       <Button asChild>
         <Link
-          href={href}
+          href={href as Route}
           className={cn(
             'relative text-sm font-medium rounded-full! h-10 p-1 ps-4 pe-12 group transition-all duration-500 hover:ps-12 hover:pe-4 w-fit overflow-hidden',
             className,

@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { Route } from 'next';
 
 export default function PortfolioCard(props: PortfolioItem) {
   const { id, title, imgSrc, tags, link } = props;
@@ -10,7 +11,7 @@ export default function PortfolioCard(props: PortfolioItem) {
     <Card className='p-0 overflow-hidden bg-transparent border-0 shadow-none ring-0'>
       <CardContent className='flex flex-col gap-6 p-0'>
         <div className='relative overflow-hidden aspect-auto rounded-2xl'>
-          <Link href={link} target='_blank'>
+          <Link href={link as Route} target='_blank'>
             <Image
               src={imgSrc}
               alt={`${id} Portfolio Cover`}
@@ -22,7 +23,7 @@ export default function PortfolioCard(props: PortfolioItem) {
         </div>
         <div className='flex flex-col gap-3'>
           <Link
-            href={link}
+            href={link as Route}
             target='_blank'
             className='text-2xl font-medium tracking-tighter text-foreground w-fit'>
             {title}

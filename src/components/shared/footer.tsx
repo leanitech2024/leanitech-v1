@@ -4,6 +4,7 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { footerLinks, socialLinks } from '@/constants';
 import { cn } from '@/lib/utils';
+import { Route } from 'next';
 import { buttonGroupVariants } from '../ui/button-group';
 import AfterBeforeWrapper from './after-before-wrapper';
 import { LeftSidePattern, RightSidePattern } from './side-patterns';
@@ -43,7 +44,7 @@ export default function Footer() {
                   {footerLinks.slice(0, 4).map((link) => (
                     <Link
                       key={link.label}
-                      href={link.href}
+                      href={link.href as Route}
                       className='block text-base text-muted-foreground hover:text-primary'>
                       {link.label}
                     </Link>
@@ -55,7 +56,7 @@ export default function Footer() {
                   {footerLinks.slice(4, 8).map((link) => (
                     <Link
                       key={link.label}
-                      href={link.href}
+                      href={link.href as Route}
                       title={link.label}
                       className='block text-base text-muted-foreground hover:text-primary'>
                       {link.label}
@@ -85,7 +86,7 @@ export default function Footer() {
                         className: 'text-primary',
                       })}
                       target='_blank'
-                      href={link.href}
+                      href={link.href as Route}
                       title={link.title}>
                       {link.icon}
                     </Link>

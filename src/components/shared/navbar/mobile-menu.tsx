@@ -20,6 +20,7 @@ import { navigations, socialLinks } from '@/constants';
 import { cn } from '@/lib/utils';
 // import { Icon } from '@iconify/react';
 import { MenuIcon, XCircle } from 'lucide-react';
+import { Route } from 'next';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
@@ -135,7 +136,7 @@ export default function MobileMenu() {
                   <Link
                     key={icon.id}
                     onClick={() => setIsOpen(false)}
-                    href={icon.href}
+                    href={icon.href as Route}
                     target='_blank'
                     className='flex items-center justify-center rounded-full outline outline-border hover:bg-muted transition p-3 shadow-xs'>
                     {icon.icon}
