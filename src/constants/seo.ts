@@ -5,7 +5,7 @@ export const seo = {
   baseURL: process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000',
   title: 'LeaniTech - Innovative Software Solutions for Your Business',
   description:
-    'LeaniTech is a leading software development company that delivers innovative and efficient solutions to help businesses thrive in the digital age. Our team of experts specializes in custom software development, web and mobile applications, and cutting-edge technologies to drive your business forward.',
+    'LeaniTech delivers custom software, web and mobile applications, and cloud-native solutions that accelerate growth. Trusted partner for startups and enterprises to build scalable, secure digital products.',
   keywords: [
     'software development company',
     'web development company',
