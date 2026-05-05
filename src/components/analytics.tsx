@@ -20,7 +20,7 @@ export function setupMetaPixel(pixelId = '') {
 const isDev = process.env.NODE_ENV === 'development';
 
 export default function Analytics() {
-  const pixelId = '';
+  const pixelId = '1713584576065166';
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
