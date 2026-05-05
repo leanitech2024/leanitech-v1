@@ -7,16 +7,14 @@ export const seo = {
   description:
     'LeaniTech is a leading software development company that delivers innovative and efficient solutions to help businesses thrive in the digital age. Our team of experts specializes in custom software development, web and mobile applications, and cutting-edge technologies to drive your business forward.',
   keywords: [
-    'LeaniTech',
-    'software development',
-    'custom software',
-    'web applications',
-    'mobile applications',
-    'innovative solutions',
-    'digital transformation',
-    'technology consulting',
-    'software engineering',
-    'IT services',
+    'software development company',
+    'web development company',
+    'digital solutions company',
+    'startup technology partner',
+    'custom software development',
+    'software development company in India',
+    'web development company in Bangalore',
+    'IT services company for startups in India',
   ],
 };
 
