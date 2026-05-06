@@ -70,6 +70,11 @@ const posts = defineCollection({
     }
     // return document;
 
+    const docs = await context.collection.documents();
+    const idx = docs.findIndex(
+      (d) => document._meta.filePath === d._meta.filePath,
+    );
+
     // Transform the content to a MDX component
     const mdx = await compileMDX(context, document, {
       remarkPlugins: [remarkGfm],
@@ -99,6 +104,8 @@ const posts = defineCollection({
       lastModified,
       slug: document.title.toLowerCase().replace(/ /g, '-'),
       readTime,
+      prev: idx > 0 ? docs[idx - 1] : null,
+      next: idx < docs.length - 1 ? docs[idx + 1] : null,
     };
   },
   onSuccess: (post) => {

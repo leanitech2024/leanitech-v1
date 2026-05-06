@@ -11,7 +11,7 @@ export default function PortfolioCard(props: PortfolioItem) {
     <Card className='p-0 overflow-hidden bg-transparent border-0 shadow-none ring-0'>
       <CardContent className='flex flex-col gap-6 p-0'>
         <div className='relative overflow-hidden aspect-auto rounded-2xl'>
-          <Link href={link as Route} target='_blank'>
+          <Link href={link as Route} target='_blank' rel='noopener noreferrer'>
             <Image
               src={imgSrc}
               alt={`${id} Portfolio Cover`}
@@ -25,6 +25,7 @@ export default function PortfolioCard(props: PortfolioItem) {
           <Link
             href={link as Route}
             target='_blank'
+            rel='noopener noreferrer'
             className='text-2xl font-medium tracking-tighter text-foreground w-fit'>
             {title}
           </Link>

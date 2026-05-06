@@ -28,9 +28,13 @@ export default function TechStacks() {
             </p>
             <div className='flex items-center gap-3'>
               <Button variant='default' asChild>
-                <Link href='#'> Get Started</Link>
+                <Link href='#contact'> Get Started</Link>
               </Button>
-              <Button variant='outline'>Learn More</Button>
+              <Button variant='outline' asChild>
+                <Link href={'/about'} prefetch={true}>
+                  Learn More
+                </Link>
+              </Button>
             </div>
           </div>
           <div

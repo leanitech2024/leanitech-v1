@@ -241,12 +241,12 @@ export const socialLinks = [
 ];
 
 export const footerLinks = [
-  { label: 'Home', href: '#' },
+  { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
-  { label: 'Testimonials', href: '#' },
+  { label: 'Testimonials', href: '/#testimonials' },
   { label: 'Blogs', href: '/blogs' },
   { label: 'Resources', href: '#' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms of Service', href: '/terms-and-conditions' },
-  { label: 'Contact Us', href: '#' },
+  { label: 'Contact Us', href: '/contact' },
 ];

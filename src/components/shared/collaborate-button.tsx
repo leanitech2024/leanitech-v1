@@ -10,12 +10,14 @@ type CollaborateButtonProps =
       className?: string;
       asLink: true;
       href: string;
+      prefetch?: boolean;
     }
   | {
       children: React.ReactNode;
       className?: string;
       asLink?: false;
       href?: never;
+      prefetch?: never;
     };
 
 export default function CollaborateButton({
@@ -23,12 +25,14 @@ export default function CollaborateButton({
   className,
   asLink,
   href,
+  prefetch,
 }: CollaborateButtonProps) {
   if (asLink) {
     return (
       <Button asChild>
         <Link
           href={href as Route}
+          prefetch={prefetch}
           className={cn(
             'relative text-sm font-medium rounded-full! h-10 p-1 ps-4 pe-12 group transition-all duration-500 hover:ps-12 hover:pe-4 w-fit overflow-hidden',
             className,

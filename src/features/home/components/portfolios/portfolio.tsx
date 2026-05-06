@@ -46,7 +46,7 @@ const Portfolios = () => {
         {/* </AfterBeforeWrapper> */}
 
         <AfterBeforeWrapper className='py-1'>
-          <CollaborateButton asLink href='/portfolios'>
+          <CollaborateButton asLink href='/portfolios' prefetch={true}>
             View More
           </CollaborateButton>
         </AfterBeforeWrapper>

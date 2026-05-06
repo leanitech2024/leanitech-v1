@@ -3,8 +3,9 @@ import { IBM_Plex_Mono, Lato, Nunito } from 'next/font/google';
 
 import Analytics from '@/components/analytics';
 import { WhatsAppWidget } from '@/components/whatsapp-widget/whatsapp-widget';
-import { siteMetadata } from '@/constants/seo';
+import { seo, siteMetadata } from '@/constants/seo';
 import Providers from '@/providers';
+import { Organization, WithContext } from 'schema-dts';
 import './globals.css';
 
 const lato = Lato({
@@ -30,6 +31,29 @@ export default function AppLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd: WithContext<Organization> = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Leanitech',
+    url: seo.baseURL,
+    logo: `${seo.baseURL}/logo.svg`,
+    foundingDate: '2024-08-26',
+    sameAs: [
+      'https://www.facebook.com/leanitechsolutions',
+      'https://www.linkedin.com/company/leanitech',
+      'https://www.instagram.com/leanitech',
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '11th cross road, West of Chord Road, 2nd Stage, Nagapura',
+      addressLocality: 'Bengaluru',
+      addressRegion: 'Karnataka',
+      addressCountry: 'IN',
+      postOfficeBoxNumber: '560086',
+    },
+    keywords: seo.keywords.join(', '),
+  };
+
   return (
     <html
       lang='en'
@@ -39,16 +63,22 @@ export default function AppLayout({
       <body className={`font-body antialiased overflow-x-hidden relative`}>
         <Providers>{children}</Providers>
         <WhatsAppWidget
-          number='12345'
+          number='+918870238256'
           message='Hello! I have a question about your services.'
           title='Chat with us'
           subtitle='Typically replies in minutes'
-          companyName='Support Team'
+          companyName='Leanitech'
           avatar='/favicons/favicon.svg'
           placeholder='Type your message...'
         />
         {/* <AIBot type='gemini' /> */}
         <Analytics />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+          }}
+        />
       </body>
     </html>
   );

@@ -4,12 +4,14 @@ import SplashCursor from '@/components/backgrounds/animations/splash-cursor';
 import { AnimatedTooltip } from '@/components/extends/animated-tooltip';
 import { TypingAnimation } from '@/components/extends/typing-animation';
 import AfterBeforeWrapper from '@/components/shared/after-before-wrapper';
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import { people } from '@/constants';
+import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Instrument_Serif } from 'next/font/google';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
@@ -115,14 +117,24 @@ function HeroSection() {
                 transition={{ duration: 1, delay: 0.2, ease: 'easeInOut' }}
                 className='flex flex-col items-center justify-center gap-12'>
                 <AfterBeforeWrapper>
-                  <Button className='relative h-12 p-1 overflow-hidden text-sm font-medium transition-all duration-500 rounded-full ps-6 pe-14 group hover:ps-14 hover:pe-6 w-fit'>
+                  <Link
+                    href={'#contact'}
+                    className={cn(
+                      // 'relative h-12 p-1 overflow-hidden text-sm font-medium transition-all duration-500 rounded-full ps-6 pe-14 group hover:ps-14 hover:pe-6 w-fit',
+                      buttonVariants({
+                        variant: 'default',
+                        size: 'lg',
+                        className:
+                          'relative h-12 p-1 overflow-hidden text-sm font-medium transition-all duration-500 rounded-full ps-6 pe-14 group hover:ps-14 hover:pe-6 w-fit',
+                      }),
+                    )}>
                     <span className='relative z-10 transition-all duration-500'>
                       Get Started
                     </span>
                     <span className='absolute right-1 w-10 h-10 bg-background text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)] group-hover:rotate-45'>
                       <ArrowUpRight size={16} />
                     </span>
-                  </Button>
+                  </Link>
                 </AfterBeforeWrapper>
                 <div className='flex flex-wrap items-center justify-center gap-3 sm:gap-7'>
                   {/* <ul className='flex flex-row items-center avatar'>

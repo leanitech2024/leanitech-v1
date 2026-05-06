@@ -8,6 +8,8 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { Route } from 'next';
+import Link from 'next/link';
 
 const contactInfo = [
   {
@@ -19,14 +21,21 @@ const contactInfo = [
   {
     icon: Phone,
     label: 'Phone',
-    value: '+91 (555) 123-4567',
-    href: 'tel:+915551234567',
+    value: '+91 8870238256',
+    href: 'tel:+918870238256',
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '+91 6382240928',
+    href: 'tel:+916382240928',
   },
   {
     icon: MapPin,
     label: 'Location',
-    value: 'San Francisco, CA',
-    href: '#',
+    value:
+      '11th cross road, West of Chord Road, 2nd Stage, Nagapura, Bengaluru, Karnataka, IN - 560086',
+    href: 'https://maps.app.goo.gl/ozhPfHmNXgcPsY2y7',
   },
 ];
 
@@ -67,11 +76,32 @@ export function ContactBlock() {
               <div className='grid gap-6 sm:grid-cols-2'>
                 <div className='space-y-2'>
                   <Label htmlFor='name' className='text-sm font-medium'>
-                    Name
+                    First Name
                   </Label>
                   <Input
-                    id='name'
-                    placeholder='Your name'
+                    id='firstName'
+                    placeholder='ex. John'
+                    className='transition-colors bg-background/50 focus:bg-background'
+                  />
+                </div>
+                <div className='space-y-2'>
+                  <Label htmlFor='name' className='text-sm font-medium'>
+                    Last Name
+                  </Label>
+                  <Input
+                    id='lastName'
+                    placeholder='ex. Doe'
+                    className='transition-colors bg-background/50 focus:bg-background'
+                  />
+                </div>
+                <div className='space-y-2'>
+                  <Label htmlFor='phone' className='text-sm font-medium'>
+                    Phone Number
+                  </Label>
+                  <Input
+                    id='phone'
+                    type='tel'
+                    placeholder='+1 (555) 123-4567'
                     className='transition-colors bg-background/50 focus:bg-background'
                   />
                 </div>
@@ -131,8 +161,10 @@ export function ContactBlock() {
                 transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}>
                 <Card className='relative p-4 overflow-hidden transition-all duration-300 border group rounded-xl border-border/40 bg-background/60 hover:border-foreground/20 hover:shadow-md hover:-translate-y-1 backdrop-blur-sm sm:p-6'>
                   <div className='absolute inset-0 transition-opacity duration-300 opacity-0 bg-linear-to-br from-primary/5 via-transparent to-transparent group-hover:opacity-100' />
-                  <a
-                    href={info.href}
+                  <Link
+                    href={info.href as Route}
+                    target={'_blank'}
+                    rel='noopener noreferrer'
                     className='relative z-10 flex items-center gap-4'>
                     <div className='flex items-center justify-center w-12 h-12 transition-colors rounded-lg shrink-0 bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground'>
                       <info.icon className='w-5 h-5' />
@@ -145,7 +177,7 @@ export function ContactBlock() {
                         {info.value}
                       </p>
                     </div>
-                  </a>
+                  </Link>
                 </Card>
               </motion.div>
             ))}

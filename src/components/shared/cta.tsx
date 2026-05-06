@@ -1,7 +1,9 @@
 'use client';
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 import { useRef } from 'react';
 import { DottedBackground } from './bg-backgrounds';
 
@@ -38,14 +40,25 @@ const CTA = ({ className }: CTAProps) => {
                   in every interaction.
                 </p>
               </div>
-              <Button className='relative h-12 p-1 overflow-hidden text-sm font-medium transition-all duration-500 rounded-full ps-6 pe-14 group hover:ps-14 hover:pe-6 w-fit'>
+              <Link
+                href={'/contact'}
+                prefetch={true}
+                className={cn(
+                  // 'relative h-12 p-1 overflow-hidden text-sm font-medium transition-all duration-500 rounded-full ps-6 pe-14 group hover:ps-14 hover:pe-6 w-fit',
+                  buttonVariants({
+                    variant: 'default',
+                    className:
+                      'relative h-12 p-1 overflow-hidden text-sm font-medium transition-all duration-500 rounded-full ps-6 pe-14 group hover:ps-14 hover:pe-6 w-fit',
+                    size: 'lg',
+                  }),
+                )}>
                 <span className='relative z-10 transition-all duration-500'>
                   Let&apos;s craft together
                 </span>
                 <div className='absolute right-1 w-10 h-10 bg-background text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)] group-hover:rotate-45'>
                   <ArrowUpRight size={16} />
                 </div>
-              </Button>
+              </Link>
             </motion.div>
           </div>
         </DottedBackground>

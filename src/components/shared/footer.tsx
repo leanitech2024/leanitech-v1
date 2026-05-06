@@ -28,6 +28,7 @@ export default function Footer() {
                 <Link
                   href={'/contact'}
                   scroll
+                  prefetch={true}
                   className={cn(
                     buttonVariants({ variant: 'default' }),
                     'py-3.5 px-6 rounded-full h-auto',
@@ -45,6 +46,7 @@ export default function Footer() {
                     <Link
                       key={link.label}
                       href={link.href as Route}
+                      prefetch={true}
                       className='block text-base text-muted-foreground hover:text-primary'>
                       {link.label}
                     </Link>
@@ -69,8 +71,8 @@ export default function Footer() {
               <div className='flex items-center flex-wrap justify-between gap-4'>
                 {/* <Separator /> */}
                 <p className='text-sm duration-1000 ease-in-out delay-300 text-muted-foreground animate-in fade-in slide-in-from-bottom-10 fill-mode-both'>
-                  &copy;{new Date().getFullYear()} Leanitech. All Rights
-                  Reserved
+                  Copyright &copy; {new Date().getFullYear()} Leanitech. All
+                  Rights Reserved
                 </p>
 
                 <div
@@ -87,6 +89,7 @@ export default function Footer() {
                       })}
                       target='_blank'
                       href={link.href as Route}
+                      rel='noopener noreferrer'
                       title={link.title}>
                       {link.icon}
                     </Link>

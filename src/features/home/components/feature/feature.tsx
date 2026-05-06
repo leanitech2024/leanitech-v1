@@ -62,7 +62,7 @@ const Feature = ({ featureData }: { featureData: Features }) => {
               }),
               'rounded-full px-5 py-2.5 shadow-xs h-auto',
             )}
-            href='#'>
+            href='#contact'>
             Transform Your Business Today
           </Link>
         </motion.div>

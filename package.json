@@ -60,6 +60,7 @@
     "recharts": "2.15.4",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
+    "schema-dts": "^2.0.0",
     "sonner": "^2.0.7",
     "swiper": "^12.1.3",
     "tailwind-merge": "^3.4.1",
