@@ -62,7 +62,39 @@ const aj = arcjet
       mode: 'LIVE', // will block requests. Use "DRY_RUN" to log only
       // configured with a list of bots to allow from
       // https://arcjet.com/bot-list
-      allow: [], // blocks all automated clients
+      allow: [
+        'GOOGLE_ADS_CONVERSIONS',
+        'GOOGLE_ADSBOT',
+        'GOOGLE_ADSBOT_MOBILE',
+        'GOOGLE_ADSENSE',
+        'GOOGLE_ADSENSE_GOOGLEBOT',
+        'GOOGLE_ADWORDS',
+        'GOOGLE_APPENGINE',
+        'GOOGLE_CERTIFICATES_BRIDGE',
+        'GOOGLE_CRAWLER',
+        'GOOGLE_CRAWLER_CLOUDVERTEX',
+        'GOOGLE_CRAWLER_IMAGE',
+        'GOOGLE_CRAWLER_MOBILE',
+        'GOOGLE_CRAWLER_NEWS',
+        'GOOGLE_CRAWLER_OTHER',
+        'GOOGLE_CRAWLER_SAFETY',
+        'GOOGLE_CRAWLER_STORE',
+        'GOOGLE_CRAWLER_VIDEO',
+        'GOOGLE_FAVICON',
+        'GOOGLE_FEEDFETCHER',
+        'GOOGLE_INSPECTION_TOOL',
+        'GOOGLE_LIGHTHOUSE',
+        'GOOGLE_PHYSICAL_WEB',
+        'GOOGLE_PREVIEW',
+        'GOOGLE_PUSH_NOTIFICATIONS',
+        'GOOGLE_READ_ALOUD',
+        'GOOGLE_SITE_VERIFICATION',
+        'GOOGLE_STRUCTURED_DATA_TESTING_TOOL',
+        'GOOGLE_WEB_SNIPPET',
+        'GOOGLE_XRAWLER',
+        'VERCEL_CRAWLER',
+        'VERCEL_MONITOR_PREVIEW',
+      ], // blocks all automated clients
     }),
   )
   .withRule(
