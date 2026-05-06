@@ -7,7 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
       disallow: ['/api/*', '/admin/*'],
-      crawlDelay: 10, // 10 seconds delay between requests
     },
     sitemap: `${seo.baseURL}/sitemap.xml`,
   };
