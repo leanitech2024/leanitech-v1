@@ -1,6 +1,6 @@
 import { findIp } from '@arcjet/ip';
 import { Logger } from '@arcjet/logger';
-import arcjet, { createMiddleware } from '@arcjet/next';
+import arcjet, { createMiddleware, detectBot } from '@arcjet/next';
 import type { NextRequest, ProxyConfig } from 'next/server';
 import { NextResponse } from 'next/server';
 import { filter } from './lib/arcjet';
@@ -31,6 +31,12 @@ const aj = arcjet({
       // Block requests with `LIVE`, use `DRY_RUN` to log only.
       mode: isDev ? 'DRY_RUN' : 'LIVE',
       // mode: 'LIVE',
+    }),
+    detectBot({
+      mode: 'LIVE', // will block requests. Use "DRY_RUN" to log only
+      // configured with a list of bots to allow from
+      // https://arcjet.com/bot-list
+      allow: ['CATEGORY:GOOGLE', 'CATEGORY:VERCEL', 'W3C_VALIDATOR_FEED'], // blocks all automated clients
     }),
   ],
 });
